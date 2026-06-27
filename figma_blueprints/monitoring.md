@@ -1,0 +1,525 @@
+# Figma Design Blueprint: MONITORING Screen
+- **Figma Frame ID**: `3948:67`
+- **Page Context**: Page 1
+
+## Visual Element Tree Hierarchy
+
+- **monitoring** (FRAME) `[ID: 3948:67]`
+  - **div** (FRAME) `[ID: 3948:68]`
+    - **div** (FRAME) `[ID: 3948:69]`
+      - **Icon/Vector**: `div` `[ID: 3948:70]`
+      - **Text Element**: "Omaha" `[ID: 3948:73]`
+    - **div** (FRAME) `[ID: 3948:74]`
+      - **div** (FRAME) `[ID: 3948:75]`
+        - **div** (FRAME) `[ID: 3948:76]`
+          - **Text Element**: "O" `[ID: 3948:77]`
+        - **div** (FRAME) `[ID: 3948:78]`
+          - **Text Element**: "Omaha" `[ID: 3948:79]`
+          - **Text Element**: "prod workspace" `[ID: 3948:80]`
+        - **Icon/Vector**: `svg` `[ID: 3948:81]`
+    - **div** (FRAME) `[ID: 3948:83]`
+      - **div** (FRAME) `[ID: 3948:84]`
+        - **Text Element**: "Overview" `[ID: 3948:85]`
+      - **div** (FRAME) `[ID: 3948:86]`
+        - **Icon/Vector**: `svg` `[ID: 3948:87]`
+        - **Text Element**: "Monitoring" `[ID: 3948:91]`
+      - **div** (FRAME) `[ID: 3948:92]`
+        - **Icon/Vector**: `svg` `[ID: 3948:93]`
+        - **Text Element**: "Executions" `[ID: 3948:95]`
+        - **span** (FRAME) `[ID: 3948:96]`
+          - **Text Element**: "13" `[ID: 3948:97]`
+      - **div** (FRAME) `[ID: 3948:98]`
+        - **Icon/Vector**: `svg` `[ID: 3948:99]`
+        - **Text Element**: "Schedules" `[ID: 3948:104]`
+      - **div** (FRAME) `[ID: 3948:105]`
+        - **Text Element**: "Quality" `[ID: 3948:106]`
+      - **div** (FRAME) `[ID: 3948:107]`
+        - **Icon/Vector**: `svg` `[ID: 3948:108]`
+        - **Text Element**: "Test cases" `[ID: 3948:110]`
+      - **div** (FRAME) `[ID: 3948:111]`
+        - **Icon/Vector**: `svg` `[ID: 3948:112]`
+        - **Text Element**: "Suites" `[ID: 3948:114]`
+      - **div** (FRAME) `[ID: 3948:115]`
+        - **Icon/Vector**: `svg` `[ID: 3948:116]`
+        - **Text Element**: "Defects" `[ID: 3948:120]`
+        - **span** (FRAME) `[ID: 3948:121]`
+          - **Text Element**: "14" `[ID: 3948:122]`
+      - **div** (FRAME) `[ID: 3948:123]`
+        - **Text Element**: "Platform" `[ID: 3948:124]`
+      - **div** (FRAME) `[ID: 3948:125]`
+        - **Icon/Vector**: `svg` `[ID: 3948:126]`
+        - **Text Element**: "Modules" `[ID: 3948:129]`
+      - **div** (FRAME) `[ID: 3948:130]`
+        - **Icon/Vector**: `svg` `[ID: 3948:131]`
+        - **Text Element**: "Environments" `[ID: 3948:133]`
+      - **div** (FRAME) `[ID: 3948:134]`
+        - **Icon/Vector**: `svg` `[ID: 3948:135]`
+        - **Text Element**: "Integrations" `[ID: 3948:138]`
+  - **div** (FRAME) `[ID: 3948:139]`
+    - **div** (FRAME) `[ID: 3948:140]`
+      - **div** (FRAME) `[ID: 3948:141]`
+        - **Text Element**: "Dashboards" `[ID: 3948:142]`
+        - **Text Element**: "/" `[ID: 3948:143]`
+        - **Text Element**: "Monitoring" `[ID: 3948:144]`
+        - **span** (FRAME) `[ID: 3948:145]`
+          - **Text Element**: "● live" `[ID: 3948:146]`
+      - **div** (FRAME) `[ID: 3948:147]`
+        - **Icon/Vector**: `svg` `[ID: 3948:148]`
+        - **Text Element**: "Search tests, defects, runs..." `[ID: 3948:151]`
+        - **span** (FRAME) `[ID: 3948:152]`
+          - **Text Element**: "⌘K" `[ID: 3948:153]`
+      - **div** (FRAME) `[ID: 3948:163]`
+        - **Icon/Vector**: `svg` `[ID: 3948:164]`
+        - **Text Element**: "Filter" `[ID: 3948:166]`
+      - **div** (FRAME) `[ID: 3948:167]`
+        - **Text Element**: "+" `[ID: 3948:168]`
+        - **Text Element**: "New dashboard" `[ID: 3948:169]`
+      - **end-date** (FRAME) `[ID: 4018:2682]`
+        - **Icon/Vector**: `svg` `[ID: 4018:2683]`
+        - **Text Element**: "Start Date" `[ID: 4018:2688]`
+        - **Icon/Vector**: `svg` `[ID: 4018:2689]`
+      - **Text Element**: "→" `[ID: 4018:2691]`
+      - **end-date** (FRAME) `[ID: 4018:2692]`
+        - **Icon/Vector**: `svg` `[ID: 4018:2693]`
+        - **Icon/Vector**: `svg` `[ID: 4018:2698]`
+        - **Text Element**: "End Date" `[ID: 4018:2701]`
+    - **div** (FRAME) `[ID: 3948:170]`
+      - **div** (FRAME) `[ID: 3948:171]`
+        - **div** (FRAME) `[ID: 3948:172]`
+          - **Text Element**: "Monitoring" `[ID: 3948:173]`
+          - **Text Element**: "Live overview of test execution and project health across your stack." `[ID: 3948:174]`
+        - **div** (FRAME) `[ID: 3948:175]`
+          - **div** (FRAME) `[ID: 3948:176]`
+            - **Button** (FRAME) `[ID: 3948:177]`
+              - **Text Element**: "1d" `[ID: 3948:178]`
+            - **Button** (FRAME) `[ID: 3948:179]`
+              - **Text Element**: "7d" `[ID: 3948:180]`
+            - **Button** (FRAME) `[ID: 3948:181]`
+              - **Text Element**: "30d" `[ID: 3948:182]`
+            - **Button** (FRAME) `[ID: 3948:183]`
+              - **Text Element**: "90d" `[ID: 3948:184]`
+          - **Button** (FRAME) `[ID: 3948:185]`
+            - **Icon/Vector**: `svg` `[ID: 3948:186]`
+            - **Text Element**: "Refresh" `[ID: 3948:189]`
+          - **Button** (FRAME) `[ID: 3948:190]`
+            - **Icon/Vector**: `svg` `[ID: 3948:191]`
+            - **Text Element**: "Share" `[ID: 3948:195]`
+      - **div** (FRAME) `[ID: 3948:196]`
+        - **div** (FRAME) `[ID: 3948:197]`
+          - **div** (FRAME) `[ID: 3948:198]`
+            - **div** (FRAME) `[ID: 3948:199]`
+              - **span** (FRAME) `[ID: 3948:200]`
+                - **Text Element**: "Release R-42 · staging" `[ID: 3948:201]`
+              - **span** (FRAME) `[ID: 3948:202]`
+                - **Text Element**: "● healthy" `[ID: 3948:203]`
+            - **Text Element**: "2,847 test cases running across 7 modules" `[ID: 3948:204]`
+            - **Text Element**: "Pass rate is up 3.4% week-over-week. 2 regressions detected in Invoice — owners notified." `[ID: 3948:205]`
+            - **div** (FRAME) `[ID: 3948:206]`
+              - **Button** (FRAME) `[ID: 3948:207]`
+                - **Icon/Vector**: `svg` `[ID: 3948:208]`
+                - **Text Element**: "Run all" `[ID: 3948:210]`
+              - **Button** (FRAME) `[ID: 3948:211]`
+                - **Text Element**: "View release" `[ID: 3948:212]`
+              - **Text Element**: "EXECUTION VOLUME · 30D" `[ID: 3948:213]`
+          - **div** (FRAME) `[ID: 3948:214]`
+            - **div** (FRAME) `[ID: 3948:215]`
+              - **Text Element**: "Executions Today" `[ID: 3948:216]`
+              - **Text Element**: "592" `[ID: 3948:217]`
+              - **Text Element**: "▲ 12% vs yesterday" `[ID: 3948:218]`
+            - **div** (FRAME) `[ID: 3948:219]`
+              - **Text Element**: "Pass Rate" `[ID: 3948:220]`
+              - **Text Element**: "82.4%" `[ID: 3948:221]`
+              - **Text Element**: "▲ 2.4% wk-over-wk" `[ID: 3948:222]`
+            - **div** (FRAME) `[ID: 3948:223]`
+              - **Text Element**: "Avg Runtime" `[ID: 3948:224]`
+              - **Text Element**: "4m 12s" `[ID: 3948:225]`
+              - **Text Element**: "▼ 8% faster" `[ID: 3948:226]`
+          - **Icon/Vector**: `svg` `[ID: 3948:227]`
+      - **div** (FRAME) `[ID: 3948:230]`
+        - **div** (FRAME) `[ID: 3948:231]`
+          - **div** (FRAME) `[ID: 3948:232]`
+            - **Text Element**: "Total Test Cases" `[ID: 3948:233]`
+            - **Text Element**: "2,847" `[ID: 3948:234]`
+            - **Text Element**: "▲ 5.2% · 94 new" `[ID: 3948:235]`
+          - **Icon/Vector**: `Frame` `[ID: 3948:236]`
+        - **div** (FRAME) `[ID: 3948:240]`
+          - **div** (FRAME) `[ID: 3948:241]`
+            - **Text Element**: "Automation Coverage" `[ID: 3948:242]`
+            - **Text Element**: "68%" `[ID: 3948:243]`
+            - **Text Element**: "▲ 2.1% · 1,906/2,847" `[ID: 3948:244]`
+          - **Icon/Vector**: `Frame` `[ID: 3948:245]`
+        - **div** (FRAME) `[ID: 3948:249]`
+          - **div** (FRAME) `[ID: 3948:250]`
+            - **Text Element**: "Open Defects" `[ID: 3948:251]`
+            - **Text Element**: "14" `[ID: 3948:252]`
+            - **Text Element**: "▲ 3X · 2 critical" `[ID: 3948:253]`
+          - **Icon/Vector**: `Frame` `[ID: 3948:254]`
+        - **div** (FRAME) `[ID: 3948:258]`
+          - **div** (FRAME) `[ID: 3948:259]`
+            - **Text Element**: "Active Suites" `[ID: 3948:260]`
+            - **Text Element**: "21" `[ID: 3948:261]`
+            - **Text Element**: "▲ 8% · 3 scheduled" `[ID: 3948:262]`
+          - **Icon/Vector**: `Frame` `[ID: 3948:263]`
+      - **div** (FRAME) `[ID: 3948:267]`
+        - **div** (FRAME) `[ID: 3948:268]`
+          - **div** (FRAME) `[ID: 3948:269]`
+            - **div** (FRAME) `[ID: 3948:270]`
+              - **Text Element**: "Execution results" `[ID: 3948:271]`
+              - **Text Element**: "Outcome distribution · last 7 days" `[ID: 3948:272]`
+            - **Text Element**: "···" `[ID: 3948:273]`
+          - **div** (FRAME) `[ID: 3948:274]`
+            - **div** (FRAME) `[ID: 3948:275]`
+              - **div** (FRAME) `[ID: 3948:276]`
+                - **div** (FRAME) `[ID: 3948:277]`
+                  - **div** (FRAME) `[ID: 3948:278]`
+                  - **Text Element**: "Passed" `[ID: 3948:279]`
+                - **Text Element**: "2,108 82.9%" `[ID: 3948:280]`
+              - **div** (FRAME) `[ID: 3948:281]`
+                - **div** (FRAME) `[ID: 3948:282]`
+                  - **div** (FRAME) `[ID: 3948:283]`
+                  - **Text Element**: "Failed" `[ID: 3948:284]`
+                - **Text Element**: "312 12.3%" `[ID: 3948:285]`
+              - **div** (FRAME) `[ID: 3948:286]`
+                - **div** (FRAME) `[ID: 3948:287]`
+                  - **div** (FRAME) `[ID: 3948:288]`
+                  - **Text Element**: "No result" `[ID: 3948:289]`
+                - **Text Element**: "88 3.5%" `[ID: 3948:290]`
+              - **div** (FRAME) `[ID: 3948:291]`
+                - **div** (FRAME) `[ID: 3948:292]`
+                  - **div** (FRAME) `[ID: 3948:293]`
+                  - **Text Element**: "Execution error" `[ID: 3948:294]`
+                - **Text Element**: "34 1.3%" `[ID: 3948:295]`
+            - **donut-inner** (FRAME) `[ID: 3948:296]`
+              - **Text Element**: "82%" `[ID: 3948:297]`
+              - **Text Element**: "PASS RATE" `[ID: 3948:298]`
+            - *Ellipse 6* (ELLIPSE) `[ID: 3948:299]`
+            - *Ellipse 7* (ELLIPSE) `[ID: 3987:2497]`
+            - *Ellipse 8* (ELLIPSE) `[ID: 3987:2498]`
+            - *Ellipse 5* (ELLIPSE) `[ID: 3948:300]`
+        - **div** (FRAME) `[ID: 3948:301]`
+          - **div** (FRAME) `[ID: 3948:302]`
+            - **div** (FRAME) `[ID: 3948:303]`
+              - **Text Element**: "Execution results by day" `[ID: 3948:304]`
+              - **Text Element**: "Stacked outcomes across all suites" `[ID: 3948:305]`
+            - **div** (FRAME) `[ID: 3948:306]`
+              - **Button** (FRAME) `[ID: 3948:307]`
+                - **Text Element**: "By suite" `[ID: 3948:308]`
+              - **Text Element**: "···" `[ID: 3948:309]`
+          - **div** (FRAME) `[ID: 3948:310]`
+            - **div** (FRAME) `[ID: 3948:311]`
+              - **div** (FRAME) `[ID: 3948:312]`
+              - **Text Element**: "Passed" `[ID: 3948:313]`
+            - **div** (FRAME) `[ID: 3948:314]`
+              - **div** (FRAME) `[ID: 3948:315]`
+              - **Text Element**: "Failed" `[ID: 3948:316]`
+            - **div** (FRAME) `[ID: 3948:317]`
+              - **div** (FRAME) `[ID: 3948:318]`
+              - **Text Element**: "No result" `[ID: 3948:319]`
+            - **div** (FRAME) `[ID: 3948:320]`
+              - **div** (FRAME) `[ID: 3948:321]`
+              - **Text Element**: "Execution error" `[ID: 3948:322]`
+          - **svg** (FRAME) `[ID: 3948:323]`
+            - **Text Element**: "350" `[ID: 3948:324]`
+            - **Text Element**: "270" `[ID: 3948:325]`
+            - **Text Element**: "125" `[ID: 3948:326]`
+            - **Text Element**: "0" `[ID: 3948:327]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:328]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:329]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:330]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:331]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:332]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:333]`
+            - **Text Element**: "08/02" `[ID: 3948:334]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:335]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:336]`
+            - **Text Element**: "09/02" `[ID: 3948:337]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:338]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:339]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:340]`
+            - **Text Element**: "10/02" `[ID: 3948:341]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:342]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:343]`
+            - **Text Element**: "11/02" `[ID: 3948:344]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:345]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:346]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:347]`
+            - **Text Element**: "12/02" `[ID: 3948:348]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:349]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:350]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:351]`
+            - **Text Element**: "13/02" `[ID: 3948:352]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:353]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:354]`
+            - **Text Element**: "14/02" `[ID: 3948:355]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:356]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:357]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:358]`
+            - **Text Element**: "15/02" `[ID: 3948:359]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:360]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:361]`
+            - **Text Element**: "16/02" `[ID: 3948:362]`
+            - **Text Element**: "328" `[ID: 3948:363]`
+            - **Text Element**: "391" `[ID: 3948:364]`
+            - **Text Element**: "170" `[ID: 3948:365]`
+            - **Text Element**: "145" `[ID: 3948:366]`
+            - **Text Element**: "145" `[ID: 3987:2493]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:367]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:368]`
+            - **Text Element**: "17/02" `[ID: 3948:369]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:370]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:371]`
+            - **Text Element**: "18/02" `[ID: 3948:372]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:373]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:374]`
+            - **Text Element**: "19/02" `[ID: 3948:375]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:376]`
+            - **Icon/Vector**: `Vector` `[ID: 3948:377]`
+            - **Text Element**: "20/02" `[ID: 3948:378]`
+            - **Text Element**: "125" `[ID: 3987:2486]`
+            - **Text Element**: "125" `[ID: 3987:2492]`
+            - **Text Element**: "145" `[ID: 3987:2488]`
+            - **Text Element**: "175" `[ID: 3987:2489]`
+            - **Text Element**: "175" `[ID: 3987:2494]`
+            - **Text Element**: "220" `[ID: 3987:2496]`
+            - **Text Element**: "175" `[ID: 3987:2495]`
+            - **Text Element**: "195" `[ID: 3987:2490]`
+            - **Text Element**: "200" `[ID: 3987:2491]`
+      - **div** (FRAME) `[ID: 3948:379]`
+        - **div** (FRAME) `[ID: 3948:380]`
+          - **div** (FRAME) `[ID: 3948:381]`
+            - **div** (FRAME) `[ID: 3948:382]`
+              - **Text Element**: "Scope by module" `[ID: 3948:383]`
+              - **Text Element**: "Click a module to drill into detail" `[ID: 3948:384]`
+            - **div** (FRAME) `[ID: 3948:385]`
+              - **div** (FRAME) `[ID: 3948:386]`
+                - **Icon/Vector**: `svg` `[ID: 3948:387]`
+                - **Text Element**: "Sort: count" `[ID: 3948:394]`
+              - **Text Element**: "···" `[ID: 3948:395]`
+          - **div** (FRAME) `[ID: 3948:396]`
+            - **Text Element**: "Module" `[ID: 3948:397]`
+            - **div** (FRAME) `[ID: 3948:398]`
+              - **Text Element**: "■ PASSED" `[ID: 3948:399]`
+              - **Text Element**: "■ FAILED" `[ID: 3948:400]`
+            - **Text Element**: "TOTAL" `[ID: 3948:401]`
+          - **div** (FRAME) `[ID: 3948:402]`
+            - **div** (FRAME) `[ID: 3948:403]`
+              - **Text Element**: "ERP" `[ID: 3948:404]`
+              - **Text Element**: "200" `[ID: 3948:405]`
+              - **div** (FRAME) `[ID: 3948:406]`
+                - **div** (FRAME) `[ID: 3948:407]`
+                  - **div** (FRAME) `[ID: 3948:408]`
+                  - **div** (FRAME) `[ID: 3948:409]`
+            - **div** (FRAME) `[ID: 3948:410]`
+              - **div** (FRAME) `[ID: 3948:411]`
+                - **div** (FRAME) `[ID: 3948:412]`
+                - **div** (FRAME) `[ID: 3948:413]`
+            - **div** (FRAME) `[ID: 3948:414]`
+              - **div** (FRAME) `[ID: 3948:415]`
+                - **div** (FRAME) `[ID: 3948:416]`
+                - **div** (FRAME) `[ID: 3948:417]`
+            - **div** (FRAME) `[ID: 3948:418]`
+              - **div** (FRAME) `[ID: 3948:419]`
+                - **div** (FRAME) `[ID: 3948:420]`
+                - **div** (FRAME) `[ID: 3948:421]`
+            - **div** (FRAME) `[ID: 3948:422]`
+              - **Text Element**: "Accounts Payable" `[ID: 3948:423]`
+              - **Text Element**: "200" `[ID: 3948:424]`
+            - **div** (FRAME) `[ID: 3948:425]`
+              - **Text Element**: "Accounts Receivable" `[ID: 3948:426]`
+              - **Text Element**: "200" `[ID: 3948:427]`
+            - **div** (FRAME) `[ID: 3948:428]`
+              - **Text Element**: "Fixed Assets" `[ID: 3948:429]`
+              - **Text Element**: "100" `[ID: 3948:430]`
+        - **div** (FRAME) `[ID: 3948:431]`
+          - **div** (FRAME) `[ID: 3948:432]`
+            - **Text Element**: "Automation vs Manual" `[ID: 3948:433]`
+            - **Text Element**: "Coverage split by module" `[ID: 3948:434]`
+          - **div** (FRAME) `[ID: 3948:435]`
+            - **div** (FRAME) `[ID: 3948:436]`
+              - **div** (FRAME) `[ID: 3948:437]`
+                - **Text Element**: "Accounts Payable" `[ID: 3948:438]`
+                - **Text Element**: "27% auto" `[ID: 3948:439]`
+              - **div** (FRAME) `[ID: 3948:440]`
+                - **div** (FRAME) `[ID: 3948:441]`
+              - **div** (FRAME) `[ID: 3948:442]`
+                - **Text Element**: "Auto: 54" `[ID: 3948:443]`
+                - **Text Element**: "Manual: 146" `[ID: 3948:444]`
+            - **div** (FRAME) `[ID: 3948:445]`
+              - **div** (FRAME) `[ID: 3948:446]`
+                - **Text Element**: "ERP" `[ID: 3948:447]`
+                - **Text Element**: "67% auto" `[ID: 3948:448]`
+              - **div** (FRAME) `[ID: 3948:449]`
+                - **div** (FRAME) `[ID: 3948:450]`
+              - **div** (FRAME) `[ID: 3948:451]`
+                - **Text Element**: "Auto: 155" `[ID: 3948:452]`
+                - **Text Element**: "Manual: 95" `[ID: 3948:453]`
+            - **div** (FRAME) `[ID: 3948:454]`
+              - **div** (FRAME) `[ID: 3948:455]`
+                - **Text Element**: "Fixed Assets" `[ID: 3948:456]`
+                - **Text Element**: "70% auto" `[ID: 3948:457]`
+              - **div** (FRAME) `[ID: 3948:458]`
+                - **div** (FRAME) `[ID: 3948:459]`
+              - **div** (FRAME) `[ID: 3948:460]`
+                - **Text Element**: "Auto: 70" `[ID: 3948:461]`
+                - **Text Element**: "Manual: 30" `[ID: 3948:462]`
+            - **div** (FRAME) `[ID: 3948:463]`
+              - **div** (FRAME) `[ID: 3948:464]`
+                - **Text Element**: "General Ledger" `[ID: 3948:465]`
+                - **Text Element**: "88% auto" `[ID: 3948:466]`
+              - **div** (FRAME) `[ID: 3948:467]`
+                - **div** (FRAME) `[ID: 3948:468]`
+              - **div** (FRAME) `[ID: 3948:469]`
+                - **Text Element**: "Auto: 88" `[ID: 3948:470]`
+                - **Text Element**: "Manual: 12" `[ID: 3948:471]`
+            - **div** (FRAME) `[ID: 3948:472]`
+              - **div** (FRAME) `[ID: 3948:473]`
+                - **Text Element**: "Procurement" `[ID: 3948:474]`
+                - **Text Element**: "56% auto" `[ID: 3948:475]`
+              - **div** (FRAME) `[ID: 3948:476]`
+                - **div** (FRAME) `[ID: 3948:477]`
+              - **div** (FRAME) `[ID: 3948:478]`
+                - **Text Element**: "Auto: 40" `[ID: 3948:479]`
+                - **Text Element**: "Manual: 35" `[ID: 3948:480]`
+      - **div** (FRAME) `[ID: 3948:481]`
+        - **div** (FRAME) `[ID: 3948:482]`
+          - **div** (FRAME) `[ID: 3948:483]`
+            - **Text Element**: "Execution activity" `[ID: 3948:484]`
+            - **Text Element**: "Daily run volume · last 18 weeks" `[ID: 3948:485]`
+          - **Button** (FRAME) `[ID: 3948:486]`
+            - **Text Element**: "Calendar" `[ID: 3948:487]`
+        - **div** (FRAME) `[ID: 3948:488]`
+          - **div** (FRAME) `[ID: 3948:489]`
+            - **div** (FRAME) `[ID: 3948:490]`
+            - **div** (FRAME) `[ID: 3948:491]`
+            - **div** (FRAME) `[ID: 3948:492]`
+            - **div** (FRAME) `[ID: 3948:493]`
+            - **div** (FRAME) `[ID: 3948:494]`
+            - **div** (FRAME) `[ID: 3948:495]`
+            - **div** (FRAME) `[ID: 3948:496]`
+            - **div** (FRAME) `[ID: 3948:497]`
+            - **div** (FRAME) `[ID: 3948:498]`
+            - **div** (FRAME) `[ID: 3948:499]`
+            - **div** (FRAME) `[ID: 3948:500]`
+            - **div** (FRAME) `[ID: 3948:501]`
+            - **div** (FRAME) `[ID: 3948:502]`
+            - **div** (FRAME) `[ID: 3948:503]`
+            - **div** (FRAME) `[ID: 3948:504]`
+            - **div** (FRAME) `[ID: 3948:505]`
+            - **div** (FRAME) `[ID: 3948:506]`
+            - **div** (FRAME) `[ID: 3948:507]`
+            - **div** (FRAME) `[ID: 3948:508]`
+            - **div** (FRAME) `[ID: 3948:509]`
+            - **div** (FRAME) `[ID: 3948:510]`
+            - **div** (FRAME) `[ID: 3948:511]`
+            - **div** (FRAME) `[ID: 3948:512]`
+            - **div** (FRAME) `[ID: 3948:513]`
+            - **div** (FRAME) `[ID: 3948:514]`
+            - **div** (FRAME) `[ID: 3948:515]`
+            - **div** (FRAME) `[ID: 3948:516]`
+            - **div** (FRAME) `[ID: 3948:517]`
+            - **div** (FRAME) `[ID: 3948:518]`
+            - **div** (FRAME) `[ID: 3948:519]`
+            - **div** (FRAME) `[ID: 3948:520]`
+            - **div** (FRAME) `[ID: 3948:521]`
+            - **div** (FRAME) `[ID: 3948:522]`
+            - **div** (FRAME) `[ID: 3948:523]`
+            - **div** (FRAME) `[ID: 3948:524]`
+            - **div** (FRAME) `[ID: 3948:525]`
+            - **div** (FRAME) `[ID: 3948:526]`
+            - **div** (FRAME) `[ID: 3948:527]`
+            - **div** (FRAME) `[ID: 3948:528]`
+            - **div** (FRAME) `[ID: 3948:529]`
+            - **div** (FRAME) `[ID: 3948:530]`
+            - **div** (FRAME) `[ID: 3948:531]`
+            - **div** (FRAME) `[ID: 3948:532]`
+            - **div** (FRAME) `[ID: 3948:533]`
+            - **div** (FRAME) `[ID: 3948:534]`
+            - **div** (FRAME) `[ID: 3948:535]`
+            - **div** (FRAME) `[ID: 3948:536]`
+            - **div** (FRAME) `[ID: 3948:537]`
+            - **div** (FRAME) `[ID: 3948:538]`
+            - **div** (FRAME) `[ID: 3948:539]`
+            - **div** (FRAME) `[ID: 3948:540]`
+            - **div** (FRAME) `[ID: 3948:541]`
+            - **div** (FRAME) `[ID: 3948:542]`
+            - **div** (FRAME) `[ID: 3948:543]`
+            - **div** (FRAME) `[ID: 3948:544]`
+            - **div** (FRAME) `[ID: 3948:545]`
+            - **div** (FRAME) `[ID: 3948:546]`
+            - **div** (FRAME) `[ID: 3948:547]`
+            - **div** (FRAME) `[ID: 3948:548]`
+            - **div** (FRAME) `[ID: 3948:549]`
+            - **div** (FRAME) `[ID: 3948:550]`
+            - **div** (FRAME) `[ID: 3948:551]`
+            - **div** (FRAME) `[ID: 3948:552]`
+            - **div** (FRAME) `[ID: 3948:553]`
+            - **div** (FRAME) `[ID: 3948:554]`
+            - **div** (FRAME) `[ID: 3948:555]`
+            - **div** (FRAME) `[ID: 3948:556]`
+            - **div** (FRAME) `[ID: 3948:557]`
+            - **div** (FRAME) `[ID: 3948:558]`
+            - **div** (FRAME) `[ID: 3948:559]`
+            - **div** (FRAME) `[ID: 3948:560]`
+            - **div** (FRAME) `[ID: 3948:561]`
+            - **div** (FRAME) `[ID: 3948:562]`
+            - **div** (FRAME) `[ID: 3948:563]`
+            - **div** (FRAME) `[ID: 3948:564]`
+            - **div** (FRAME) `[ID: 3948:565]`
+            - **div** (FRAME) `[ID: 3948:566]`
+            - **div** (FRAME) `[ID: 3948:567]`
+            - **div** (FRAME) `[ID: 3948:568]`
+            - **div** (FRAME) `[ID: 3948:569]`
+            - **div** (FRAME) `[ID: 3948:570]`
+            - **div** (FRAME) `[ID: 3948:571]`
+            - **div** (FRAME) `[ID: 3948:572]`
+            - **div** (FRAME) `[ID: 3948:573]`
+            - **div** (FRAME) `[ID: 3948:574]`
+            - **div** (FRAME) `[ID: 3948:575]`
+            - **div** (FRAME) `[ID: 3948:576]`
+            - **div** (FRAME) `[ID: 3948:577]`
+            - **div** (FRAME) `[ID: 3948:578]`
+            - **div** (FRAME) `[ID: 3948:579]`
+            - **div** (FRAME) `[ID: 3948:580]`
+            - **div** (FRAME) `[ID: 3948:581]`
+            - **div** (FRAME) `[ID: 3948:582]`
+            - **div** (FRAME) `[ID: 3948:583]`
+            - **div** (FRAME) `[ID: 3948:584]`
+            - **div** (FRAME) `[ID: 3948:585]`
+            - **div** (FRAME) `[ID: 3948:586]`
+            - **div** (FRAME) `[ID: 3948:587]`
+            - **div** (FRAME) `[ID: 3948:588]`
+            - **div** (FRAME) `[ID: 3948:589]`
+            - **div** (FRAME) `[ID: 3948:590]`
+            - **div** (FRAME) `[ID: 3948:591]`
+            - **div** (FRAME) `[ID: 3948:592]`
+            - **div** (FRAME) `[ID: 3948:593]`
+            - **div** (FRAME) `[ID: 3948:594]`
+            - **div** (FRAME) `[ID: 3948:595]`
+            - **div** (FRAME) `[ID: 3948:596]`
+            - **div** (FRAME) `[ID: 3948:597]`
+            - **div** (FRAME) `[ID: 3948:598]`
+            - **div** (FRAME) `[ID: 3948:599]`
+            - **div** (FRAME) `[ID: 3948:600]`
+            - **div** (FRAME) `[ID: 3948:601]`
+            - **div** (FRAME) `[ID: 3948:602]`
+            - **div** (FRAME) `[ID: 3948:603]`
+            - **div** (FRAME) `[ID: 3948:604]`
+            - **div** (FRAME) `[ID: 3948:605]`
+            - **div** (FRAME) `[ID: 3948:606]`
+            - **div** (FRAME) `[ID: 3948:607]`
+            - **div** (FRAME) `[ID: 3948:608]`
+            - **div** (FRAME) `[ID: 3948:609]`
+            - **div** (FRAME) `[ID: 3948:610]`
+            - **div** (FRAME) `[ID: 3948:611]`
+            - **div** (FRAME) `[ID: 3948:612]`
+            - **div** (FRAME) `[ID: 3948:613]`
+          - **div** (FRAME) `[ID: 3948:614]`
+            - **Text Element**: "14,284 runs" `[ID: 3948:615]`
+            - **Text Element**: "Peak: Mon 10 Feb · 218 runs" `[ID: 3948:616]`
+            - **div** (FRAME) `[ID: 3948:617]`
+              - **Text Element**: "Less" `[ID: 3948:618]`
+              - **div** (FRAME) `[ID: 3948:619]`
+              - **div** (FRAME) `[ID: 3948:620]`
+              - **div** (FRAME) `[ID: 3948:621]`
+              - **div** (FRAME) `[ID: 3948:622]`
+              - **Text Element**: "More" `[ID: 3948:623]`

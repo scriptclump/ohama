@@ -1,0 +1,422 @@
+# Figma Design Blueprint: TEST-CASE Screen
+- **Figma Frame ID**: `3948:1371`
+- **Page Context**: Page 1
+
+## Visual Element Tree Hierarchy
+
+- **test-case** (FRAME) `[ID: 3948:1371]`
+  - **div** (FRAME) `[ID: 3948:1372]`
+    - **div** (FRAME) `[ID: 3948:1373]`
+      - **Icon/Vector**: `div` `[ID: 3948:1374]`
+      - **Text Element**: "Omaha" `[ID: 3948:1377]`
+    - **div** (FRAME) `[ID: 3948:1378]`
+      - **div** (FRAME) `[ID: 3948:1379]`
+        - **div** (FRAME) `[ID: 3948:1380]`
+          - **Text Element**: "S" `[ID: 3948:1381]`
+        - **div** (FRAME) `[ID: 3948:1382]`
+          - **Text Element**: "Omaha" `[ID: 3948:1383]`
+          - **Text Element**: "prod workspace" `[ID: 3948:1384]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1385]`
+    - **div** (FRAME) `[ID: 3948:1387]`
+      - **div** (FRAME) `[ID: 3948:1388]`
+        - **Text Element**: "Overview" `[ID: 3948:1389]`
+      - **div** (FRAME) `[ID: 3948:1390]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1391]`
+        - **Text Element**: "Monitoring" `[ID: 3948:1395]`
+      - **div** (FRAME) `[ID: 3948:1396]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1397]`
+        - **Text Element**: "Executions" `[ID: 3948:1399]`
+        - **span** (FRAME) `[ID: 3948:1400]`
+          - **Text Element**: "12" `[ID: 3948:1401]`
+      - **div** (FRAME) `[ID: 3948:1402]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1403]`
+        - **Text Element**: "Schedules" `[ID: 3948:1408]`
+      - **div** (FRAME) `[ID: 3948:1409]`
+        - **Text Element**: "Quality" `[ID: 3948:1410]`
+      - **div** (FRAME) `[ID: 3948:1411]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1412]`
+        - **Text Element**: "Test cases" `[ID: 3948:1414]`
+      - **div** (FRAME) `[ID: 3948:1415]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1416]`
+        - **Text Element**: "Suites" `[ID: 3948:1418]`
+      - **div** (FRAME) `[ID: 3948:1419]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1420]`
+        - **Text Element**: "Defects" `[ID: 3948:1424]`
+        - **span** (FRAME) `[ID: 3948:1425]`
+          - **Text Element**: "14" `[ID: 3948:1426]`
+      - **div** (FRAME) `[ID: 3948:1427]`
+        - **Text Element**: "Platform" `[ID: 3948:1428]`
+      - **div** (FRAME) `[ID: 3948:1429]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1430]`
+        - **Text Element**: "Modules" `[ID: 3948:1433]`
+      - **div** (FRAME) `[ID: 3948:1434]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1435]`
+        - **Text Element**: "Environments" `[ID: 3948:1437]`
+      - **div** (FRAME) `[ID: 3948:1438]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1439]`
+        - **Text Element**: "Integrations" `[ID: 3948:1442]`
+  - **div** (FRAME) `[ID: 3948:1443]`
+    - **div** (FRAME) `[ID: 3948:1444]`
+      - **div** (FRAME) `[ID: 3948:1445]`
+        - **Text Element**: "Dashboards" `[ID: 3948:1446]`
+        - **Text Element**: "/" `[ID: 3948:1447]`
+        - **div** (FRAME) `[ID: 3948:1448]`
+          - **Text Element**: "ERP · Invoice posting · Test cases" `[ID: 3948:1449]`
+        - **span** (FRAME) `[ID: 3948:1450]`
+          - **Text Element**: "● live" `[ID: 3948:1451]`
+      - **div** (FRAME) `[ID: 3948:1452]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1453]`
+        - **Text Element**: "Search tests, defects, runs..." `[ID: 3948:1456]`
+        - **span** (FRAME) `[ID: 3948:1457]`
+          - **Text Element**: "⌘K" `[ID: 3948:1458]`
+      - **div** (FRAME) `[ID: 3948:1459]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1460]`
+        - **Text Element**: "Last 7 days" `[ID: 3948:1465]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1466]`
+      - **div** (FRAME) `[ID: 3948:1468]`
+        - **Icon/Vector**: `svg` `[ID: 3948:1469]`
+        - **Text Element**: "Filter" `[ID: 3948:1471]`
+      - **div** (FRAME) `[ID: 3948:1472]`
+      - **div** (FRAME) `[ID: 3948:1473]`
+        - **Text Element**: "+" `[ID: 3948:1474]`
+        - **Text Element**: "New dashboard" `[ID: 3948:1475]`
+    - **div** (FRAME) `[ID: 3948:1476]`
+      - **div** (FRAME) `[ID: 3948:1477]`
+        - **div** (FRAME) `[ID: 3948:1478]`
+          - **Text Element**: "ERP" `[ID: 3948:1479]`
+          - **Text Element**: "/" `[ID: 3948:1480]`
+          - **Text Element**: "Invoice posting" `[ID: 3948:1481]`
+        - **div** (FRAME) `[ID: 3948:1482]`
+          - *Rectangle 15* (RECTANGLE) `[ID: 3988:2559]`
+          - **div** (FRAME) `[ID: 3948:1483]`
+            - **div** (FRAME) `[ID: 3948:1484]`
+              - **Text Element**: "Test cases · 48" `[ID: 3948:1485]`
+              - **Text Element**: "Drill into a case to see steps, assertions, and run history." `[ID: 3948:1486]`
+            - **div** (FRAME) `[ID: 3948:1487]`
+              - **Button** (FRAME) `[ID: 3948:1488]`
+                - **Icon/Vector**: `svg` `[ID: 3948:1489]`
+                - **Text Element**: "Export" `[ID: 3948:1493]`
+              - **Button** (FRAME) `[ID: 3948:1494]`
+                - **Icon/Vector**: `svg` `[ID: 3948:1495]`
+                - **Text Element**: "Run selected" `[ID: 3948:1497]`
+          - **Button** (FRAME) `[ID: 4009:2630]`
+            - **Text Element**: "Favourite" `[ID: 4009:2635]`
+            - **iconamoon:heart-thin** (COMPONENT) `[ID: 4009:2638]`
+              - **Icon/Vector**: `Vector` `[ID: 4009:2637]`
+          - **Button** (FRAME) `[ID: 3948:1498]`
+            - **Text Element**: "+" `[ID: 3948:1499]`
+            - **Text Element**: "New test case" `[ID: 3948:1500]`
+          - **div** (FRAME) `[ID: 3948:1501]`
+            - **div** (FRAME) `[ID: 3948:1502]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1503]`
+              - **Text Element**: "Search in this module..." `[ID: 3948:1506]`
+            - **div** (FRAME) `[ID: 3948:1507]`
+              - **Text Element**: "Status:" `[ID: 3948:1508]`
+              - **Text Element**: "any" `[ID: 3948:1509]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1510]`
+            - **div** (FRAME) `[ID: 3948:1512]`
+              - **Text Element**: "Type:" `[ID: 3948:1513]`
+              - **Text Element**: "any" `[ID: 3948:1514]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1515]`
+            - **div** (FRAME) `[ID: 3948:1517]`
+              - **Text Element**: "Owner:" `[ID: 3948:1518]`
+              - **Text Element**: "any" `[ID: 3948:1519]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1520]`
+            - **div** (FRAME) `[ID: 3948:1522]`
+              - **Text Element**: "Tag:" `[ID: 3948:1523]`
+              - **Text Element**: "any" `[ID: 3948:1524]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1525]`
+            - **div** (FRAME) `[ID: 3948:1527]`
+              - **Text Element**: "Env:" `[ID: 3948:1528]`
+              - **Text Element**: "staging" `[ID: 3948:1529]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1530]`
+          - **Text Element**: "Showing 1–9 of 48" `[ID: 3948:1532]`
+        - **div** (FRAME) `[ID: 3948:1533]`
+          - **div** (FRAME) `[ID: 3948:1537]`
+            - **Text Element**: "ID" `[ID: 3948:1538]`
+          - **div** (FRAME) `[ID: 3948:1539]`
+            - **Text Element**: "NAME /\_ STATUS" `[ID: 3948:1540]`
+          - **div** (FRAME) `[ID: 3948:1541]`
+            - **Text Element**: "TYPE" `[ID: 3948:1542]`
+          - **div** (FRAME) `[ID: 3948:1543]`
+            - **Text Element**: "OWNER" `[ID: 3948:1544]`
+          - **div** (FRAME) `[ID: 3948:1545]`
+            - **Text Element**: "Run..." `[ID: 3948:1546]`
+          - **div** (FRAME) `[ID: 3988:2601]`
+            - **Text Element**: "Runtime" `[ID: 3988:2602]`
+        - **div** (FRAME) `[ID: 3948:1547]`
+          - **div** (FRAME) `[ID: 3948:1548]`
+            - **div** (FRAME) `[ID: 3948:1549]`
+              - **material-symbols-light:square-rounded** (COMPONENT) `[ID: 3960:2477]`
+                - **Icon/Vector**: `Vector` `[ID: 3960:2476]`
+              - **hugeicons:tick-01** (COMPONENT) `[ID: 3960:2480]`
+                - **Icon/Vector**: `Vector` `[ID: 3960:2479]`
+            - **div** (FRAME) `[ID: 3948:1552]`
+              - **Text Element**: "TC-00412" `[ID: 3948:1553]`
+            - **div** (FRAME) `[ID: 3948:1554]`
+              - **Text Element**: "Invoice — multi-currency rounding" `[ID: 3948:1555]`
+              - **span** (FRAME) `[ID: 3948:1556]`
+                - **Text Element**: "● FAIL" `[ID: 3948:1557]`
+            - **div** (FRAME) `[ID: 3948:1558]`
+              - **span** (FRAME) `[ID: 3948:1559]`
+                - **Text Element**: "auto" `[ID: 3948:1560]`
+                - **Icon/Vector**: `arcticons:autoshare` `[ID: 3948:1561]`
+            - **div** (FRAME) `[ID: 3948:1562]`
+              - **Text Element**: "R. Mehta" `[ID: 3948:1563]`
+            - **div** (FRAME) `[ID: 3948:1564]`
+          - **div** (FRAME) `[ID: 3948:1565]`
+            - **div** (FRAME) `[ID: 3948:1569]`
+              - **Text Element**: "TC-00411" `[ID: 3948:1570]`
+            - **div** (FRAME) `[ID: 3948:1571]`
+              - **Text Element**: "Invoice single-line posting happy path" `[ID: 3948:1572]`
+              - **span** (FRAME) `[ID: 3948:1573]`
+                - **Text Element**: "● PASS" `[ID: 3948:1574]`
+            - **div** (FRAME) `[ID: 3948:1575]`
+              - **span** (FRAME) `[ID: 3948:1576]`
+                - **Text Element**: "auto" `[ID: 3948:1577]`
+                - **Icon/Vector**: `arcticons:autoshare` `[ID: 3948:1578]`
+            - **div** (FRAME) `[ID: 3948:1581]`
+          - **div** (FRAME) `[ID: 3948:1582]`
+            - **div** (FRAME) `[ID: 3948:1586]`
+              - **Text Element**: "TC-00410" `[ID: 3948:1587]`
+            - **div** (FRAME) `[ID: 3948:1588]`
+              - **Text Element**: "Invoice — tax override applied correctly" `[ID: 3948:1589]`
+              - **span** (FRAME) `[ID: 3948:1590]`
+                - **Text Element**: "● PASS" `[ID: 3948:1591]`
+            - **div** (FRAME) `[ID: 3948:1602]`
+              - **Text Element**: "L. Park" `[ID: 3948:1603]`
+            - **div** (FRAME) `[ID: 3948:1604]`
+          - **div** (FRAME) `[ID: 3948:1605]`
+            - **div** (FRAME) `[ID: 3948:1609]`
+              - **Text Element**: "TC-00409" `[ID: 3948:1610]`
+            - **div** (FRAME) `[ID: 3948:1611]`
+              - **Text Element**: "Invoice duplicate detection" `[ID: 3948:1612]`
+              - **span** (FRAME) `[ID: 3948:1613]`
+                - **Text Element**: "● PASS" `[ID: 3948:1614]`
+            - **div** (FRAME) `[ID: 3948:1618]`
+              - **Text Element**: "A. Khan" `[ID: 3948:1619]`
+            - **div** (FRAME) `[ID: 3948:1620]`
+          - **div** (FRAME) `[ID: 3948:1621]`
+            - **div** (FRAME) `[ID: 3948:1625]`
+              - **Text Element**: "TC-00408" `[ID: 3948:1626]`
+            - **div** (FRAME) `[ID: 3948:1627]`
+              - **Text Element**: "Invoice — void and reissue" `[ID: 3948:1628]`
+              - **span** (FRAME) `[ID: 3948:1629]`
+                - **Text Element**: "● SKIP" `[ID: 3948:1630]`
+            - **div** (FRAME) `[ID: 3948:1635]`
+              - **Text Element**: "R. Mehta" `[ID: 3948:1636]`
+            - **div** (FRAME) `[ID: 3948:1637]`
+          - **div** (FRAME) `[ID: 3948:1638]`
+            - **div** (FRAME) `[ID: 3948:1642]`
+              - **Text Element**: "TC-00407" `[ID: 3948:1643]`
+            - **div** (FRAME) `[ID: 3948:1644]`
+              - **Text Element**: "Invoice — attachment upload (>10MB)" `[ID: 3948:1645]`
+              - **span** (FRAME) `[ID: 3948:1646]`
+                - **Text Element**: "● FAIL" `[ID: 3948:1647]`
+            - **div** (FRAME) `[ID: 3948:1651]`
+              - **Text Element**: "J. Diaz" `[ID: 3948:1652]`
+            - **div** (FRAME) `[ID: 3948:1653]`
+          - **div** (FRAME) `[ID: 3948:1654]`
+            - **div** (FRAME) `[ID: 3948:1658]`
+              - **Text Element**: "TC-00406" `[ID: 3948:1659]`
+            - **div** (FRAME) `[ID: 3948:1660]`
+              - **Text Element**: "Invoice payment terms lookup" `[ID: 3948:1661]`
+              - **span** (FRAME) `[ID: 3948:1662]`
+                - **Text Element**: "● PASS" `[ID: 3948:1663]`
+            - **div** (FRAME) `[ID: 3948:1668]`
+              - **Text Element**: "L. Park" `[ID: 3948:1669]`
+            - **div** (FRAME) `[ID: 3948:1670]`
+          - **div** (FRAME) `[ID: 3948:1671]`
+            - **div** (FRAME) `[ID: 3948:1675]`
+              - **Text Element**: "TC-00405" `[ID: 3948:1676]`
+            - **div** (FRAME) `[ID: 3948:1677]`
+              - **Text Element**: "Invoice — bulk import CSV" `[ID: 3948:1678]`
+              - **span** (FRAME) `[ID: 3948:1679]`
+                - **Text Element**: "● PASS" `[ID: 3948:1680]`
+            - **div** (FRAME) `[ID: 3948:1681]`
+              - **span** (FRAME) `[ID: 3948:1682]`
+                - **Text Element**: "auto" `[ID: 3948:1683]`
+                - **Icon/Vector**: `arcticons:autoshare` `[ID: 3948:1684]`
+            - **div** (FRAME) `[ID: 3948:1687]`
+          - **Frame 56** (FRAME) `[ID: 3993:2628]`
+            - **Text Element**: "2 Hr" `[ID: 3988:2612]`
+            - **Text Element**: "4 Hr" `[ID: 3988:2613]`
+            - **Text Element**: "6 Hr" `[ID: 3988:2614]`
+            - **Text Element**: "1 Hr" `[ID: 3988:2615]`
+            - **Text Element**: "Yesterday" `[ID: 3988:2616]`
+            - **Text Element**: "Yesterday" `[ID: 3988:2617]`
+            - **Text Element**: "Yesterday" `[ID: 3988:2618]`
+            - **Text Element**: "10 Hr" `[ID: 3988:2619]`
+            - **Text Element**: "4 Hr" `[ID: 3988:2620]`
+          - **Frame 55** (FRAME) `[ID: 3993:2627]`
+            - **Text Element**: "00:43" `[ID: 3988:2603]`
+            - **Text Element**: "00:23" `[ID: 3988:2604]`
+            - **Text Element**: "00:32" `[ID: 3988:2605]`
+            - **Text Element**: "00:32" `[ID: 3988:2606]`
+            - **Text Element**: "--" `[ID: 3988:2607]`
+            - **Text Element**: "--" `[ID: 3988:2608]`
+            - **Text Element**: "--" `[ID: 3988:2609]`
+            - **Text Element**: "00:08" `[ID: 3988:2610]`
+            - **Text Element**: "00:10" `[ID: 3988:2611]`
+          - **div** (FRAME) `[ID: 3948:1688]`
+            - **Frame 57** (FRAME) `[ID: 3993:2629]`
+              - **div** (FRAME) `[ID: 3948:1566]`
+                - **material-symbols-light:square-outline-rounded** (COMPONENT) `[ID: 3960:2458]`
+                  - **Icon/Vector**: `Vector` `[ID: 3960:2457]`
+                - **Icon/Vector**: `material-symbols-light:square-outline-rounded` `[ID: 3960:2459]`
+                - **Icon/Vector**: `material-symbols-light:square-outline-rounded` `[ID: 3960:2461]`
+                - **Icon/Vector**: `material-symbols-light:square-outline-rounded` `[ID: 3960:2463]`
+                - **Icon/Vector**: `material-symbols-light:square-outline-rounded` `[ID: 3960:2465]`
+                - **Icon/Vector**: `material-symbols-light:square-outline-rounded` `[ID: 3960:2467]`
+                - **Icon/Vector**: `material-symbols-light:square-outline-rounded` `[ID: 3960:2469]`
+                - **Icon/Vector**: `material-symbols-light:square-outline-rounded` `[ID: 3960:2471]`
+              - **div** (FRAME) `[ID: 3948:1583]`
+                - **Input Field** (FRAME) `[ID: 3948:1584]`
+              - **div** (FRAME) `[ID: 3948:1606]`
+                - **Input Field** (FRAME) `[ID: 3948:1607]`
+              - **div** (FRAME) `[ID: 3948:1655]`
+                - **Input Field** (FRAME) `[ID: 3948:1656]`
+              - **div** (FRAME) `[ID: 3948:1622]`
+              - **div** (FRAME) `[ID: 3948:1639]`
+              - **div** (FRAME) `[ID: 3948:1672]`
+              - **div** (FRAME) `[ID: 3948:1689]`
+            - **div** (FRAME) `[ID: 3948:1692]`
+              - **Text Element**: "TC-00404" `[ID: 3948:1693]`
+            - **div** (FRAME) `[ID: 3948:1694]`
+              - **Text Element**: "Invoice — approval workflow escalation" `[ID: 3948:1695]`
+              - **span** (FRAME) `[ID: 3948:1696]`
+                - **Text Element**: "● FAIL" `[ID: 3948:1697]`
+            - **Frame 54** (FRAME) `[ID: 3993:2622]`
+              - **div** (FRAME) `[ID: 3948:1579]`
+                - **Text Element**: "R. Mehta" `[ID: 3948:1580]`
+              - **div** (FRAME) `[ID: 3948:1592]`
+                - **span** (FRAME) `[ID: 3948:1593]`
+                  - **Text Element**: "auto" `[ID: 3948:1594]`
+                  - **arcticons:autoshare** (COMPONENT) `[ID: 3948:1595]`
+                    - **Icon/Vector**: `Vector` `[ID: 3948:1596]`
+                    - **Icon/Vector**: `Vector` `[ID: 3948:1597]`
+                    - **Icon/Vector**: `Vector` `[ID: 3948:1598]`
+                    - **Icon/Vector**: `Vector` `[ID: 3948:1599]`
+                    - **Icon/Vector**: `Vector` `[ID: 3948:1600]`
+                    - **Icon/Vector**: `Vector` `[ID: 3948:1601]`
+              - **div** (FRAME) `[ID: 3948:1615]`
+                - **span** (FRAME) `[ID: 3948:1616]`
+                  - **Text Element**: "manual" `[ID: 3948:1617]`
+                  - **Icon/Vector**: `Vector` `[ID: 3950:2453]`
+              - **div** (FRAME) `[ID: 3948:1631]`
+                - **span** (FRAME) `[ID: 3948:1632]`
+                  - **Text Element**: "auto" `[ID: 3948:1633]`
+                  - **Icon/Vector**: `arcticons:autoshare` `[ID: 3948:1634]`
+              - **div** (FRAME) `[ID: 3948:1648]`
+                - **span** (FRAME) `[ID: 3948:1649]`
+                  - **Text Element**: "manual" `[ID: 3948:1650]`
+                  - **Icon/Vector**: `Vector` `[ID: 3950:2455]`
+              - **div** (FRAME) `[ID: 3948:1664]`
+                - **span** (FRAME) `[ID: 3948:1665]`
+                  - **Text Element**: "auto" `[ID: 3948:1666]`
+                  - **Icon/Vector**: `arcticons:autoshare` `[ID: 3948:1667]`
+              - **div** (FRAME) `[ID: 3948:1685]`
+                - **Text Element**: "R. Mehta" `[ID: 3948:1686]`
+              - **div** (FRAME) `[ID: 3948:1698]`
+                - **span** (FRAME) `[ID: 3948:1699]`
+                  - **Text Element**: "auto" `[ID: 3948:1700]`
+                  - **Icon/Vector**: `arcticons:autoshare` `[ID: 3948:2445]`
+            - **div** (FRAME) `[ID: 3948:1701]`
+              - **Text Element**: "A. Khan" `[ID: 3948:1702]`
+            - **div** (FRAME) `[ID: 3948:1703]`
+          - **th** (FRAME) `[ID: 3988:2562]`
+            - **Text Element**: "RUN" `[ID: 3988:2563]`
+      - **div** (FRAME) `[ID: 3948:1704]`
+        - **div** (FRAME) `[ID: 3948:1705]`
+          - **div** (FRAME) `[ID: 3948:1706]`
+            - **Text Element**: "TC-00412" `[ID: 3948:1707]`
+            - **span** (FRAME) `[ID: 3948:1708]`
+              - **Text Element**: "● FAIL" `[ID: 3948:1709]`
+          - **Text Element**: "Invoice — multi-currency rounding" `[ID: 3948:1710]`
+          - **div** (FRAME) `[ID: 3948:1711]`
+            - **span** (FRAME) `[ID: 3948:1712]`
+              - **Text Element**: "automation" `[ID: 3948:1713]`
+            - **span** (FRAME) `[ID: 3948:1714]`
+              - **Text Element**: "priority: high" `[ID: 3948:1715]`
+            - **span** (FRAME) `[ID: 3948:1716]`
+              - **Text Element**: "env: staging" `[ID: 3948:1717]`
+            - **span** (FRAME) `[ID: 3948:1718]`
+              - **Text Element**: "#erp" `[ID: 3948:1719]`
+            - **span** (FRAME) `[ID: 3948:1720]`
+              - **Text Element**: "#invoice" `[ID: 3948:1721]`
+            - **span** (FRAME) `[ID: 3948:1722]`
+              - **Text Element**: "#fx" `[ID: 3948:1723]`
+          - **div** (FRAME) `[ID: 3948:1724]`
+            - **Button** (FRAME) `[ID: 3948:1725]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1726]`
+              - **Text Element**: "Run now" `[ID: 3948:1728]`
+            - **Button** (FRAME) `[ID: 3948:1729]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1730]`
+              - **Text Element**: "Edit" `[ID: 3948:1733]`
+            - **Button** (FRAME) `[ID: 3948:1734]`
+              - **Icon/Vector**: `svg` `[ID: 3948:1735]`
+              - **Text Element**: "Open" `[ID: 3948:1739]`
+        - **Text Element**: "Owner" `[ID: 3948:1742]`
+        - **Text Element**: "R. Mehta" `[ID: 3948:1743]`
+        - **Text Element**: "2h ago · 00:42" `[ID: 3948:1746]`
+        - **Text Element**: "Last Run" `[ID: 3948:1745]`
+        - **Text Element**: "Linked Defect" `[ID: 3948:1748]`
+        - **Text Element**: "D-2041" `[ID: 3948:1749]`
+        - **Text Element**: "Created By" `[ID: 3948:1751]`
+        - **Text Element**: "L. Park · Jan 14" `[ID: 3948:1752]`
+        - **div** (FRAME) `[ID: 3948:1753]`
+          - **Text Element**: "Steps" `[ID: 3948:1754]`
+          - **div** (FRAME) `[ID: 3948:1755]`
+            - **div** (FRAME) `[ID: 3948:1756]`
+              - **Text Element**: "1." `[ID: 3948:1757]`
+              - **Icon/Vector**: `div` `[ID: 3948:1758]`
+              - **Text Element**: "Open Invoice → New" `[ID: 3948:1761]`
+            - **div** (FRAME) `[ID: 3948:1762]`
+              - **Text Element**: "2." `[ID: 3948:1763]`
+              - **Icon/Vector**: `div` `[ID: 3948:1764]`
+              - **Text Element**: "Select vendor = ACME-EUR" `[ID: 3948:1767]`
+            - **div** (FRAME) `[ID: 3948:1768]`
+              - **Text Element**: "3." `[ID: 3948:1769]`
+              - **Icon/Vector**: `div` `[ID: 3948:1770]`
+              - **Text Element**: "Add line: 1 × 199.99 EUR" `[ID: 3948:1773]`
+            - **div** (FRAME) `[ID: 3948:1774]`
+              - **Text Element**: "4." `[ID: 3948:1775]`
+              - **Icon/Vector**: `div` `[ID: 3948:1776]`
+              - **Text Element**: "Post Invoice" `[ID: 3948:1779]`
+            - **div** (FRAME) `[ID: 3948:1780]`
+              - **Text Element**: "5." `[ID: 3948:1781]`
+              - **Icon/Vector**: `div` `[ID: 3948:1782]`
+              - **div** (FRAME) `[ID: 3948:1786]`
+                - **Text Element**: "Verify GL entry rounds to 2dp" `[ID: 3948:1787]`
+                - **div** (FRAME) `[ID: 3948:1788]`
+                  - **Text Element**: "AssertionError: expected" `[ID: 3948:1789]`
+                  - **Text Element**: "199.99, got 200.00" `[ID: 3948:1790]`
+        - **div** (FRAME) `[ID: 3948:1791]`
+          - **div** (FRAME) `[ID: 3948:1792]`
+            - **Text Element**: "Run History · Last 20" `[ID: 3948:1793]`
+            - **Text Element**: "85% pass" `[ID: 3948:1794]`
+          - **div** (FRAME) `[ID: 3948:1795]`
+            - **div** (FRAME) `[ID: 3948:1796]`
+            - **div** (FRAME) `[ID: 3948:1797]`
+            - **div** (FRAME) `[ID: 3948:1798]`
+            - **div** (FRAME) `[ID: 3948:1799]`
+            - **div** (FRAME) `[ID: 3948:1800]`
+            - **div** (FRAME) `[ID: 3948:1801]`
+            - **div** (FRAME) `[ID: 3948:1802]`
+            - **div** (FRAME) `[ID: 3948:1803]`
+            - **div** (FRAME) `[ID: 3948:1804]`
+            - **div** (FRAME) `[ID: 3948:1805]`
+            - **div** (FRAME) `[ID: 3948:1806]`
+            - **div** (FRAME) `[ID: 3948:1807]`
+            - **div** (FRAME) `[ID: 3948:1808]`
+            - **div** (FRAME) `[ID: 3948:1809]`
+            - **div** (FRAME) `[ID: 3948:1810]`
+            - **div** (FRAME) `[ID: 3948:1811]`
+            - **div** (FRAME) `[ID: 3948:1812]`
+            - **div** (FRAME) `[ID: 3948:1813]`
+            - **div** (FRAME) `[ID: 3948:1814]`
+            - **div** (FRAME) `[ID: 3948:1815]`
+          - **div** (FRAME) `[ID: 3948:1816]`
+            - **Text Element**: "older" `[ID: 3948:1817]`
+            - **Text Element**: "newest" `[ID: 3948:1818]`
+  - **fa7-regular:edit** (COMPONENT) `[ID: 3950:2454]`

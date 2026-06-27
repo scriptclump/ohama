@@ -1,0 +1,373 @@
+# Figma Design Blueprint: CREATE-TESTCASE Screen
+- **Figma Frame ID**: `5197:1044`
+- **Page Context**: Page 1
+
+## Visual Element Tree Hierarchy
+
+- **create-testcase** (FRAME) `[ID: 5197:1044]`
+  - **Main** (FRAME) `[ID: 5197:1045]`
+    - **Text Element**: "‹ Back to Test Cases" `[ID: 5197:1046]`
+    - **Text Element**: "Create Test Case" `[ID: 5197:1047]`
+    - **Text Element**: "Define a new test case for your project scope." `[ID: 5197:1048]`
+    - **Background+Border** (FRAME) `[ID: 5197:1049]`
+      - **Text Element**: "Draft" `[ID: 5197:1050]`
+    - **Background** (FRAME) `[ID: 5197:1051]`
+      - **Text Element**: "+ AI Assisted" `[ID: 5197:1052]`
+    - **Background+Border** (FRAME) `[ID: 5197:1053]`
+      - *Background* (RECTANGLE) `[ID: 5197:1054]`
+      - **Text Element**: "Ready" `[ID: 5197:1055]`
+    - **Background+Border+Shadow** (FRAME) `[ID: 5197:1056]`
+      - **Paragraph+VerticalBorder** (FRAME) `[ID: 5197:1057]`
+        - **Text Element**: "142" `[ID: 5197:1058]`
+        - **Text Element**: "Total Cases" `[ID: 5197:1059]`
+      - **Paragraph+VerticalBorder** (FRAME) `[ID: 5197:1060]`
+        - **Text Element**: "89%" `[ID: 5197:1061]`
+        - **Text Element**: "Pass Rate" `[ID: 5197:1062]`
+      - **Text Element**: "82%" `[ID: 5197:1063]`
+      - **Text Element**: "Automated" `[ID: 5197:1064]`
+    - **Button** (FRAME) `[ID: 5197:1065]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1066]`
+      - **Text Element**: "New Test Case" `[ID: 5197:1069]`
+    - **Button** (FRAME) `[ID: 5197:1070]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1071]`
+      - **Text Element**: "Manual Test Case" `[ID: 5197:1078]`
+    - **Background+Border+Shadow** (FRAME) `[ID: 5197:1079]`
+      - **HorizontalBorder** (FRAME) `[ID: 5197:1080]`
+        - **Background** (FRAME) `[ID: 5197:1081]`
+          - **Text Element**: "1" `[ID: 5197:1082]`
+        - **Text Element**: "Core Details" `[ID: 5197:1083]`
+        - **Text Element**: "Basic identification and description of your test case" `[ID: 5197:1084]`
+      - **Label** (FRAME) `[ID: 5197:1085]`
+        - **Text Element**: "Test Case Name" `[ID: 5197:1086]`
+        - **Text Element**: "*" `[ID: 5197:1087]`
+      - **Input** (FRAME) `[ID: 5197:1088]`
+        - **Container** (FRAME) `[ID: 5197:1089]`
+          - **Text Element**: "e.g. Verify user login with valid credentials" `[ID: 5197:1090]`
+      - **Text Element**: "Business Scenario" `[ID: 5197:1091]`
+      - **Input** (FRAME) `[ID: 5197:1092]`
+        - **Container** (FRAME) `[ID: 5197:1093]`
+          - **Text Element**: "Describe the business flow this test case covers..." `[ID: 5197:1094]`
+      - **Text Element**: "Description" `[ID: 5197:1095]`
+      - **Textarea** (FRAME) `[ID: 5197:1096]`
+        - **Text Element**: "Add a detailed description of what this test case validates, expected behavior, and any preconditions..." `[ID: 5197:1097]`
+    - **Background+Border+Shadow** (FRAME) `[ID: 5197:1098]`
+      - **HorizontalBorder** (FRAME) `[ID: 5197:1099]`
+        - **Background** (FRAME) `[ID: 5197:1100]`
+          - **Text Element**: "2" `[ID: 5197:1101]`
+        - **Text Element**: "Classification & Environment" `[ID: 5197:1102]`
+        - **Text Element**: "Categorize and assign test execution context" `[ID: 5197:1103]`
+      - **Text Element**: "Test Case Type" `[ID: 5197:1104]`
+      - **Options** (FRAME) `[ID: 5197:1105]`
+        - **Icon/Vector**: `image clip` `[ID: 5197:1106]`
+        - **Container** (FRAME) `[ID: 5197:1109]`
+          - **Text Element**: "Select type..." `[ID: 5197:1110]`
+      - **Text Element**: "Criticality" `[ID: 5197:1111]`
+      - **Options** (FRAME) `[ID: 5197:1112]`
+        - **Icon/Vector**: `image clip` `[ID: 5197:1113]`
+        - **Container** (FRAME) `[ID: 5197:1116]`
+          - **Text Element**: "Select criticality..." `[ID: 5197:1117]`
+      - **Text Element**: "Application" `[ID: 5197:1118]`
+      - **Options** (FRAME) `[ID: 5197:1119]`
+        - **Icon/Vector**: `image clip` `[ID: 5197:1120]`
+        - **Container** (FRAME) `[ID: 5197:1123]`
+          - **Text Element**: "Select application..." `[ID: 5197:1124]`
+      - **Text Element**: "Module" `[ID: 5197:1125]`
+      - **Options** (FRAME) `[ID: 5197:1126]`
+        - **Icon/Vector**: `image clip` `[ID: 5197:1127]`
+        - **Container** (FRAME) `[ID: 5197:1130]`
+          - **Text Element**: "Select module..." `[ID: 5197:1131]`
+      - **Text Element**: "Environment" `[ID: 5197:1132]`
+      - **Options** (FRAME) `[ID: 5197:1133]`
+        - **Icon/Vector**: `image clip` `[ID: 5197:1134]`
+        - **Container** (FRAME) `[ID: 5197:1137]`
+          - **Text Element**: "Staging" `[ID: 5197:1138]`
+      - **Text Element**: "Assigned To" `[ID: 5197:1139]`
+      - **Options** (FRAME) `[ID: 5197:1140]`
+        - **Icon/Vector**: `image clip` `[ID: 5197:1141]`
+        - **Container** (FRAME) `[ID: 5197:1144]`
+          - **Text Element**: "Jordan Miles" `[ID: 5197:1145]`
+      - **Text Element**: "Sprint" `[ID: 5197:1146]`
+      - **Options** (FRAME) `[ID: 5197:1147]`
+        - **Icon/Vector**: `image clip` `[ID: 5197:1148]`
+        - **Container** (FRAME) `[ID: 5197:1151]`
+          - **Text Element**: "Sprint 14" `[ID: 5197:1152]`
+    - **Background+Border+Shadow** (FRAME) `[ID: 5197:1153]`
+      - **HorizontalBorder** (FRAME) `[ID: 5197:1154]`
+        - **Background** (FRAME) `[ID: 5197:1155]`
+          - **Text Element**: "3" `[ID: 5197:1156]`
+        - **Text Element**: "Tags & Labels" `[ID: 5197:1157]`
+        - **Text Element**: "Organize and filter your test cases" `[ID: 5197:1158]`
+      - **Background+Border** (FRAME) `[ID: 5197:1159]`
+        - **Input** (FRAME) `[ID: 5197:1160]`
+          - **Container** (FRAME) `[ID: 5197:1161]`
+            - **Text Element**: "Add a tag..." `[ID: 5197:1162]`
+        - **Button** (FRAME) `[ID: 5197:1163]`
+          - **Text Element**: "+ Add Tag" `[ID: 5197:1164]`
+      - **Background** (FRAME) `[ID: 5197:1165]`
+        - **Text Element**: "regression ×" `[ID: 5197:1166]`
+      - **Background+Border** (FRAME) `[ID: 5197:1167]`
+        - **Text Element**: "login-flow ×" `[ID: 5197:1168]`
+      - **Background** (FRAME) `[ID: 5197:1169]`
+        - **Text Element**: "high-priority ×" `[ID: 5197:1170]`
+      - **Background+Border** (FRAME) `[ID: 5197:1171]`
+        - **Text Element**: "automation-ready ×" `[ID: 5197:1172]`
+    - **Background+Border+Shadow** (FRAME) `[ID: 5197:1173]`
+      - **HorizontalBorder** (FRAME) `[ID: 5197:1174]`
+        - **Background** (FRAME) `[ID: 5197:1175]`
+          - **Text Element**: "4" `[ID: 5197:1176]`
+        - **Text Element**: "Preconditions & Test Steps" `[ID: 5197:1177]`
+        - **Text Element**: "Define steps and expected outcomes for each action" `[ID: 5197:1178]`
+        - **Text Element**: "+ AI Generate Steps" `[ID: 5197:1179]`
+      - **Text Element**: "Preconditions" `[ID: 5197:1180]`
+      - **Input** (FRAME) `[ID: 5197:1181]`
+        - **Container** (FRAME) `[ID: 5197:1182]`
+          - **Text Element**: "List any preconditions required before executing this test..." `[ID: 5197:1183]`
+      - **Table** (FRAME) `[ID: 5197:1184]`
+        - **Header → Row** (FRAME) `[ID: 5197:1185]`
+          - **Cell** (FRAME) `[ID: 5197:1186]`
+            - **Text Element**: "#" `[ID: 5197:1187]`
+          - **Cell** (FRAME) `[ID: 5197:1188]`
+            - **Text Element**: "Step Action" `[ID: 5197:1189]`
+          - **Cell** (FRAME) `[ID: 5197:1190]`
+            - **Text Element**: "Expected Result" `[ID: 5197:1191]`
+          - **Cell** (FRAME) `[ID: 5197:1192]`
+            - **Text Element**: "Status" `[ID: 5197:1193]`
+        - **Body** (FRAME) `[ID: 5197:1194]`
+          - **Row** (FRAME) `[ID: 5197:1195]`
+            - **Data** (FRAME) `[ID: 5197:1196]`
+              - **Text Element**: "1" `[ID: 5197:1197]`
+            - **Data** (FRAME) `[ID: 5197:1198]`
+              - **Text Element**: "Navigate to login page" `[ID: 5197:1199]`
+            - **Data** (FRAME) `[ID: 5197:1200]`
+              - **Text Element**: "Login page is displayed" `[ID: 5197:1201]`
+            - **Data** (FRAME) `[ID: 5197:1202]`
+              - **Text Element**: "Active" `[ID: 5197:1203]`
+          - **Row** (FRAME) `[ID: 5197:1204]`
+            - **Data** (FRAME) `[ID: 5197:1205]`
+              - **Text Element**: "2" `[ID: 5197:1206]`
+            - **Data** (FRAME) `[ID: 5197:1207]`
+              - **Text Element**: "Enter valid credentials" `[ID: 5197:1208]`
+            - **Data** (FRAME) `[ID: 5197:1209]`
+              - **Text Element**: "Fields accept input" `[ID: 5197:1210]`
+            - **Data** (FRAME) `[ID: 5197:1211]`
+              - **Text Element**: "Active" `[ID: 5197:1212]`
+          - **Row** (FRAME) `[ID: 5197:1213]`
+            - **Text Element**: "3" `[ID: 5197:1214]`
+            - **Text Element**: "Click login button" `[ID: 5197:1215]`
+            - **Text Element**: "Redirect to dashboard" `[ID: 5197:1216]`
+            - **Text Element**: "Active" `[ID: 5197:1217]`
+      - **Button** (FRAME) `[ID: 5197:1218]`
+        - **Text Element**: "+ Add Step" `[ID: 5197:1219]`
+    - **Background+Border+Shadow** (FRAME) `[ID: 5197:1220]`
+      - **Button** (FRAME) `[ID: 5197:1221]`
+        - **Button** (FRAME) `[ID: 5197:1222]`
+        - **Text Element**: "✕ Cancel" `[ID: 5197:1223]`
+      - **Button** (FRAME) `[ID: 5197:1224]`
+        - **Text Element**: "+ Reset" `[ID: 5197:1225]`
+      - **Button** (FRAME) `[ID: 5197:1226]`
+        - **Button** (FRAME) `[ID: 5197:1227]`
+        - **Text Element**: "⓵ Need Help" `[ID: 5197:1228]`
+      - **Button** (FRAME) `[ID: 5197:1229]`
+        - **Text Element**: "→ Define" `[ID: 5197:1230]`
+      - **Button** (FRAME) `[ID: 5197:1231]`
+        - **Text Element**: "✓ Capture & Save" `[ID: 5197:1232]`
+    - **Aside** (FRAME) `[ID: 5197:1233]`
+      - **Background+Shadow** (FRAME) `[ID: 5197:1234]`
+        - **Icon/Vector**: `SVG` `[ID: 5197:1235]`
+        - **Text Element**: "AI Test Case Assistant" `[ID: 5197:1238]`
+        - **Text Element**: "Powered by Omaha Intelligence Engine v2.4" `[ID: 5197:1239]`
+        - **Button** (FRAME) `[ID: 5197:1240]`
+          - **Icon/Vector**: `SVG` `[ID: 5197:1241]`
+          - **Text Element**: "Generate Test Steps" `[ID: 5197:1243]`
+      - **Background+Border** (FRAME) `[ID: 5197:1244]`
+        - **Text Element**: "AI Capabilities" `[ID: 5197:1245]`
+        - **Background** (FRAME) `[ID: 5197:1246]`
+          - **Text Element**: "≡" `[ID: 5197:1247]`
+        - **Text Element**: "Generate sequence with AI" `[ID: 5197:1248]`
+        - **Background** (FRAME) `[ID: 5197:1249]`
+          - **Text Element**: "★" `[ID: 5197:1250]`
+        - **Text Element**: "Personalize automation flow" `[ID: 5197:1251]`
+        - **Background** (FRAME) `[ID: 5197:1252]`
+          - **Text Element**: "◎" `[ID: 5197:1253]`
+        - **Text Element**: "Suggest edge cases" `[ID: 5197:1254]`
+        - **Background** (FRAME) `[ID: 5197:1255]`
+          - **Text Element**: "✓" `[ID: 5197:1256]`
+        - **Text Element**: "Generate assertions" `[ID: 5197:1257]`
+        - **Background** (FRAME) `[ID: 5197:1258]`
+          - **Text Element**: "↗" `[ID: 5197:1259]`
+        - **Text Element**: "Risk analysis" `[ID: 5197:1260]`
+      - **Background+Border** (FRAME) `[ID: 5197:1261]`
+        - **Text Element**: "Risk Severity Meter" `[ID: 5197:1262]`
+        - **Text Element**: "▲ Medium Risk" `[ID: 5197:1263]`
+        - **Text Element**: "Based on module coverage & complexity" `[ID: 5197:1264]`
+        - **Icon/Vector**: `SVG` `[ID: 5197:1265]`
+      - **Background+Border** (FRAME) `[ID: 5197:1271]`
+        - **Text Element**: "Automation Potential" `[ID: 5197:1272]`
+        - **Text Element**: "82% Automatable" `[ID: 5197:1273]`
+        - **Text Element**: "|-" `[ID: 5197:1274]`
+        - *Background* (RECTANGLE) `[ID: 5197:1275]`
+        - *Ellipse 11* (ELLIPSE) `[ID: 5197:1276]`
+        - *Ellipse 12* (ELLIPSE) `[ID: 5197:1277]`
+        - **Text Element**: "82%" `[ID: 5197:1278]`
+      - **Background+Border** (FRAME) `[ID: 5197:1279]`
+        - **Text Element**: "Team Collaboration" `[ID: 5197:1280]`
+        - **Background+Border** (FRAME) `[ID: 5197:1281]`
+          - **Text Element**: "JM" `[ID: 5197:1282]`
+        - **Background+Border** (FRAME) `[ID: 5197:1283]`
+          - **Text Element**: "AS" `[ID: 5197:1284]`
+        - **Background+Border** (FRAME) `[ID: 5197:1285]`
+          - **Text Element**: "PR" `[ID: 5197:1286]`
+        - **Background+Border** (FRAME) `[ID: 5197:1287]`
+          - **Text Element**: "+4" `[ID: 5197:1288]`
+        - *Background* (RECTANGLE) `[ID: 5197:1289]`
+        - **Text Element**: "Active" `[ID: 5197:1290]`
+        - **Text Element**: "7 members · 3 online" `[ID: 5197:1291]`
+        - **Paragraph+HorizontalBorder** (FRAME) `[ID: 5197:1292]`
+          - **Text Element**: "14" `[ID: 5197:1293]`
+          - **Text Element**: "Comments" `[ID: 5197:1294]`
+          - **Text Element**: "5" `[ID: 5197:1295]`
+          - **Text Element**: "Reviews" `[ID: 5197:1296]`
+          - **Text Element**: "3" `[ID: 5197:1297]`
+          - **Text Element**: "Approved" `[ID: 5197:1298]`
+    - **Background+Border** (FRAME) `[ID: 5197:1299]`
+      - **Text Element**: "AI Confidence Score" `[ID: 5197:1300]`
+      - **Text Element**: "AI Confidence" `[ID: 5197:1301]`
+      - **Text Element**: "91%" `[ID: 5197:1302]`
+      - **Icon/Vector**: `Background` `[ID: 5197:1303]`
+      - **Background+Border** (FRAME) `[ID: 5197:1305]`
+        - **Text Element**: "Highly Reliable" `[ID: 5197:1306]`
+      - **Background** (FRAME) `[ID: 5197:1307]`
+        - **Text Element**: "AI Verified" `[ID: 5197:1308]`
+      - **Text Element**: "Coverage Breakdown" `[ID: 5197:1309]`
+      - **Text Element**: "Step Coverage" `[ID: 5197:1310]`
+      - **Text Element**: "94%" `[ID: 5197:1311]`
+      - **Icon/Vector**: `Background` `[ID: 5197:1312]`
+      - **Text Element**: "Assertion Quality" `[ID: 5197:1314]`
+      - **Text Element**: "88%" `[ID: 5197:1315]`
+      - **Icon/Vector**: `Background` `[ID: 5197:1316]`
+      - **Text Element**: "Edge Case Detection" `[ID: 5197:1318]`
+      - **Text Element**: "79%" `[ID: 5197:1319]`
+      - **Icon/Vector**: `Background` `[ID: 5197:1320]`
+    - **mt-5 rounded-lg border border-slate-200 bg-white p-5** (FRAME) `[ID: 5197:1322]`
+      - **flex items-start gap-3** (FRAME) `[ID: 5197:1323]`
+        - **grid h-7 w-7 place-items-center rounded-full bg-indigo-600 text-xs font-semibold text-white** (FRAME) `[ID: 5197:1324]`
+          - **Text Element**: "0" `[ID: 5197:1325]`
+        - **Frame** (FRAME) `[ID: 5197:1326]`
+          - **Text Element**: "Actions & Tools" `[ID: 5197:1327]`
+          - **Text Element**: "Draft auto-save, export, import, clone and AI prompt history" `[ID: 5197:1328]`
+      - **grid grid-cols-1 gap-2 sm:grid-cols-2** (FRAME) `[ID: 5197:1329]`
+        - **Button group flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 text-left transition hover:border-slate-300 hover:bg-slate-50** (FRAME) `[ID: 5197:1330]`
+          - **Icon/Vector**: `grid h-10 w-10 shrink-0 place-items-center rounded-full text-base bg-emerald-50 text-emerald-600` `[ID: 5197:1331]`
+          - **min-w-0 flex-1** (FRAME) `[ID: 5197:1333]`
+            - **Text Element**: "Draft Auto Save" `[ID: 5197:1334]`
+            - **truncate text-xs text-slate-500** (FRAME) `[ID: 5197:1335]`
+              - **Text Element**: "Draft auto-save enabled" `[ID: 5197:1336]`
+          - **Icon/Vector**: `Frame` `[ID: 5197:1337]`
+        - **Button group flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 text-left transition hover:border-slate-300 hover:bg-slate-50** (FRAME) `[ID: 5197:1339]`
+          - **Icon/Vector**: `grid h-10 w-10 shrink-0 place-items-center rounded-full bg-indigo-50 text-base text-indigo-600` `[ID: 5197:1340]`
+          - **min-w-0 flex-1** (FRAME) `[ID: 5197:1342]`
+            - **Text Element**: "Export Test Case" `[ID: 5197:1343]`
+            - **truncate text-xs text-slate-500** (FRAME) `[ID: 5197:1344]`
+              - **Text Element**: "Download as JSON, CSV, or Markdown" `[ID: 5197:1345]`
+          - **Icon/Vector**: `Frame` `[ID: 5197:1346]`
+        - **Button group flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 text-left transition hover:border-slate-300 hover:bg-slate-50** (FRAME) `[ID: 5197:1348]`
+          - **Icon/Vector**: `grid h-10 w-10 shrink-0 place-items-center rounded-full bg-sky-50 text-base text-sky-600` `[ID: 5197:1349]`
+          - **min-w-0 flex-1** (FRAME) `[ID: 5197:1351]`
+            - **Text Element**: "Bulk Import Test Cases" `[ID: 5197:1352]`
+            - **truncate text-xs text-slate-500** (FRAME) `[ID: 5197:1353]`
+              - **Text Element**: "Upload CSV, XLSX, or JSON files" `[ID: 5197:1354]`
+          - **Icon/Vector**: `Frame` `[ID: 5197:1355]`
+        - **Button group flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 text-left transition hover:border-slate-300 hover:bg-slate-50** (FRAME) `[ID: 5197:1357]`
+          - **Icon/Vector**: `grid h-10 w-10 shrink-0 place-items-center rounded-full bg-violet-50 text-base text-violet-600` `[ID: 5197:1358]`
+          - **min-w-0 flex-1** (FRAME) `[ID: 5197:1360]`
+            - **Text Element**: "Clone from Existing" `[ID: 5197:1361]`
+            - **truncate text-xs text-slate-500** (FRAME) `[ID: 5197:1362]`
+              - **Text Element**: "Duplicate an existing test case" `[ID: 5197:1363]`
+          - **Icon/Vector**: `Frame` `[ID: 5197:1364]`
+        - **Button group flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 text-left transition hover:border-slate-300 hover:bg-slate-50 sm:col-span-2** (FRAME) `[ID: 5197:1366]`
+          - **Icon/Vector**: `grid h-10 w-10 shrink-0 place-items-center rounded-full bg-fuchsia-50 text-base text-fuchsia-600` `[ID: 5197:1367]`
+          - **min-w-0 flex-1** (FRAME) `[ID: 5197:1369]`
+            - **Text Element**: "AI Prompt History" `[ID: 5197:1370]`
+            - **truncate text-xs text-slate-500** (FRAME) `[ID: 5197:1371]`
+              - **Text Element**: "Review and re-run previous AI assistant prompts" `[ID: 5197:1372]`
+          - **Icon/Vector**: `Frame` `[ID: 5197:1373]`
+      - **Icon/Vector**: `Frame` `[ID: 5197:1508]`
+  - **Nav** (FRAME) `[ID: 5197:1375]`
+    - **HorizontalBorder** (FRAME) `[ID: 5197:1376]`
+      - **Border** (FRAME) `[ID: 5197:1377]`
+        - **Background+Border** (FRAME) `[ID: 5197:1378]`
+          - **Text Element**: "O" `[ID: 5197:1379]`
+        - **Text Element**: "Omaha" `[ID: 5197:1380]`
+        - **Text Element**: "prod workspace" `[ID: 5197:1381]`
+        - **Text Element**: "▾" `[ID: 5197:1382]`
+    - **Text Element**: "Overview" `[ID: 5197:1383]`
+    - **Link** (FRAME) `[ID: 5197:1384]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1385]`
+      - **Text Element**: "Monitoring" `[ID: 5197:1387]`
+      - **Background** (FRAME) `[ID: 5197:1388]`
+        - **Text Element**: "3" `[ID: 5197:1389]`
+    - **Link** (FRAME) `[ID: 5197:1390]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1391]`
+      - **Text Element**: "Executions" `[ID: 5197:1393]`
+      - **Background** (FRAME) `[ID: 5197:1394]`
+        - **Text Element**: "24" `[ID: 5197:1395]`
+    - **Link** (FRAME) `[ID: 5197:1396]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1397]`
+      - **Text Element**: "Schedules" `[ID: 5197:1402]`
+    - **Text Element**: "Quality" `[ID: 5197:1403]`
+    - **Link** (FRAME) `[ID: 5197:1404]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1405]`
+      - **Text Element**: "Test cases" `[ID: 5197:1407]`
+      - **Background** (FRAME) `[ID: 5197:1408]`
+        - **Text Element**: "142" `[ID: 5197:1409]`
+    - **Link** (FRAME) `[ID: 5197:1410]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1411]`
+      - **Text Element**: "Suites" `[ID: 5197:1415]`
+    - **Link** (FRAME) `[ID: 5197:1416]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1417]`
+      - **Text Element**: "Defects" `[ID: 5197:1420]`
+      - **Background** (FRAME) `[ID: 5197:1421]`
+        - **Text Element**: "7" `[ID: 5197:1422]`
+    - **Text Element**: "Platform" `[ID: 5197:1423]`
+    - **Link** (FRAME) `[ID: 5197:1424]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1425]`
+      - **Text Element**: "Modules" `[ID: 5197:1428]`
+    - **Link** (FRAME) `[ID: 5197:1429]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1430]`
+      - **Text Element**: "Environments" `[ID: 5197:1433]`
+    - **Link** (FRAME) `[ID: 5197:1434]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1435]`
+      - **Text Element**: "Integrations" `[ID: 5197:1437]`
+    - **Link** (FRAME) `[ID: 5197:1438]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1439]`
+      - **Text Element**: "Reports" `[ID: 5197:1444]`
+    - **Link** (FRAME) `[ID: 5197:1445]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1446]`
+      - **Text Element**: "E2E Flow" `[ID: 5197:1451]`
+      - **Background** (FRAME) `[ID: 5197:1452]`
+        - **Text Element**: "10" `[ID: 5197:1453]`
+    - **HorizontalBorder** (FRAME) `[ID: 5197:1454]`
+      - **Background** (FRAME) `[ID: 5197:1455]`
+        - **Text Element**: "JM" `[ID: 5197:1456]`
+      - **Text Element**: "Jordan Miles" `[ID: 5197:1457]`
+      - **Text Element**: "QA Lead" `[ID: 5197:1458]`
+  - **Header** (FRAME) `[ID: 5197:1459]`
+    - **VerticalBorder** (FRAME) `[ID: 5197:1460]`
+      - **Icon/Vector**: `Background` `[ID: 5197:1461]`
+      - **Text Element**: "Omaha" `[ID: 5197:1467]`
+    - **Text Element**: "Test Cases" `[ID: 5197:1468]`
+    - **Text Element**: "/" `[ID: 5197:1469]`
+    - **Text Element**: "Create Test Case" `[ID: 5197:1470]`
+    - **Background+Border** (FRAME) `[ID: 5197:1471]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1472]`
+      - **Input** (FRAME) `[ID: 5197:1475]`
+        - **Container** (FRAME) `[ID: 5197:1476]`
+          - **Text Element**: "Search test cases, suites, defects..." `[ID: 5197:1477]`
+    - **Button** (FRAME) `[ID: 5197:1478]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1479]`
+      - **Text Element**: "Export" `[ID: 5197:1483]`
+    - **Button** (FRAME) `[ID: 5197:1484]`
+      - **Icon/Vector**: `SVG` `[ID: 5197:1485]`
+      - **Text Element**: "New test case" `[ID: 5197:1488]`
+    - **Background** (FRAME) `[ID: 5197:1489]`
+      - **Text Element**: "JM" `[ID: 5197:1490]`
