@@ -99,6 +99,8 @@ function App() {
             {/* Header Controls */}
             <Header 
               onToggleSidebar={() => setSidebarOpen(true)}
+              activeScreen={activeScreen}
+              onExecuteSuite={handleRunAll}
             />
 
             {/* View switching logic */}

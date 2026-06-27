@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Search, ChevronRight, Play, Edit, ExternalLink, Download, 
   Plus, Check, X, ShieldAlert, ArrowLeft, Sparkles, 
@@ -34,6 +34,12 @@ interface TestCase {
 export const TestCasesView: React.FC = () => {
   // Navigation View State: 'list' | 'create' | 'execute'
   const [viewState, setViewState] = useState<'list' | 'create' | 'execute'>('list');
+
+  useEffect(() => {
+    const handleTrigger = () => setViewState('create');
+    window.addEventListener('trigger-new-test-case', handleTrigger);
+    return () => window.removeEventListener('trigger-new-test-case', handleTrigger);
+  }, []);
 
   // Initial test case list
   const [testCases, setTestCases] = useState<TestCase[]>([
