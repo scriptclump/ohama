@@ -1,0 +1,570 @@
+# Screen 2: Dashboard Overview
+
+**Figma Node ID**: `3863:116`  
+**Description**: The main monitoring dashboard containing KPIs, charts for test execution timeline, sub-module pass rates, and an activity heatmap grid.
+
+## Element Hierarchy & Details
+
+- **2** (`FRAME`) — fill: fill_LP590S
+  - **top-bar** (`FRAME`) — fill: fill_MFTJ8K
+    - **top-left** (`FRAME`)
+      - **logo-box** (`FRAME`) — rounded: 4px, fill: fill_7FKUMZ
+        - **logo-inner** (`FRAME`) — rounded: 1px, fill: fill_K2VRUH
+      - **brand-text** (`FRAME`)
+        - **Omaha** (`TEXT`) — text: *"Omaha"*, fill: fill_7FKUMZ
+        - **brand-sub** (`TEXT`) — text: *"- hi-fi"*, fill: fill_LSRR8B
+      - **version-pill** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+        - **v1.0** (`TEXT`) — text: *"v1.0"*, fill: fill_LSRR8B
+      - **top-center** (`FRAME`)
+        - **nav-tab** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **1 · Login** (`TEXT`) — text: *"1 · Login"*, fill: fill_LSRR8B
+        - **nav-tab** (`FRAME`) — rounded: 6px, fill: fill_7FKUMZ
+          - **2 · Dashboard** (`TEXT`) — text: *"2 · Dashboard"*, fill: fill_MFTJ8K
+        - **nav-tab** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **3 · Detail** (`TEXT`) — text: *"3 · Detail"*, fill: fill_LSRR8B
+        - **nav-tab** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **4 · Test cases** (`TEXT`) — text: *"4 · Test cases"*, fill: fill_LSRR8B
+    - **top-right** (`TEXT`) — text: *"Flow: Login → Dashboard → Detail → Tests"*, fill: fill_LSRR8B
+  - **app-body** (`FRAME`)
+    - **sidebar** (`FRAME`) — fill: fill_MFTJ8K
+      - **org-selector** (`FRAME`)
+        - **org-icon** (`FRAME`) — rounded: 4px, fill: fill_VKPPKO
+          - **O** (`TEXT`) — text: *"O"*, fill: fill_YS1C6R
+        - **org-info** (`FRAME`)
+          - **org-name** (`TEXT`) — text: *"Omaha"*, fill: fill_7FKUMZ
+          - **org-sub** (`TEXT`) — text: *"prod workspace"*, fill: fill_LSRR8B
+      - **nav-group** (`FRAME`)
+        - **nav-group-title** (`FRAME`)
+          - **OVERVIEW** (`TEXT`) — text: *"OVERVIEW"*, fill: fill_0HGWKT
+        - **nav-item** (`FRAME`) — fill: fill_NJZ7KB
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"📊"*, fill: fill_5DBL0F
+            - **Monitoring** (`TEXT`) — text: *"Monitoring"*, fill: fill_5DBL0F
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"▶"*, fill: fill_LSRR8B
+            - **Executions** (`TEXT`) — text: *"Executions"*, fill: fill_LSRR8B
+          - **nav-badge** (`FRAME`) — rounded: 10px, fill: fill_WD3CXB
+            - **12** (`TEXT`) — text: *"12"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"⏱"*, fill: fill_LSRR8B
+            - **Schedules** (`TEXT`) — text: *"Schedules"*, fill: fill_LSRR8B
+      - **nav-group** (`FRAME`)
+        - **nav-group-title** (`FRAME`)
+          - **QUALITY** (`TEXT`) — text: *"QUALITY"*, fill: fill_0HGWKT
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"✓"*, fill: fill_LSRR8B
+            - **Test cases** (`TEXT`) — text: *"Test cases"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"📁"*, fill: fill_LSRR8B
+            - **Suites** (`TEXT`) — text: *"Suites"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"🐞"*, fill: fill_LSRR8B
+            - **Defects** (`TEXT`) — text: *"Defects"*, fill: fill_LSRR8B
+          - **nav-badge** (`FRAME`) — rounded: 10px, fill: fill_WD3CXB
+            - **14** (`TEXT`) — text: *"14"*, fill: fill_LSRR8B
+      - **nav-group** (`FRAME`)
+        - **nav-group-title** (`FRAME`)
+          - **PLATFORM** (`TEXT`) — text: *"PLATFORM"*, fill: fill_0HGWKT
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"📦"*, fill: fill_LSRR8B
+            - **Modules** (`TEXT`) — text: *"Modules"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"☁"*, fill: fill_LSRR8B
+            - **Environments** (`TEXT`) — text: *"Environments"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"⚡"*, fill: fill_LSRR8B
+            - **Integrations** (`TEXT`) — text: *"Integrations"*, fill: fill_LSRR8B
+      - **sidebar-footer** (`FRAME`)
+        - **avatar** (`FRAME`) — rounded: 50px, fill: fill_R2CTYE
+          - **RM** (`TEXT`) — text: *"RM"*, fill: fill_C49YEV
+        - **user-info** (`FRAME`)
+          - **user-name** (`TEXT`) — text: *"Riya Mehta"*, fill: fill_7FKUMZ
+          - **user-role** (`TEXT`) — text: *"QA Lead"*, fill: fill_LSRR8B
+    - **main-content** (`FRAME`) — fill: fill_LP590S
+      - **page-header** (`FRAME`)
+        - **div** (`FRAME`)
+          - **page-title** (`TEXT`) — text: *"Monitoring"*, fill: fill_7FKUMZ
+          - **page-desc** (`TEXT`) — text: *"Live overview of test execution and project health across your stack."*, fill: fill_LSRR8B
+        - **header-controls** (`FRAME`)
+          - **segmented-control** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+            - **segment** (`FRAME`) — rounded: 4px
+              - **1d** (`TEXT`) — text: *"1d"*, fill: fill_LSRR8B
+            - **segment** (`FRAME`) — rounded: 4px, fill: fill_7FKUMZ
+              - **7d** (`TEXT`) — text: *"7d"*, fill: fill_MFTJ8K
+            - **segment** (`FRAME`) — rounded: 4px
+              - **30d** (`TEXT`) — text: *"30d"*, fill: fill_LSRR8B
+            - **segment** (`FRAME`) — rounded: 4px
+              - **90d** (`TEXT`) — text: *"90d"*, fill: fill_LSRR8B
+          - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+            - **↻ Refresh** (`TEXT`) — text: *"↻ Refresh"*, fill: fill_7FKUMZ
+          - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+            - **↗ Share** (`TEXT`) — text: *"↗ Share"*, fill: fill_7FKUMZ
+      - **hero-banner** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+        - **svg** (`IMAGE-SVG`)
+        - **hero-left** (`FRAME`)
+          - **hero-pill-row** (`FRAME`)
+            - **release-name** (`FRAME`) — rounded: 4px, fill: fill_NJZ7KB
+              - **Release 2.42 - stagi...** (`TEXT`) — text: *"Release 2.42 - staging"*, fill: fill_5DBL0F
+            - **status-pill** (`FRAME`) — rounded: 12px, fill: fill_207P21
+              - **pseudo-before** (`FRAME`) — rounded: 50px, fill: fill_FG8L8Q
+              - **Healthy** (`TEXT`) — text: *"Healthy"*, fill: fill_FG8L8Q
+          - **hero-main-stat** (`TEXT`) — text: *"2,847 test cases running across 7 modules"*, fill: fill_7FKUMZ
+          - **hero-sub-stat** (`TEXT`) — text: *"Pass rate is up 3.6% week-over-week. 2 regressions detected in Invoice posting this morning — owners notified."*, fill: fill_LSRR8B
+          - **hero-actions** (`FRAME`)
+            - **btn** (`FRAME`) — rounded: 6px, fill: fill_5DBL0F
+              - **▶ Run all** (`TEXT`) — text: *"▶ Run all"*, fill: fill_MFTJ8K
+            - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+              - **View release** (`TEXT`) — text: *"View release"*, fill: fill_7FKUMZ
+        - **hero-right** (`FRAME`) — fill: fill_NQ5UC5
+          - **hero-kpi-item** (`FRAME`)
+            - **div** (`FRAME`)
+              - **kpi-title** (`TEXT`) — text: *"EXECUTIONS TODAY"*, fill: fill_LSRR8B
+              - **kpi-value** (`TEXT`) — text: *"592"*, fill: fill_7FKUMZ
+              - **kpi-trend** (`FRAME`)
+                - **↑ 12% vs yesterday** (`TEXT`) — text: *"↑ 12% vs yesterday"*, fill: fill_FG8L8Q
+            - **svg** (`IMAGE-SVG`)
+          - **hero-kpi-item** (`FRAME`)
+            - **div** (`FRAME`)
+              - **kpi-title** (`TEXT`) — text: *"PASS RATE"*, fill: fill_LSRR8B
+              - **kpi-value** (`TEXT`) — text: *"82.4%"*, fill: fill_7FKUMZ
+              - **kpi-trend** (`FRAME`)
+                - **↑ 3.6% wk over wk** (`TEXT`) — text: *"↑ 3.6% wk over wk"*, fill: fill_FG8L8Q
+            - **svg** (`IMAGE-SVG`)
+          - **hero-kpi-item** (`FRAME`)
+            - **div** (`FRAME`)
+              - **kpi-title** (`TEXT`) — text: *"AVG RUNTIME"*, fill: fill_LSRR8B
+              - **kpi-value** (`TEXT`) — text: *"4m 12s"*, fill: fill_7FKUMZ
+              - **kpi-trend** (`FRAME`)
+                - **↑ 8s faster** (`TEXT`) — text: *"↑ 8s faster"*, fill: fill_FG8L8Q
+            - **svg** (`IMAGE-SVG`)
+      - **sec-kpi-row** (`FRAME`)
+        - **sec-kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **sec-kpi-info** (`FRAME`)
+            - **kpi-title** (`TEXT`) — text: *"TOTAL TEST CASES"*, fill: fill_LSRR8B
+            - **sec-kpi-val** (`TEXT`) — text: *"2,847"*, fill: fill_7FKUMZ
+            - **kpi-trend** (`FRAME`)
+              - **↑ 1.2% 34 new** (`TEXT`) — text: *"↑ 1.2% 34 new"*, fill: fill_FG8L8Q
+          - **svg** (`IMAGE-SVG`)
+        - **sec-kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **sec-kpi-info** (`FRAME`)
+            - **kpi-title** (`TEXT`) — text: *"AUTOMATION COVERAGE"*, fill: fill_LSRR8B
+            - **sec-kpi-val** (`TEXT`) — text: *"68%"*, fill: fill_7FKUMZ
+            - **kpi-trend** (`FRAME`)
+              - **↑ 2.2% 1,936 / 2,847** (`TEXT`) — text: *"↑ 2.2% 1,936 / 2,847"*, fill: fill_FG8L8Q
+          - **svg** (`IMAGE-SVG`)
+        - **sec-kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **sec-kpi-info** (`FRAME`)
+            - **kpi-title** (`TEXT`) — text: *"OPEN DEFECTS"*, fill: fill_LSRR8B
+            - **sec-kpi-val** (`TEXT`) — text: *"14"*, fill: fill_7FKUMZ
+            - **kpi-trend** (`FRAME`)
+              - **↓ 2 critical** (`TEXT`) — text: *"↓ 2 critical"*, fill: fill_EIF048
+          - **svg** (`IMAGE-SVG`)
+        - **sec-kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **sec-kpi-info** (`FRAME`)
+            - **kpi-title** (`TEXT`) — text: *"ACTIVE SUITES"*, fill: fill_LSRR8B
+            - **sec-kpi-val** (`TEXT`) — text: *"21"*, fill: fill_7FKUMZ
+            - **kpi-trend** (`FRAME`)
+              - **↑ 8% 3 scheduled** (`TEXT`) — text: *"↑ 8% 3 scheduled"*, fill: fill_FG8L8Q
+          - **svg** (`IMAGE-SVG`)
+      - **div** (`FRAME`)
+        - **card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **card-header** (`FRAME`)
+            - **div** (`FRAME`)
+              - **card-title** (`TEXT`) — text: *"Execution results"*, fill: fill_7FKUMZ
+              - **card-subtitle** (`TEXT`) — text: *"Outcome distribution - last 7 days"*, fill: fill_LSRR8B
+            - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+              - **—** (`TEXT`) — text: *"—"*, fill: fill_7FKUMZ
+          - **donut-container** (`FRAME`)
+            - **donut-inner** (`FRAME`) — rounded: 50px, fill: fill_MFTJ8K
+              - **donut-val** (`TEXT`) — text: *"82%"*, fill: fill_7FKUMZ
+              - **donut-label** (`TEXT`) — text: *"PASS RATE"*, fill: fill_LSRR8B
+            - **legend-list** (`FRAME`)
+              - **legend-item** (`FRAME`)
+                - **legend-left** (`FRAME`)
+                  - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_FG8L8Q
+                  - **Passed** (`TEXT`) — text: *"Passed"*, fill: fill_LSRR8B
+                - **legend-val** (`TEXT`) — text: *"2,354 82.6%"*, fill: fill_LNKOAF
+              - **legend-item** (`FRAME`)
+                - **legend-left** (`FRAME`)
+                  - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_EIF048
+                  - **Failed** (`TEXT`) — text: *"Failed"*, fill: fill_LSRR8B
+                - **legend-val** (`TEXT`) — text: *"312 11.0%"*, fill: fill_LNKOAF
+              - **legend-item** (`FRAME`)
+                - **legend-left** (`FRAME`)
+                  - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_DGM9IT
+                  - **No result** (`TEXT`) — text: *"No result"*, fill: fill_LSRR8B
+                - **legend-val** (`TEXT`) — text: *"88 3.1%"*, fill: fill_LNKOAF
+              - **legend-item** (`FRAME`)
+                - **legend-left** (`FRAME`)
+                  - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_LSRR8B
+                  - **Exec error** (`TEXT`) — text: *"Exec error"*, fill: fill_LSRR8B
+                - **legend-val** (`TEXT`) — text: *"34 1.2%"*, fill: fill_LNKOAF
+            - **Ellipse 3** (`ELLIPSE`) — fill: fill_DGM9IT
+            - **Ellipse 6** (`ELLIPSE`) — fill: fill_FG8L8Q
+            - **Ellipse 7** (`ELLIPSE`) — fill: fill_LSRR8B
+            - **Ellipse 4** (`ELLIPSE`) — fill: fill_EIF048
+            - **Ellipse 5** (`ELLIPSE`) — fill: fill_EIF048
+        - **card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **card-header** (`FRAME`)
+            - **div** (`FRAME`)
+              - **card-title** (`TEXT`) — text: *"Execution trend by log step"*, fill: fill_7FKUMZ
+              - **card-subtitle** (`TEXT`) — text: *"Stacked outcomes across all suites"*, fill: fill_LSRR8B
+            - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+              - **By suite ▾** (`TEXT`) — text: *"By suite ▾"*, fill: fill_7FKUMZ
+          - **chart-top-legend** (`FRAME`)
+            - **legend-left** (`FRAME`)
+              - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_FG8L8Q
+              - **Passed** (`TEXT`) — text: *"Passed"*, fill: fill_LSRR8B
+            - **legend-left** (`FRAME`)
+              - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_EIF048
+              - **Failed** (`TEXT`) — text: *"Failed"*, fill: fill_LSRR8B
+            - **legend-left** (`FRAME`)
+              - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_DGM9IT
+              - **No result** (`TEXT`) — text: *"No result"*, fill: fill_LSRR8B
+            - **legend-left** (`FRAME`)
+              - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_LSRR8B
+              - **Execution error** (`TEXT`) — text: *"Execution error"*, fill: fill_LSRR8B
+          - **bar-chart-container** (`FRAME`)
+            - **chart-plot** (`FRAME`)
+              - **div** (`FRAME`)
+              - **div** (`FRAME`)
+              - **div** (`FRAME`)
+              - **div** (`FRAME`)
+              - **bar-col** (`FRAME`)
+                - **bar-seg** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-seg** (`FRAME`) — fill: fill_EIF048
+                - **bar-seg** (`FRAME`) — fill: fill_DGM9IT
+                - **span** (`TEXT`) — text: *"110"*, fill: fill_LSRR8B
+              - **bar-col** (`FRAME`)
+                - **bar-seg** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-seg** (`FRAME`) — fill: fill_EIF048
+                - **span** (`TEXT`) — text: *"112"*, fill: fill_LSRR8B
+              - **bar-col** (`FRAME`)
+                - **bar-seg** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-seg** (`FRAME`) — fill: fill_EIF048
+                - **bar-seg** (`FRAME`) — fill: fill_LSRR8B
+              - **bar-col** (`FRAME`)
+                - **bar-seg** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-seg** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-seg** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-seg** (`FRAME`) — fill: fill_EIF048
+                - **bar-seg** (`FRAME`) — fill: fill_DGM9IT
+              - **bar-col** (`FRAME`)
+                - **bar-seg** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-seg** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-seg** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-seg** (`FRAME`) — fill: fill_EIF048
+              - **span** (`TEXT`) — text: *"200"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"200"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"220"*, fill: fill_LSRR8B
+            - **x-axis** (`FRAME`)
+              - **span** (`TEXT`) — text: *"02/02"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"25"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"100"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"02/03"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"02/04"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"02/05"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"02/06"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"02/07"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"02/08"*, fill: fill_LSRR8B
+          - **span** (`TEXT`) — text: *"300"*, fill: fill_LSRR8B
+          - **span** (`TEXT`) — text: *"175"*, fill: fill_LSRR8B
+          - **span** (`TEXT`) — text: *"300"*, fill: fill_LSRR8B
+      - **div** (`FRAME`)
+        - **card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **card-header** (`FRAME`)
+            - **div** (`FRAME`)
+              - **card-title** (`TEXT`) — text: *"Bugs by module"*, fill: fill_7FKUMZ
+              - **card-subtitle** (`TEXT`) — text: *"Click a module to drill into detail"*, fill: fill_LSRR8B
+            - **legend-left** (`FRAME`)
+              - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_FG8L8Q
+              - **PASSED** (`TEXT`) — text: *"PASSED"*, fill: fill_7FKUMZ
+              - **legend-dot** (`FRAME`) — rounded: 2px, fill: fill_EIF048
+              - **FAILED** (`TEXT`) — text: *"FAILED"*, fill: fill_7FKUMZ
+          - **horiz-list** (`FRAME`)
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"ERP"*, fill: fill_5DBL0F
+                - **horiz-val** (`TEXT`) — text: *"285"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"Accounts Payable"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"240"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"Accounts Receivable"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"215"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"Fixed Assets"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"185"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"General Ledger"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"160"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"Procurement"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"95"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"Warehouse Mgmt"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"65"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+        - **card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **card-header** (`FRAME`)
+            - **div** (`FRAME`)
+              - **card-title** (`TEXT`) — text: *"Automation vs Manual"*, fill: fill_7FKUMZ
+              - **card-subtitle** (`TEXT`) — text: *"Coverage split by key module"*, fill: fill_LSRR8B
+            - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+              - **—** (`TEXT`) — text: *"—"*, fill: fill_7FKUMZ
+          - **horiz-list** (`FRAME`)
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"Accounts Payable"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"27% auto"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_5DBL0F
+                - **div** (`FRAME`) — fill: fill_JXQKR4
+              - **div** (`FRAME`)
+                - **span** (`TEXT`) — text: *"Auto: 54"*, fill: fill_LSRR8B
+                - **span** (`TEXT`) — text: *"Manual: 146"*, fill: fill_LSRR8B
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"ERP"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"62% auto"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_5DBL0F
+                - **div** (`FRAME`) — fill: fill_JXQKR4
+              - **div** (`FRAME`)
+                - **span** (`TEXT`) — text: *"Auto: 195"*, fill: fill_LSRR8B
+                - **span** (`TEXT`) — text: *"Manual: 120"*, fill: fill_LSRR8B
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"Fixed Assets"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"75% auto"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_5DBL0F
+                - **div** (`FRAME`) — fill: fill_JXQKR4
+              - **div** (`FRAME`)
+                - **span** (`TEXT`) — text: *"Auto: 75"*, fill: fill_LSRR8B
+                - **span** (`TEXT`) — text: *"Manual: 25"*, fill: fill_LSRR8B
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"General Ledger"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"85% auto"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_5DBL0F
+                - **div** (`FRAME`) — fill: fill_JXQKR4
+              - **div** (`FRAME`)
+                - **span** (`TEXT`) — text: *"Auto: 85"*, fill: fill_LSRR8B
+                - **span** (`TEXT`) — text: *"Manual: 15"*, fill: fill_LSRR8B
+            - **horiz-item** (`FRAME`)
+              - **horiz-header** (`FRAME`)
+                - **horiz-title** (`TEXT`) — text: *"Procurement"*, fill: fill_7FKUMZ
+                - **horiz-val** (`TEXT`) — text: *"55% auto"*, fill: fill_LSRR8B
+              - **horiz-track** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_5DBL0F
+                - **div** (`FRAME`) — fill: fill_JXQKR4
+              - **div** (`FRAME`)
+                - **span** (`TEXT`) — text: *"Auto: 55"*, fill: fill_LSRR8B
+                - **span** (`TEXT`) — text: *"Manual: 45"*, fill: fill_LSRR8B
+      - **card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+        - **card-header** (`FRAME`)
+          - **div** (`FRAME`)
+            - **card-title** (`TEXT`) — text: *"Execution activity"*, fill: fill_7FKUMZ
+            - **card-subtitle** (`TEXT`) — text: *"Daily run volume - last 16 weeks"*, fill: fill_LSRR8B
+          - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+            - **Calendar** (`TEXT`) — text: *"Calendar"*, fill: fill_7FKUMZ
+        - **heatmap-container** (`FRAME`)
+          - **heatmapGrid** (`FRAME`)
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+            - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+          - **hm-info** (`FRAME`)
+            - **hm-total** (`TEXT`) — text: *"14,284 runs"*, fill: fill_7FKUMZ
+            - **hm-sub** (`TEXT`) — text: *"Peak: Mon 10 Feb - 234 runs"*, fill: fill_LSRR8B
+            - **hm-legend** (`FRAME`)
+              - **Less** (`TEXT`) — text: *"Less"*, fill: fill_LSRR8B
+              - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_YSKDFE
+              - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_6FCXLO
+              - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_X5Q5ZH
+              - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_5DBL0F
+              - **hm-cell** (`FRAME`) — rounded: 2px, fill: fill_QZBSKQ
+              - **More** (`TEXT`) — text: *"More"*, fill: fill_LSRR8B
+  - **span** (`TEXT`) — text: *"120"*, fill: fill_LSRR8B

@@ -1,0 +1,72 @@
+# Screen 1: Login
+
+**Figma Node ID**: `3948:2315`  
+**Description**: The entry point for the Omaha Upstream Testing Platform, featuring work email/password input fields, SAML & Google SSO integrations, and platform statistics.
+
+## Element Hierarchy & Details
+
+- **3** (`FRAME`) — fill: fill_LP590S
+  - **main-content** (`FRAME`)
+    - **right-panel** (`FRAME`) — fill: fill_LP590S
+      - **form-container** (`FRAME`)
+        - **form-eyebrow** (`TEXT`) — text: *"Sign In"*, fill: fill_LSRR8B
+        - **form-title** (`TEXT`) — text: *"Welcome back"*, fill: fill_7FKUMZ
+        - **form-subtitle** (`TEXT`) — text: *"Use your work email or continue with SSO."*, fill: fill_LSRR8B
+        - **sso-btn** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **sso-icon-saml** (`FRAME`) — rounded: 4px, fill: fill_EB2W1B
+            - **S** (`TEXT`) — text: *"S"*, fill: fill_MFTJ8K
+          - **Continue with SAML S...** (`TEXT`) — text: *"Continue with SAML SSO"*, fill: fill_7FKUMZ
+        - **sso-btn** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **sso-icon-google** (`TEXT`) — text: *"❖"*, fill: fill_0HHBPV
+          - **Continue with Google...** (`TEXT`) — text: *"Continue with Google Workspace"*, fill: fill_7FKUMZ
+        - **divider** (`FRAME`)
+          - **pseudo-before** (`FRAME`)
+          - **or** (`TEXT`) — text: *"or"*, fill: fill_0HGWKT
+          - **pseudo-after** (`FRAME`)
+        - **Form** (`FRAME`)
+          - **input-group** (`FRAME`)
+            - **input-label** (`TEXT`) — text: *"Work email"*, fill: fill_DZ0TFV
+            - **email** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+              - **Value** (`TEXT`) — text: *"test@email.com"*, fill: fill_7FKUMZ
+          - **input-group** (`FRAME`)
+            - **label-row** (`FRAME`)
+              - **input-label** (`TEXT`) — text: *"Password"*, fill: fill_DZ0TFV
+              - **forgot-link** (`TEXT`) — text: *"Forgot?"*, fill: fill_EB2W1B
+            - **password** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+              - **Value** (`TEXT`) — text: *"••••••••••••"*, fill: fill_7FKUMZ
+          - **checkbox-group** (`FRAME`)
+            - **keep-signed** (`IMAGE-SVG`) — rounded: 4px, fill: fill_EB2W1B
+            - **checkbox-label** (`TEXT`) — text: *"Keep me signed in on this device"*, fill: fill_0HHBPV
+          - **submit-btn** (`FRAME`) — rounded: 8px, fill: fill_W672TV
+            - **Sign in to Omaha →** (`TEXT`) — text: *"Sign in to Omaha →"*, fill: fill_MFTJ8K
+        - **footer-link** (`TEXT`) — text: *"New to Omaha? Request access →"*, fill: fill_LNKOAF
+    - **left-panel** (`FRAME`) — fill: fill_W672TV
+      - **pseudo-before** (`FRAME`) — fill: fill_47QM8L
+      - **svg** (`IMAGE-SVG`)
+      - **svg** (`IMAGE-SVG`)
+      - **left-content** (`FRAME`)
+        - **omaha-logo-large** (`FRAME`)
+          - **omaha-icon** (`TEXT`) — text: *"✢"*, fill: fill_MFTJ8K
+          - **Omaha** (`TEXT`) — text: *"Omaha"*, fill: fill_MFTJ8K
+        - **platform-pill** (`FRAME`) — rounded: 20px, fill: fill_ZP9X43
+          - **platform-pill-dot** (`FRAME`) — rounded: 50px, fill: fill_MS8LNX
+          - **UPSTREAM TESTING PLA...** (`TEXT`) — text: *"UPSTREAM TESTING PLATFORM"*, fill: fill_MS8LNX
+        - **hero-title** (`FRAME`)
+          - **Go upstream.** (`TEXT`) — text: *"Go upstream."*, fill: fill_MFTJ8K
+          - **br** (`FRAME`)
+          - **hero-title-highlight** (`TEXT`) — text: *"Ship with confidence."*, fill: fill_MS8LNX
+        - **hero-desc** (`TEXT`) — text: *"One workspace for every test case, run, and defect across your modules — from unit to e2e, manual to fully automated."*, fill: fill_VQU8UR
+      - **left-bottom** (`FRAME`)
+        - **stats-grid** (`FRAME`)
+          - **stat-item** (`FRAME`)
+            - **stat-value** (`TEXT`) — text: *"14k+"*, fill: fill_MFTJ8K
+            - **stat-label** (`TEXT`) — text: *"daily runs"*, fill: fill_0HGWKT
+            - **pseudo-after** (`FRAME`) — fill: fill_6ICVK6
+          - **stat-item** (`FRAME`)
+            - **stat-value** (`TEXT`) — text: *"68%"*, fill: fill_MFTJ8K
+            - **stat-label** (`TEXT`) — text: *"automation"*, fill: fill_0HGWKT
+            - **pseudo-after** (`FRAME`) — fill: fill_6ICVK6
+          - **stat-item** (`FRAME`)
+            - **stat-value** (`TEXT`) — text: *"SOC 2"*, fill: fill_MFTJ8K
+            - **stat-label** (`TEXT`) — text: *"type II"*, fill: fill_0HGWKT
+        - **footer-credits** (`TEXT`) — text: *"© 2026 OMAHA TECHNOLOGIES · v3.2.1"*, fill: fill_LSRR8B

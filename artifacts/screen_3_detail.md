@@ -1,0 +1,647 @@
+# Screen 3: Detail View
+
+**Figma Node ID**: `3863:688`  
+**Description**: A detailed run and defects dashboard showing list-tables of recent test executions and active defects, along with timeline and submodule KPI bar charts.
+
+## Element Hierarchy & Details
+
+- **1** (`FRAME`) — fill: fill_LP590S
+  - **top-bar** (`FRAME`) — fill: fill_MFTJ8K
+    - **top-left** (`FRAME`)
+      - **logo-box** (`FRAME`) — rounded: 4px, fill: fill_7FKUMZ
+        - **logo-inner** (`FRAME`) — rounded: 1px, fill: fill_K2VRUH
+      - **brand-text** (`FRAME`)
+        - **Omaha** (`TEXT`) — text: *"Omaha"*, fill: fill_7FKUMZ
+        - **brand-sub** (`TEXT`) — text: *"- hi-fi"*, fill: fill_LSRR8B
+      - **version-pill** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+        - **v1.0** (`TEXT`) — text: *"v1.0"*, fill: fill_LSRR8B
+      - **top-center** (`FRAME`)
+        - **nav-tab** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **1 · Login** (`TEXT`) — text: *"1 · Login"*, fill: fill_LSRR8B
+        - **nav-tab** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **2 · Dashboard** (`TEXT`) — text: *"2 · Dashboard"*, fill: fill_LSRR8B
+        - **nav-tab** (`FRAME`) — rounded: 6px, fill: fill_7FKUMZ
+          - **3 · Detail** (`TEXT`) — text: *"3 · Detail"*, fill: fill_MFTJ8K
+        - **nav-tab** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **4 · Test cases** (`TEXT`) — text: *"4 · Test cases"*, fill: fill_LSRR8B
+    - **top-right** (`TEXT`) — text: *"Flow: Login → Dashboard → Detail → Tests"*, fill: fill_LSRR8B
+  - **app-body** (`FRAME`)
+    - **sidebar** (`FRAME`) — fill: fill_MFTJ8K
+      - **org-selector** (`FRAME`)
+        - **org-icon** (`FRAME`) — rounded: 4px, fill: fill_VKPPKO
+          - **O** (`TEXT`) — text: *"O"*, fill: fill_YS1C6R
+        - **org-info** (`FRAME`)
+          - **org-name** (`TEXT`) — text: *"Omaha"*, fill: fill_7FKUMZ
+          - **org-sub** (`TEXT`) — text: *"your workspace"*, fill: fill_LSRR8B
+      - **nav-group** (`FRAME`)
+        - **nav-group-title** (`FRAME`)
+          - **OVERVIEW** (`TEXT`) — text: *"OVERVIEW"*, fill: fill_0HGWKT
+        - **nav-item** (`FRAME`) — fill: fill_NJZ7KB
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"📊"*, fill: fill_5DBL0F
+            - **Monitoring** (`TEXT`) — text: *"Monitoring"*, fill: fill_5DBL0F
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"▶"*, fill: fill_LSRR8B
+            - **Executions** (`TEXT`) — text: *"Executions"*, fill: fill_LSRR8B
+          - **nav-badge** (`FRAME`) — rounded: 10px, fill: fill_WD3CXB
+            - **12** (`TEXT`) — text: *"12"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"⏱"*, fill: fill_LSRR8B
+            - **Schedules** (`TEXT`) — text: *"Schedules"*, fill: fill_LSRR8B
+      - **nav-group** (`FRAME`)
+        - **nav-group-title** (`FRAME`)
+          - **QUALITY** (`TEXT`) — text: *"QUALITY"*, fill: fill_0HGWKT
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"✓"*, fill: fill_LSRR8B
+            - **Test cases** (`TEXT`) — text: *"Test cases"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"📁"*, fill: fill_LSRR8B
+            - **Suites** (`TEXT`) — text: *"Suites"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"🐞"*, fill: fill_LSRR8B
+            - **Defects** (`TEXT`) — text: *"Defects"*, fill: fill_LSRR8B
+          - **nav-badge** (`FRAME`) — rounded: 10px, fill: fill_WD3CXB
+            - **14** (`TEXT`) — text: *"14"*, fill: fill_LSRR8B
+      - **nav-group** (`FRAME`)
+        - **nav-group-title** (`FRAME`)
+          - **PLATFORM** (`TEXT`) — text: *"PLATFORM"*, fill: fill_0HGWKT
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"📦"*, fill: fill_LSRR8B
+            - **Modules** (`TEXT`) — text: *"Modules"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"☁"*, fill: fill_LSRR8B
+            - **Environments** (`TEXT`) — text: *"Environments"*, fill: fill_LSRR8B
+        - **nav-item** (`FRAME`)
+          - **nav-item-left** (`FRAME`)
+            - **span** (`TEXT`) — text: *"⚡"*, fill: fill_LSRR8B
+            - **Integrations** (`TEXT`) — text: *"Integrations"*, fill: fill_LSRR8B
+      - **sidebar-footer** (`FRAME`)
+        - **avatar** (`FRAME`) — rounded: 50px, fill: fill_R2CTYE
+          - **RM** (`TEXT`) — text: *"RM"*, fill: fill_C49YEV
+        - **user-info** (`FRAME`)
+          - **user-name** (`TEXT`) — text: *"Riya Mehta"*, fill: fill_7FKUMZ
+          - **user-role** (`TEXT`) — text: *"QA Lead"*, fill: fill_LSRR8B
+    - **main-content** (`FRAME`) — fill: fill_MFTJ8K
+      - **breadcrumbs** (`TEXT`) — text: *"Dashboards / Monitoring / ERP"*, fill: fill_LNKOAF
+      - **header-row** (`FRAME`)
+        - **header-title-group** (`FRAME`)
+          - **title-line** (`FRAME`)
+            - **page-title** (`TEXT`) — text: *"ERP"*, fill: fill_7FKUMZ
+            - **status-pill** (`FRAME`) — rounded: 12px, fill: fill_207P21
+              - **pseudo-before** (`FRAME`) — rounded: 50px, fill: fill_FG8L8Q
+              - **Healthy** (`TEXT`) — text: *"Healthy"*, fill: fill_FG8L8Q
+          - **meta-info** (`TEXT`) — text: *"Owned by Payments platform · Last run 2h ago · View runbook ↗"*, fill: fill_LNKOAF
+        - **header-actions** (`FRAME`)
+          - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+            - **+ Follow** (`TEXT`) — text: *"+ Follow"*, fill: fill_7FKUMZ
+          - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+            - **Report** (`TEXT`) — text: *"Report"*, fill: fill_7FKUMZ
+          - **btn** (`FRAME`) — rounded: 6px, fill: fill_5DBL0F
+            - **▶ View test cases** (`TEXT`) — text: *"▶ View test cases"*, fill: fill_MFTJ8K
+      - **kpi-grid** (`FRAME`)
+        - **kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **kpi-title** (`TEXT`) — text: *"TOTAL CASES"*, fill: fill_LSRR8B
+          - **kpi-value** (`TEXT`) — text: *"290"*, fill: fill_7FKUMZ
+          - **kpi-trend** (`FRAME`)
+            - **↑ 12 this week** (`TEXT`) — text: *"↑ 12 this week"*, fill: fill_FG8L8Q
+        - **kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **kpi-title** (`TEXT`) — text: *"PASS RATE"*, fill: fill_LSRR8B
+          - **kpi-value** (`TEXT`) — text: *"82%"*, fill: fill_7FKUMZ
+          - **kpi-trend** (`FRAME`)
+            - **↑ 3.2% compared** (`TEXT`) — text: *"↑ 3.2% compared"*, fill: fill_FG8L8Q
+        - **kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **kpi-title** (`TEXT`) — text: *"OPEN DEFECTS"*, fill: fill_LSRR8B
+          - **kpi-value** (`TEXT`) — text: *"14"*, fill: fill_7FKUMZ
+          - **kpi-trend** (`FRAME`)
+            - **↓ 2 critical** (`TEXT`) — text: *"↓ 2 critical"*, fill: fill_EIF048
+        - **kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **kpi-title** (`TEXT`) — text: *"AUTOMATION"*, fill: fill_LSRR8B
+          - **kpi-value** (`TEXT`) — text: *"68%"*, fill: fill_7FKUMZ
+          - **kpi-trend** (`FRAME`)
+            - **↑ 2.1% coverage** (`TEXT`) — text: *"↑ 2.1% coverage"*, fill: fill_FG8L8Q
+        - **kpi-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **kpi-title** (`TEXT`) — text: *"AVG RUNTIME"*, fill: fill_LSRR8B
+          - **kpi-value** (`TEXT`) — text: *"4m 12s"*, fill: fill_7FKUMZ
+          - **kpi-trend** (`FRAME`)
+            - **↑ 8s faster** (`TEXT`) — text: *"↑ 8s faster"*, fill: fill_FG8L8Q
+      - **charts-row** (`FRAME`)
+        - **chart-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **chart-header** (`FRAME`)
+            - **div** (`FRAME`)
+              - **chart-title** (`TEXT`) — text: *"Execution timeline"*, fill: fill_7FKUMZ
+              - **chart-subtitle** (`TEXT`) — text: *"Daily outcomes · last 18 days"*, fill: fill_LSRR8B
+            - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+              - **—** (`TEXT`) — text: *"—"*, fill: fill_7FKUMZ
+            - **legend-item** (`FRAME`)
+              - **legend-color** (`FRAME`) — rounded: 2px, fill: fill_FG8L8Q
+              - **Passed** (`TEXT`) — text: *"Passed"*, fill: fill_LSRR8B
+            - **legend-item** (`FRAME`)
+              - **legend-color** (`FRAME`) — rounded: 2px, fill: fill_EIF048
+              - **Failed** (`TEXT`) — text: *"Failed"*, fill: fill_LSRR8B
+            - **legend-item** (`FRAME`)
+              - **legend-color** (`FRAME`) — rounded: 2px, fill: fill_1JYT0N
+              - **No result** (`TEXT`) — text: *"No result"*, fill: fill_LSRR8B
+            - **legend-item** (`FRAME`)
+              - **legend-color** (`FRAME`) — rounded: 2px, fill: fill_1JYT0N
+              - **Error** (`TEXT`) — text: *"Error"*, fill: fill_1JYT0N
+          - **execution-timeline** (`FRAME`)
+            - **y-axis** (`FRAME`)
+              - **span** (`TEXT`) — text: *"150"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"100"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"50"*, fill: fill_LSRR8B
+              - **span** (`TEXT`) — text: *"0"*, fill: fill_LSRR8B
+            - **chart-grid** (`FRAME`)
+              - **div** (`FRAME`)
+              - **div** (`FRAME`)
+              - **div** (`FRAME`)
+              - **div** (`FRAME`)
+            - **bars-container** (`FRAME`)
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+              - **bar-col** (`FRAME`)
+                - **bar-segment** (`FRAME`) — fill: fill_FG8L8Q
+                - **bar-segment** (`FRAME`) — fill: fill_1JYT0N
+                - **bar-segment** (`FRAME`) — fill: fill_EIF048
+            - **x-axis** (`FRAME`)
+              - **x-label** (`TEXT`) — text: *"1"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"2"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"3"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"4"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"5"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"6"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"7"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"8"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"9"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"10"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"11"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"12"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"13"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"14"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"15"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"16"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"17"*, fill: fill_LSRR8B
+              - **x-label** (`TEXT`) — text: *"18"*, fill: fill_LSRR8B
+          - **chart-legend** (`FRAME`)
+          - **legend-tags** (`FRAME`)
+            - **tag-pill** (`FRAME`) — rounded: 4px, fill: fill_MFTJ8K
+              - **↑ Pass trending up** (`TEXT`) — text: *"↑ Pass trending up"*, fill: fill_FG8L8Q
+            - **tag-pill** (`FRAME`) — rounded: 4px, fill: fill_MFTJ8K
+              - **⚠ 2 regressions - 10...** (`TEXT`) — text: *"⚠ 2 regressions - 10d 14h"*, fill: fill_EIF048
+            - **tag-pill** (`FRAME`) — rounded: 4px, fill: fill_MFTJ8K
+              - **! 1 flaky suite** (`TEXT`) — text: *"! 1 flaky suite"*, fill: fill_1JYT0N
+        - **chart-card** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+          - **chart-title** (`TEXT`) — text: *"Automation vs Manual"*, fill: fill_7FKUMZ
+          - **horiz-bars-container** (`FRAME`)
+            - **horiz-bar-group** (`FRAME`)
+              - **horiz-bar-header** (`FRAME`)
+                - **div** (`FRAME`)
+                  - **horiz-title** (`TEXT`) — text: *"Automation"*, fill: fill_7FKUMZ
+                  - **horiz-stats** (`TEXT`) — text: *"122 pass · 70 fail · 2 no result"*, fill: fill_LSRR8B
+                - **horiz-total** (`TEXT`) — text: *"194 cases"*, fill: fill_7FKUMZ
+              - **horiz-track** (`FRAME`) — rounded: 3px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+                - **div** (`FRAME`) — fill: fill_1JYT0N
+            - **horiz-bar-group** (`FRAME`)
+              - **horiz-bar-header** (`FRAME`)
+                - **div** (`FRAME`)
+                  - **horiz-title** (`TEXT`) — text: *"Manual"*, fill: fill_7FKUMZ
+                  - **horiz-stats** (`TEXT`) — text: *"64 pass · 30 fail · 6 no result"*, fill: fill_LSRR8B
+                - **horiz-total** (`TEXT`) — text: *"100 cases"*, fill: fill_7FKUMZ
+              - **horiz-track** (`FRAME`) — rounded: 3px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_FG8L8Q
+                - **div** (`FRAME`) — fill: fill_EIF048
+                - **div** (`FRAME`) — fill: fill_1JYT0N
+            - **horiz-bar-group** (`FRAME`)
+              - **horiz-bar-header** (`FRAME`)
+                - **div** (`FRAME`)
+                  - **horiz-title** (`TEXT`) — text: *"Blocked"*, fill: fill_7FKUMZ
+                  - **horiz-stats** (`TEXT`) — text: *"0 pass · 2 fail · 0 no result"*, fill: fill_LSRR8B
+                - **horiz-total** (`TEXT`) — text: *"2 cases"*, fill: fill_7FKUMZ
+              - **horiz-track** (`FRAME`) — rounded: 3px, fill: fill_WD3CXB
+                - **div** (`FRAME`) — fill: fill_EIF048
+      - **section-header** (`FRAME`)
+        - **section-title-group** (`FRAME`)
+          - **section-title** (`TEXT`) — text: *"Sub-modules & features"*, fill: fill_7FKUMZ
+          - **section-subtitle** (`TEXT`) — text: *"Click a card to view test cases"*, fill: fill_LSRR8B
+        - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **Grid ▾** (`TEXT`) — text: *"Grid ▾"*, fill: fill_7FKUMZ
+      - **submodules-grid** (`FRAME`)
+        - **sm-card** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **sm-header** (`FRAME`)
+            - **sm-title** (`TEXT`) — text: *"Invoice posting"*, fill: fill_7FKUMZ
+            - **sm-defect-badge** (`FRAME`) — rounded: 2px, fill: fill_P7BVCC
+              - **3** (`TEXT`) — text: *"3"*, fill: fill_EIF048
+          - **sm-stats** (`TEXT`) — text: *"42 total cases"*, fill: fill_LSRR8B
+          - **sm-progress-wrap** (`FRAME`)
+            - **sm-progress-track** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **div** (`FRAME`) — fill: fill_FG8L8Q
+              - **div** (`FRAME`) — fill: fill_EIF048
+            - **sm-progress-text** (`TEXT`) — text: *"82% pass"*, fill: fill_LSRR8B
+        - **sm-card** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **sm-header** (`FRAME`)
+            - **sm-title** (`TEXT`) — text: *"Purchase orders"*, fill: fill_7FKUMZ
+            - **sm-defect-badge** (`FRAME`) — rounded: 2px, fill: fill_P7BVCC
+              - **2** (`TEXT`) — text: *"2"*, fill: fill_EIF048
+          - **sm-stats** (`TEXT`) — text: *"38 total cases"*, fill: fill_LSRR8B
+          - **sm-progress-wrap** (`FRAME`)
+            - **sm-progress-track** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **div** (`FRAME`) — fill: fill_FG8L8Q
+              - **div** (`FRAME`) — fill: fill_1JYT0N
+              - **div** (`FRAME`) — fill: fill_EIF048
+            - **sm-progress-text** (`TEXT`) — text: *"78% pass"*, fill: fill_LSRR8B
+        - **sm-card** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **sm-title** (`TEXT`) — text: *"Vendor master"*, fill: fill_7FKUMZ
+          - **sm-stats** (`TEXT`) — text: *"32 total cases"*, fill: fill_LSRR8B
+          - **sm-progress-wrap** (`FRAME`)
+            - **sm-progress-track** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **div** (`FRAME`) — fill: fill_FG8L8Q
+            - **sm-progress-text** (`TEXT`) — text: *"100% pass"*, fill: fill_LSRR8B
+        - **sm-card** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **sm-header** (`FRAME`)
+            - **sm-title** (`TEXT`) — text: *"GL entries"*, fill: fill_7FKUMZ
+            - **sm-defect-badge** (`FRAME`) — rounded: 2px, fill: fill_P7BVCC
+              - **4** (`TEXT`) — text: *"4"*, fill: fill_EIF048
+          - **sm-stats** (`TEXT`) — text: *"52 total cases"*, fill: fill_LSRR8B
+          - **sm-progress-wrap** (`FRAME`)
+            - **sm-progress-track** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **div** (`FRAME`) — fill: fill_FG8L8Q
+              - **div** (`FRAME`) — fill: fill_EIF048
+            - **sm-progress-text** (`TEXT`) — text: *"71% pass"*, fill: fill_LSRR8B
+        - **sm-card** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **sm-header** (`FRAME`)
+            - **sm-title** (`TEXT`) — text: *"Bank reconciliation"*, fill: fill_7FKUMZ
+            - **sm-defect-badge** (`FRAME`) — rounded: 2px, fill: fill_P7BVCC
+              - **2** (`TEXT`) — text: *"2"*, fill: fill_EIF048
+          - **sm-stats** (`TEXT`) — text: *"18 total cases"*, fill: fill_LSRR8B
+          - **sm-progress-wrap** (`FRAME`)
+            - **sm-progress-track** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **div** (`FRAME`) — fill: fill_FG8L8Q
+              - **div** (`FRAME`) — fill: fill_EIF048
+            - **sm-progress-text** (`TEXT`) — text: *"61% pass"*, fill: fill_LSRR8B
+        - **sm-card** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **sm-title** (`TEXT`) — text: *"Currency"*, fill: fill_7FKUMZ
+          - **sm-stats** (`TEXT`) — text: *"12 total cases"*, fill: fill_LSRR8B
+          - **sm-progress-wrap** (`FRAME`)
+            - **sm-progress-track** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **div** (`FRAME`) — fill: fill_FG8L8Q
+            - **sm-progress-text** (`TEXT`) — text: *"100% pass"*, fill: fill_LSRR8B
+        - **sm-card** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **sm-header** (`FRAME`)
+            - **sm-title** (`TEXT`) — text: *"Tax calculation"*, fill: fill_7FKUMZ
+            - **sm-defect-badge** (`FRAME`) — rounded: 2px, fill: fill_P7BVCC
+              - **3** (`TEXT`) — text: *"3"*, fill: fill_EIF048
+          - **sm-stats** (`TEXT`) — text: *"28 total cases"*, fill: fill_LSRR8B
+          - **sm-progress-wrap** (`FRAME`)
+            - **sm-progress-track** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **div** (`FRAME`) — fill: fill_FG8L8Q
+              - **div** (`FRAME`) — fill: fill_1JYT0N
+              - **div** (`FRAME`) — fill: fill_EIF048
+            - **sm-progress-text** (`TEXT`) — text: *"74% pass"*, fill: fill_LSRR8B
+        - **sm-card** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+          - **sm-title** (`TEXT`) — text: *"Period close"*, fill: fill_7FKUMZ
+          - **sm-stats** (`TEXT`) — text: *"36 total cases"*, fill: fill_LSRR8B
+          - **sm-progress-wrap** (`FRAME`)
+            - **sm-progress-track** (`FRAME`) — rounded: 2px, fill: fill_WD3CXB
+              - **div** (`FRAME`) — fill: fill_FG8L8Q
+              - **div** (`FRAME`) — fill: fill_EIF048
+            - **sm-progress-text** (`TEXT`) — text: *"95% pass"*, fill: fill_LSRR8B
+      - **table-container** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+        - **table-header** (`FRAME`)
+          - **div** (`FRAME`)
+            - **section-title** (`TEXT`) — text: *"Recent runs"*, fill: fill_7FKUMZ
+            - **section-subtitle** (`TEXT`) — text: *"Latest execution activity across environments"*, fill: fill_LSRR8B
+          - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+            - **View all** (`TEXT`) — text: *"View all"*, fill: fill_7FKUMZ
+        - **table** (`FRAME`)
+          - **thead** (`FRAME`)
+            - **tr** (`FRAME`)
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **RUN ID** (`TEXT`) — text: *"RUN ID"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **SUITE** (`TEXT`) — text: *"SUITE"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **ENV** (`TEXT`) — text: *"ENV"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **STATUS** (`TEXT`) — text: *"STATUS"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **DURATION** (`TEXT`) — text: *"DURATION"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **STARTED** (`TEXT`) — text: *"STARTED"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **OWNER** (`TEXT`) — text: *"OWNER"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+          - **tbody** (`FRAME`)
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **RU-2214** (`TEXT`) — text: *"RU-2214"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **Invoice posting - re...** (`TEXT`) — text: *"Invoice posting - regression"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                  - **staging** (`TEXT`) — text: *"staging"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_P7BVCC
+                  - **× FAIL** (`TEXT`) — text: *"× FAIL"*, fill: fill_EIF048
+              - **td-dim** (`FRAME`)
+                - **04:42** (`TEXT`) — text: *"04:42"*, fill: fill_LSRR8B
+              - **td-dim** (`FRAME`)
+                - **2m ago** (`TEXT`) — text: *"2m ago"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_6FCXLO
+                  - **R** (`TEXT`) — text: *"R"*, fill: fill_MFTJ8K
+                - **R. Mehta** (`TEXT`) — text: *"R. Mehta"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **RU-2213** (`TEXT`) — text: *"RU-2213"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **Vendor master - smok...** (`TEXT`) — text: *"Vendor master - smoke"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                  - **staging** (`TEXT`) — text: *"staging"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_207P21
+                  - **✓ PASS** (`TEXT`) — text: *"✓ PASS"*, fill: fill_FG8L8Q
+              - **td-dim** (`FRAME`)
+                - **01:15** (`TEXT`) — text: *"01:15"*, fill: fill_LSRR8B
+              - **td-dim** (`FRAME`)
+                - **18m ago** (`TEXT`) — text: *"18m ago"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_YSYUSH
+                  - **L** (`TEXT`) — text: *"L"*, fill: fill_MFTJ8K
+                - **L. Park** (`TEXT`) — text: *"L. Park"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **RU-2212** (`TEXT`) — text: *"RU-2212"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **GL entries - full** (`TEXT`) — text: *"GL entries - full"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                  - **staging** (`TEXT`) — text: *"staging"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_207P21
+                  - **✓ PASS** (`TEXT`) — text: *"✓ PASS"*, fill: fill_FG8L8Q
+              - **td-dim** (`FRAME`)
+                - **754** (`TEXT`) — text: *"754"*, fill: fill_LSRR8B
+              - **td-dim** (`FRAME`)
+                - **52m ago** (`TEXT`) — text: *"52m ago"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_K88SMG
+                  - **A** (`TEXT`) — text: *"A"*, fill: fill_MFTJ8K
+                - **A. Khan** (`TEXT`) — text: *"A. Khan"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **RU-2211** (`TEXT`) — text: *"RU-2211"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **Period close - e2e** (`TEXT`) — text: *"Period close - e2e"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                  - **staging** (`TEXT`) — text: *"staging"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_8HJXOQ
+                  - **~ FLAKY** (`TEXT`) — text: *"~ FLAKY"*, fill: fill_1JYT0N
+              - **td-dim** (`FRAME`)
+                - **1338** (`TEXT`) — text: *"1338"*, fill: fill_LSRR8B
+              - **td-dim** (`FRAME`)
+                - **1h ago** (`TEXT`) — text: *"1h ago"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_WILYUZ
+                  - **J** (`TEXT`) — text: *"J"*, fill: fill_MFTJ8K
+                - **J. Diaz** (`TEXT`) — text: *"J. Diaz"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **RU-2210** (`TEXT`) — text: *"RU-2210"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **Tax calculation - re...** (`TEXT`) — text: *"Tax calculation - regression"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                  - **qa** (`TEXT`) — text: *"qa"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_P7BVCC
+                  - **× FAIL** (`TEXT`) — text: *"× FAIL"*, fill: fill_EIF048
+              - **td-dim** (`FRAME`)
+                - **06:12** (`TEXT`) — text: *"06:12"*, fill: fill_LSRR8B
+              - **td-dim** (`FRAME`)
+                - **2h ago** (`TEXT`) — text: *"2h ago"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_6FCXLO
+                  - **R** (`TEXT`) — text: *"R"*, fill: fill_MFTJ8K
+                - **R. Mehta** (`TEXT`) — text: *"R. Mehta"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **RU-2209** (`TEXT`) — text: *"RU-2209"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **Bank reconciliation ...** (`TEXT`) — text: *"Bank reconciliation - smoke"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_WD3CXB
+                  - **qa** (`TEXT`) — text: *"qa"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **badge** (`FRAME`) — rounded: 4px, fill: fill_207P21
+                  - **✓ PASS** (`TEXT`) — text: *"✓ PASS"*, fill: fill_FG8L8Q
+              - **td-dim** (`FRAME`)
+                - **02:05** (`TEXT`) — text: *"02:05"*, fill: fill_LSRR8B
+              - **td-dim** (`FRAME`)
+                - **3h ago** (`TEXT`) — text: *"3h ago"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_YSYUSH
+                  - **L** (`TEXT`) — text: *"L"*, fill: fill_MFTJ8K
+                - **L. Park** (`TEXT`) — text: *"L. Park"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+      - **table-container** (`FRAME`) — rounded: 8px, fill: fill_MFTJ8K
+        - **table-header** (`FRAME`)
+          - **div** (`FRAME`)
+            - **section-title** (`TEXT`) — text: *"Open defects"*, fill: fill_7FKUMZ
+            - **section-subtitle** (`TEXT`) — text: *"14 open · 2 critical"*, fill: fill_LSRR8B
+          - **btn** (`FRAME`) — rounded: 6px, fill: fill_MFTJ8K
+            - **View all** (`TEXT`) — text: *"View all"*, fill: fill_7FKUMZ
+        - **table** (`FRAME`)
+          - **thead** (`FRAME`)
+            - **tr** (`FRAME`)
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **ID** (`TEXT`) — text: *"ID"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **TITLE** (`TEXT`) — text: *"TITLE"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **SEVERITY** (`TEXT`) — text: *"SEVERITY"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **SUB-MODULE** (`TEXT`) — text: *"SUB-MODULE"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **OWNER** (`TEXT`) — text: *"OWNER"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+                - **AGE** (`TEXT`) — text: *"AGE"*, fill: fill_LSRR8B
+              - **th** (`FRAME`) — fill: fill_NQ5UC5
+          - **tbody** (`FRAME`)
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **D-3541** (`TEXT`) — text: *"D-3541"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **Rounding error on mu...** (`TEXT`) — text: *"Rounding error on multi-currency invoices"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **severity-crit** (`FRAME`) — rounded: 2px, fill: fill_6203S0
+                  - **CRIT** (`TEXT`) — text: *"CRIT"*, fill: fill_EIF048
+              - **td-dim** (`FRAME`)
+                - **Invoice posting** (`TEXT`) — text: *"Invoice posting"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_6FCXLO
+                  - **R** (`TEXT`) — text: *"R"*, fill: fill_MFTJ8K
+                - **R. Mehta** (`TEXT`) — text: *"R. Mehta"*, fill: fill_7FKUMZ
+              - **td-dim** (`FRAME`)
+                - **2d** (`TEXT`) — text: *"2d"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **D-3539** (`TEXT`) — text: *"D-3539"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **PO approval email no...** (`TEXT`) — text: *"PO approval email not triggered"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **severity-high** (`FRAME`) — rounded: 2px, fill: fill_RXBLU7
+                  - **HIGH** (`TEXT`) — text: *"HIGH"*, fill: fill_1JYT0N
+              - **td-dim** (`FRAME`)
+                - **Purchase orders** (`TEXT`) — text: *"Purchase orders"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_K88SMG
+                  - **A** (`TEXT`) — text: *"A"*, fill: fill_MFTJ8K
+                - **A. Khan** (`TEXT`) — text: *"A. Khan"*, fill: fill_7FKUMZ
+              - **td-dim** (`FRAME`)
+                - **4d** (`TEXT`) — text: *"4d"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **D-3532** (`TEXT`) — text: *"D-3532"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **Tax config override ...** (`TEXT`) — text: *"Tax config override ignored"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **severity-high** (`FRAME`) — rounded: 2px, fill: fill_RXBLU7
+                  - **HIGH** (`TEXT`) — text: *"HIGH"*, fill: fill_1JYT0N
+              - **td-dim** (`FRAME`)
+                - **Tax calculation** (`TEXT`) — text: *"Tax calculation"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_YSYUSH
+                  - **L** (`TEXT`) — text: *"L"*, fill: fill_MFTJ8K
+                - **L. Park** (`TEXT`) — text: *"L. Park"*, fill: fill_7FKUMZ
+              - **td-dim** (`FRAME`)
+                - **5d** (`TEXT`) — text: *"5d"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **D-3528** (`TEXT`) — text: *"D-3528"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **Period-close lock ra...** (`TEXT`) — text: *"Period-close lock race condition"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **severity-crit** (`FRAME`) — rounded: 2px, fill: fill_6203S0
+                  - **CRIT** (`TEXT`) — text: *"CRIT"*, fill: fill_EIF048
+              - **td-dim** (`FRAME`)
+                - **Period close** (`TEXT`) — text: *"Period close"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_WILYUZ
+                  - **J** (`TEXT`) — text: *"J"*, fill: fill_MFTJ8K
+                - **J. Diaz** (`TEXT`) — text: *"J. Diaz"*, fill: fill_7FKUMZ
+              - **td-dim** (`FRAME`)
+                - **7d** (`TEXT`) — text: *"7d"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
+            - **tr** (`FRAME`)
+              - **td-id** (`FRAME`)
+                - **D-3521** (`TEXT`) — text: *"D-3521"*, fill: fill_LSRR8B
+              - **td-title** (`FRAME`)
+                - **GL entry FX rate sta...** (`TEXT`) — text: *"GL entry FX rate stale"*, fill: fill_7FKUMZ
+              - **td** (`FRAME`)
+                - **severity-med** (`FRAME`) — rounded: 2px, fill: fill_IXGE1M
+                  - **MED** (`TEXT`) — text: *"MED"*, fill: fill_LSRR8B
+              - **td-dim** (`FRAME`)
+                - **GL entries** (`TEXT`) — text: *"GL entries"*, fill: fill_LSRR8B
+              - **owner-cell** (`FRAME`)
+                - **owner-avatar** (`FRAME`) — rounded: 50px, fill: fill_6FCXLO
+                  - **R** (`TEXT`) — text: *"R"*, fill: fill_MFTJ8K
+                - **R. Mehta** (`TEXT`) — text: *"R. Mehta"*, fill: fill_7FKUMZ
+              - **td-dim** (`FRAME`)
+                - **9d** (`TEXT`) — text: *"9d"*, fill: fill_LSRR8B
+              - **td** (`FRAME`)
+                - **⋮** (`TEXT`) — text: *"⋮"*, fill: fill_LSRR8B
