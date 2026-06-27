@@ -98,13 +98,6 @@ function App() {
           <div className="flex-1 flex flex-col lg:pl-64 min-h-[calc(100vh-3.5rem)]">
             {/* Header Controls */}
             <Header 
-              timeframe={timeframe} 
-              setTimeframe={(tf) => {
-                setTimeframe(tf);
-                triggerToast(`Updated stats timeframe to ${tf}.`);
-              }} 
-              onRefresh={handleRefresh}
-              isRefreshing={isRefreshing}
               onToggleSidebar={() => setSidebarOpen(true)}
             />
 
@@ -112,6 +105,68 @@ function App() {
             <main className="flex-1 p-6 md:p-8 space-y-6 max-w-7xl w-full mx-auto">
               {activeScreen === 'dashboard' ? (
                 <>
+                  {/* Dashboard Title & Timeframe Selector Header */}
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-2">
+                    <div>
+                      <h2 className="text-xl font-bold tracking-tight text-slate-900 md:text-2xl font-sans">
+                        Monitoring
+                      </h2>
+                      <p className="mt-0.5 text-xs text-slate-500 font-sans md:text-sm">
+                        Live overview of test execution and project health across your stack.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-3">
+                      {/* Timeframe Selector Pill */}
+                      <div className="flex rounded-lg bg-slate-100 p-0.5 border border-slate-200">
+                        {['1d', '7d', '30d', '90d'].map((tf) => (
+                          <button
+                            key={tf}
+                            onClick={() => {
+                              setTimeframe(tf);
+                              triggerToast(`Updated stats timeframe to ${tf}.`);
+                            }}
+                            className={`
+                              rounded-md px-3.5 py-1 text-xs font-semibold tracking-wide transition-all duration-150
+                              ${timeframe === tf
+                                ? 'bg-slate-900 text-white shadow-sm'
+                                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
+                              }
+                            `}
+                          >
+                            {tf}
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex items-center gap-2">
+                        {/* Refresh Button */}
+                        <button
+                          onClick={handleRefresh}
+                          disabled={isRefreshing}
+                          className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50 active:bg-slate-100 disabled:opacity-50 transition-all"
+                        >
+                          <svg className={`h-3.5 w-3.5 text-slate-500 ${isRefreshing ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M21 20v-5h-.581" />
+                          </svg>
+                          <span>Refresh</span>
+                        </button>
+
+                        {/* Share Button */}
+                        <button
+                          onClick={() => triggerToast('Generating dashboard share link...')}
+                          className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50 active:bg-slate-100 transition-all"
+                        >
+                          <svg className="h-3.5 w-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 10.742l4.632-2.316m0 0a3 3 0 102.684-2.684 3 3 0 00-2.684 2.684zm-4.632 2.316a3 3 0 010 3.632l-4.632 2.316m0 0a3 3 0 10-2.684 2.684 3 3 0 002.684-2.684zm4.632-2.316a3 3 0 002.684-2.684" />
+                          </svg>
+                          <span>Share</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Hero Release & Stats Banner */}
                   <HeroBanner onRunAll={handleRunAll} isRunning={isRunning} />
 

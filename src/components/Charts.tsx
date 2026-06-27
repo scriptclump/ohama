@@ -8,10 +8,10 @@ export const ExecutionResults: React.FC = () => {
   const [hoveredSegment, setHoveredSegment] = useState<string | null>(null);
 
   const data = [
-    { label: 'Passed', count: 2354, percentage: 82.6, color: '#10B981', hoverColor: '#059669', dotColor: 'bg-emerald-500' },
-    { label: 'Failed', count: 312, percentage: 11.0, color: '#EF4444', hoverColor: '#DC2626', dotColor: 'bg-rose-500' },
-    { label: 'No result', count: 88, percentage: 3.1, color: '#94A3B8', hoverColor: '#64748B', dotColor: 'bg-slate-400' },
-    { label: 'Exec error', count: 34, percentage: 1.2, color: '#475569', hoverColor: '#334155', dotColor: 'bg-slate-600' }
+    { label: 'Passed', count: 2108, percentage: 82.9, color: '#10B981', hoverColor: '#059669', dotColor: 'bg-emerald-500' },
+    { label: 'Failed', count: 312, percentage: 12.3, color: '#EF4444', hoverColor: '#DC2626', dotColor: 'bg-rose-500' },
+    { label: 'No result', count: 88, percentage: 3.5, color: '#94A3B8', hoverColor: '#64748B', dotColor: 'bg-slate-400' },
+    { label: 'Execution error', count: 34, percentage: 1.3, color: '#475569', hoverColor: '#334155', dotColor: 'bg-slate-600' }
   ];
 
   // SVG calculations for segmented ring
@@ -41,7 +41,7 @@ export const ExecutionResults: React.FC = () => {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-sm font-semibold text-slate-900 leading-tight">Execution results</h3>
-          <p className="text-xxs text-slate-500">Outcome distribution - last 7 days</p>
+          <p className="text-xxs text-slate-500">Outcome distribution · last 7 days</p>
         </div>
         <button className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors">
           <MoreHorizontal className="h-4 w-4" />
@@ -121,43 +121,42 @@ export const ExecutionResults: React.FC = () => {
 // 2. Stacked Bar Chart Component (Execution Trend)
 // ==========================================
 export const ExecutionTrend: React.FC = () => {
-  const [selectedSuite, setSelectedSuite] = useState('All suites');
   const [activeTooltip, setActiveTooltip] = useState<number | null>(null);
 
-  const suites = ['All suites', 'ERP suite', 'AP suite', 'AR suite'];
-  
-  const handleSuiteToggle = () => {
-    const nextIdx = (suites.indexOf(selectedSuite) + 1) % suites.length;
-    setSelectedSuite(suites[nextIdx]);
-  };
-
-  // Data sums to max ~300
   const dailyData = [
-    { passed: 180, failed: 30, noResult: 15, error: 5, date: '02/02' },
-    { passed: 200, failed: 40, noResult: 10, error: 2, date: '02/03' },
-    { passed: 220, failed: 50, noResult: 8, error: 4, date: '02/04' },
-    { passed: 190, failed: 25, noResult: 12, error: 3, date: '02/05' },
-    { passed: 210, failed: 45, noResult: 5, error: 1, date: '02/06' },
-    { passed: 240, failed: 30, noResult: 10, error: 4, date: '02/07' },
-    { passed: 230, failed: 35, noResult: 14, error: 2, date: '02/08' }
+    { passed: 150, failed: 25, noResult: 15, error: 5, date: '08/02' },
+    { passed: 180, failed: 30, noResult: 12, error: 3, date: '09/02' },
+    { passed: 220, failed: 45, noResult: 15, error: 8, date: '10/02' },
+    { passed: 145, failed: 20, noResult: 8, error: 2, date: '11/02' },
+    { passed: 145, failed: 25, noResult: 10, error: 5, date: '12/02' },
+    { passed: 125, failed: 15, noResult: 5, error: 1, date: '13/02' },
+    { passed: 145, failed: 20, noResult: 8, error: 2, date: '14/02' },
+    { passed: 175, failed: 35, noResult: 12, error: 4, date: '15/02' },
+    { passed: 175, failed: 30, noResult: 10, error: 3, date: '16/02' },
+    { passed: 220, failed: 50, noResult: 18, error: 8, date: '17/02' },
+    { passed: 175, failed: 35, noResult: 15, error: 5, date: '18/02' },
+    { passed: 195, failed: 40, noResult: 12, error: 4, date: '19/02' },
+    { passed: 200, failed: 45, noResult: 14, error: 6, date: '20/02' }
   ];
 
-  const maxVal = 300;
+  const maxVal = 350;
 
   return (
     <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition-colors">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-slate-900 leading-tight">Execution trend by log step</h3>
+          <h3 className="text-sm font-semibold text-slate-900 leading-tight">Execution results by day</h3>
           <p className="text-xxs text-slate-500">Stacked outcomes across all suites</p>
         </div>
-        <div className="relative">
+        <div className="flex items-center gap-2">
           <button 
-            onClick={handleSuiteToggle}
             className="flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xxs font-semibold text-slate-700 bg-white hover:bg-slate-50 active:bg-slate-100 transition-all"
           >
-            <span>{selectedSuite}</span>
+            <span>By suite</span>
             <ChevronDown className="h-3 w-3 text-slate-500" />
+          </button>
+          <button className="rounded-lg p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors">
+            <MoreHorizontal className="h-4 w-4" />
           </button>
         </div>
       </div>
@@ -188,21 +187,21 @@ export const ExecutionTrend: React.FC = () => {
         {/* Y Axis Guide Lines */}
         <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
           <div className="border-t border-slate-100 w-full" />
-          <div className="border-t border-slate-100 w-full" />
-          <div className="border-t border-slate-100 w-full" />
+          <div className="border-t border-dashed border-slate-200 w-full" />
+          <div className="border-t border-dashed border-slate-200 w-full" />
           <div className="w-full" /> {/* Bottom axis */}
         </div>
 
         {/* Y Axis Labels */}
-        <div className="absolute -left-6 inset-y-0 flex flex-col justify-between text-4xs font-bold text-slate-400 select-none pr-1 pointer-events-none h-full">
-          <span>300</span>
-          <span>200</span>
-          <span>100</span>
+        <div className="absolute -left-6 inset-y-0 flex flex-col justify-between text-4xs font-bold text-slate-400 select-none pr-1 pointer-events-none h-full pt-[2px]">
+          <span>350</span>
+          <span>270</span>
+          <span>125</span>
           <span>0</span>
         </div>
 
         {/* Bars Container */}
-        <div className="relative z-10 flex w-full justify-around items-end h-full">
+        <div className="relative z-10 flex w-full justify-around items-end h-full px-2 gap-1.5">
           {dailyData.map((d, index) => {
             const total = d.passed + d.failed + d.noResult + d.error;
             const passedHeight = (d.passed / maxVal) * 100;
@@ -213,7 +212,7 @@ export const ExecutionTrend: React.FC = () => {
             return (
               <div 
                 key={d.date} 
-                className="relative flex flex-col items-center w-8 group cursor-pointer"
+                className="relative flex flex-col items-center flex-1 group cursor-pointer"
                 onMouseEnter={() => setActiveTooltip(index)}
                 onMouseLeave={() => setActiveTooltip(null)}
               >
@@ -226,7 +225,7 @@ export const ExecutionTrend: React.FC = () => {
                 </div>
 
                 {/* X Axis Label */}
-                <span className="absolute -bottom-6 text-xxs font-semibold text-slate-400 whitespace-nowrap mt-1 select-none">
+                <span className="absolute -bottom-6 text-3xs font-semibold text-slate-400 whitespace-nowrap mt-1 select-none scale-90">
                   {d.date}
                 </span>
 
@@ -255,36 +254,33 @@ export const ExecutionTrend: React.FC = () => {
 };
 
 // ==========================================
-// 3. Bugs By Module Component
+// 3. Scope By Module Component (BugsByModule)
 // ==========================================
 export const BugsByModule: React.FC = () => {
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
 
   const modules = [
-    { name: 'ERP', total: 285, passed: 215, failed: 70 },
-    { name: 'Accounts Payable', total: 240, passed: 195, failed: 45 },
-    { name: 'Accounts Receivable', total: 215, passed: 175, failed: 40 },
-    { name: 'Fixed Assets', total: 185, passed: 155, failed: 30 },
-    { name: 'General Ledger', total: 160, passed: 135, failed: 25 },
-    { name: 'Procurement', total: 95, passed: 80, failed: 15 },
-    { name: 'Warehouse Mgmt', total: 65, passed: 55, failed: 10 },
+    { name: 'ERP', total: 200, passed: 155, failed: 45 },
+    { name: 'Accounts Payable', total: 200, passed: 146, failed: 54 },
+    { name: 'Accounts Receivable', total: 200, passed: 160, failed: 40 },
+    { name: 'Fixed Assets', total: 100, passed: 70, failed: 30 },
   ];
 
   return (
     <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition-colors">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-slate-900 leading-tight">Bugs by module</h3>
+          <h3 className="text-sm font-semibold text-slate-900 leading-tight">Scope by module</h3>
           <p className="text-xxs text-slate-500">Click a module to drill into detail</p>
         </div>
-        <div className="flex gap-2 text-xxs font-bold text-slate-400 uppercase select-none">
+        <div className="flex gap-2.5 text-xxs font-bold text-slate-400 select-none">
           <div className="flex items-center gap-1">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            <span>Passed</span>
+            <span className="h-2 w-2 rounded bg-emerald-500" />
+            <span>PASSED</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="h-2 w-2 rounded-full bg-rose-500" />
-            <span>Failed</span>
+            <span className="h-2 w-2 rounded bg-rose-500" />
+            <span>FAILED</span>
           </div>
         </div>
       </div>
@@ -336,10 +332,10 @@ export const BugsByModule: React.FC = () => {
 export const AutomationVsManual: React.FC = () => {
   const modules = [
     { name: 'Accounts Payable', percent: 27, auto: 54, manual: 146 },
-    { name: 'ERP', percent: 62, auto: 195, manual: 120 },
-    { name: 'Fixed Assets', percent: 75, auto: 75, manual: 25 },
-    { name: 'General Ledger', percent: 85, auto: 85, manual: 15 },
-    { name: 'Procurement', percent: 55, auto: 55, manual: 45 },
+    { name: 'ERP', percent: 67, auto: 155, manual: 95 },
+    { name: 'Fixed Assets', percent: 70, auto: 70, manual: 30 },
+    { name: 'General Ledger', percent: 88, auto: 88, manual: 12 },
+    { name: 'Procurement', percent: 56, auto: 40, manual: 35 },
   ];
 
   return (
@@ -347,7 +343,7 @@ export const AutomationVsManual: React.FC = () => {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-sm font-semibold text-slate-900 leading-tight">Automation vs Manual</h3>
-          <p className="text-xxs text-slate-500">Coverage split by key module</p>
+          <p className="text-xxs text-slate-500">Coverage split by module</p>
         </div>
         <button className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors">
           <MoreHorizontal className="h-4 w-4" />
@@ -398,9 +394,9 @@ export const AutomationVsManual: React.FC = () => {
 // 5. Execution Activity Heatmap Component
 // ==========================================
 export const ExecutionActivity: React.FC = () => {
-  // Generate mock heatmap cells: 16 weeks * 7 days = 112 cells
+  // Generate mock heatmap cells: 18 weeks * 7 days = 126 cells
   // We'll define a set of values representing different levels of test run activity
-  const weeks = 16;
+  const weeks = 18;
   const daysPerWeek = 7;
   
   // Levels: 0 (light gray), 1 (light green), 2 (mid green), 3 (dark green), 4 (intense green)
@@ -420,7 +416,9 @@ export const ExecutionActivity: React.FC = () => {
     0, 1, 2, 1, 3, 1, 1,
     2, 3, 1, 2, 2, 0, 1,
     1, 2, 4, 3, 1, 2, 1,
-    3, 2, 1, 1, 2, 2, 1
+    3, 2, 1, 1, 2, 2, 1,
+    1, 2, 4, 3, 0, 1, 2,
+    0, 1, 1, 2, 2, 1, 0
   ];
 
   // Helper class for color assignment
@@ -449,7 +447,7 @@ export const ExecutionActivity: React.FC = () => {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-sm font-semibold text-slate-900 leading-tight">Execution activity</h3>
-          <p className="text-xxs text-slate-500">Daily run volume - last 16 weeks</p>
+          <p className="text-xxs text-slate-500">Daily run volume · last 18 weeks</p>
         </div>
         <button className="flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xxs font-semibold text-slate-700 bg-white hover:bg-slate-50 active:bg-slate-100 transition-all">
           <Calendar className="h-3.5 w-3.5 text-slate-500" />
@@ -494,7 +492,7 @@ export const ExecutionActivity: React.FC = () => {
           {/* Summary */}
           <div className="text-left md:text-right">
             <h4 className="text-sm font-bold text-slate-900 leading-tight">14,284 runs</h4>
-            <p className="text-xxs text-slate-500">Peak: Mon 10 Feb - 234 runs</p>
+            <p className="text-xxs text-slate-500">Peak: Mon 10 Feb · 218 runs</p>
           </div>
 
           {/* Scale */}

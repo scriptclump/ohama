@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Eye, ArrowUpRight, TrendingUp, Clock } from 'lucide-react';
+import { Play, Eye } from 'lucide-react';
 
 interface HeroBannerProps {
   onRunAll: () => void;
@@ -14,12 +14,12 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
         <div className="space-y-4">
           {/* Pills row */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center rounded-full bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-xs font-semibold text-blue-700">
-              Release 2.42 - staging
+            <span className="inline-flex items-center rounded-full bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-xs font-semibold text-blue-700 font-sans">
+              Release R-42 · staging
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
+            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 font-sans">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-              Healthy
+              ● healthy
             </span>
           </div>
 
@@ -30,8 +30,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
 
           {/* Subtext */}
           <p className="text-sm text-slate-500 leading-relaxed max-w-xl">
-            Pass rate is up <span className="font-semibold text-emerald-600">3.6%</span> week-over-week. 
-            2 regressions detected in <span className="font-medium text-slate-700">Invoice posting</span> this morning — owner teams have been notified.
+            Pass rate is up <span className="font-semibold text-emerald-600">3.4%</span> week-over-week. 
+            2 regressions detected in <span className="font-medium text-slate-700">Invoice</span> — owners notified.
           </p>
         </div>
 
@@ -63,8 +63,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
           <div className="mt-1 flex items-baseline justify-between">
             <span className="text-2xl font-bold text-slate-900 tracking-tight">592</span>
             <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600">
-              <ArrowUpRight className="h-3 w-3" />
-              12% vs yesterday
+              ▲ 12% vs yesterday
             </span>
           </div>
         </div>
@@ -77,8 +76,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
           <div className="mt-1 flex items-baseline justify-between">
             <span className="text-2xl font-bold text-slate-900 tracking-tight">82.4%</span>
             <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600">
-              <TrendingUp className="h-3.5 w-3.5" />
-              3.6% wk over wk
+              ▲ 2.4% wk-over-wk
             </span>
           </div>
         </div>
@@ -91,8 +89,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
           <div className="mt-1 flex items-baseline justify-between">
             <span className="text-2xl font-bold text-slate-900 tracking-tight">4m 12s</span>
             <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600">
-              <Clock className="h-3.5 w-3.5" />
-              8s faster
+              ▼ 8% faster
             </span>
           </div>
         </div>

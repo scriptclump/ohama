@@ -6,7 +6,7 @@ export const KPICards: React.FC = () => {
     {
       title: 'TOTAL TEST CASES',
       value: '2,847',
-      trend: '↑ 1.2% 34 new',
+      trend: '▲ 5.2% · 94 new',
       isPositive: true,
       icon: CheckSquare,
       color: 'text-blue-600 bg-blue-50 border-blue-100',
@@ -14,7 +14,7 @@ export const KPICards: React.FC = () => {
     {
       title: 'AUTOMATION COVERAGE',
       value: '68%',
-      trend: '↑ 2.2% 1,936 / 2,847',
+      trend: '▲ 2.1% · 1,906/2,847',
       isPositive: true,
       icon: Percent,
       color: 'text-indigo-600 bg-indigo-50 border-indigo-100',
@@ -22,16 +22,16 @@ export const KPICards: React.FC = () => {
     {
       title: 'OPEN DEFECTS',
       value: '14',
-      trend: '↓ 2 critical',
+      trend: '▲ 3X · 2 critical',
       isPositive: false,
       icon: AlertCircle,
       color: 'text-rose-600 bg-rose-50 border-rose-100',
-      trendColor: 'text-amber-600 bg-amber-50', // indicating positive direction in resolving bugs or negative health
+      trendColor: 'text-rose-600 bg-rose-50 border-rose-100',
     },
     {
       title: 'ACTIVE SUITES',
       value: '21',
-      trend: '↑ 8% 3 scheduled',
+      trend: '▲ 8% · 3 scheduled',
       isPositive: true,
       icon: Layers,
       color: 'text-emerald-600 bg-emerald-50 border-emerald-100',

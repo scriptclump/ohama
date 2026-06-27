@@ -44,7 +44,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       title: 'OVERVIEW',
       items: [
         { id: 'monitoring', label: 'Monitoring', icon: BarChart2 },
-        { id: 'executions', label: 'Executions', icon: Play, badge: '12' },
+        { id: 'executions', label: 'Executions', icon: Play, badge: '13' },
         { id: 'schedules', label: 'Schedules', icon: Clock },
       ]
     },
@@ -156,11 +156,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div className="flex items-center gap-3">
               {/* User Avatar */}
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 border border-amber-200">
-                <span className="text-xs font-bold text-amber-800">RM</span>
+                <span className="text-xs font-bold text-amber-800">JM</span>
               </div>
               {/* User Info */}
               <div className="flex flex-col text-left">
-                <span className="text-sm font-semibold text-slate-800 leading-tight">Riya Mehta</span>
+                <span className="text-sm font-semibold text-slate-800 leading-tight">Jordan Miles</span>
                 <span className="text-xs text-slate-500 font-normal">QA Lead</span>
               </div>
             </div>
