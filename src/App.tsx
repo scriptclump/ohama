@@ -3,6 +3,10 @@ import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
 import { KPICards } from './components/KPICards';
+import { TopBar } from './components/TopBar';
+import { Login } from './components/Login';
+import { DetailView } from './components/DetailView';
+import { TestCasesView } from './components/TestCasesView';
 import { 
   ExecutionResults, 
   ExecutionTrend, 
@@ -13,6 +17,7 @@ import {
 import { Info, AlertCircle } from 'lucide-react';
 
 function App() {
+  const [activeScreen, setActiveScreen] = useState('login'); // Starts on the Login page as per Figma design flow
   const [activeTab, setActiveTab] = useState('monitoring');
   const [timeframe, setTimeframe] = useState('7d');
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -47,71 +52,109 @@ function App() {
     }, 3000);
   };
 
+  // Synchronization between TopBar tabs and Sidebar active state
+  const handleSetActiveScreen = (screen: string) => {
+    setActiveScreen(screen);
+    if (screen === 'dashboard') {
+      setActiveTab('monitoring');
+    } else if (screen === 'detail') {
+      setActiveTab('executions');
+    } else if (screen === 'test-cases') {
+      setActiveTab('test-cases');
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex">
-      {/* Sidebar Navigation */}
-      <Sidebar 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab} 
-        isOpen={sidebarOpen} 
-        setIsOpen={setSidebarOpen} 
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col">
+      {/* Figma Top-Bar Navigation */}
+      <TopBar 
+        activeScreen={activeScreen} 
+        setActiveScreen={handleSetActiveScreen} 
+        isLoggedIn={activeScreen !== 'login'} 
       />
 
-      {/* Main Content Pane */}
-      <div className="flex-1 flex flex-col lg:pl-64 min-h-screen">
-        {/* Header Controls */}
-        <Header 
-          timeframe={timeframe} 
-          setTimeframe={(tf) => {
-            setTimeframe(tf);
-            triggerToast(`Updated stats timeframe to ${tf}.`);
-          }} 
-          onRefresh={handleRefresh}
-          isRefreshing={isRefreshing}
-          onToggleSidebar={() => setSidebarOpen(true)}
-        />
+      {activeScreen === 'login' ? (
+        <Login onLoginSuccess={() => handleSetActiveScreen('dashboard')} />
+      ) : (
+        <div className="flex-1 flex relative">
+          {/* Sidebar Navigation */}
+          <Sidebar 
+            activeTab={activeTab} 
+            setActiveTab={(tab) => {
+              setActiveTab(tab);
+              if (tab === 'monitoring') {
+                setActiveScreen('dashboard');
+              } else if (tab === 'executions' || tab === 'defects') {
+                setActiveScreen('detail');
+              } else if (tab === 'test-cases') {
+                setActiveScreen('test-cases');
+              }
+            }} 
+            isOpen={sidebarOpen} 
+            setIsOpen={setSidebarOpen} 
+          />
 
-        {/* View switching logic */}
-        <main className="flex-1 p-6 md:p-8 space-y-6 max-w-7xl w-full mx-auto">
-          {activeTab === 'monitoring' ? (
-            <>
-              {/* Hero Release & Stats Banner */}
-              <HeroBanner onRunAll={handleRunAll} isRunning={isRunning} />
+          {/* Main Content Pane */}
+          <div className="flex-1 flex flex-col lg:pl-64 min-h-[calc(100vh-3.5rem)]">
+            {/* Header Controls */}
+            <Header 
+              timeframe={timeframe} 
+              setTimeframe={(tf) => {
+                setTimeframe(tf);
+                triggerToast(`Updated stats timeframe to ${tf}.`);
+              }} 
+              onRefresh={handleRefresh}
+              isRefreshing={isRefreshing}
+              onToggleSidebar={() => setSidebarOpen(true)}
+            />
 
-              {/* Secondary KPI Cards */}
-              <KPICards />
+            {/* View switching logic */}
+            <main className="flex-1 p-6 md:p-8 space-y-6 max-w-7xl w-full mx-auto">
+              {activeScreen === 'dashboard' ? (
+                <>
+                  {/* Hero Release & Stats Banner */}
+                  <HeroBanner onRunAll={handleRunAll} isRunning={isRunning} />
 
-              {/* Main Charts Row */}
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                <ExecutionResults />
-                <ExecutionTrend />
-              </div>
+                  {/* Secondary KPI Cards */}
+                  <KPICards />
 
-              {/* Secondary Metrics Split Row */}
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                <BugsByModule />
-                <AutomationVsManual />
-              </div>
+                  {/* Main Charts Row */}
+                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                    <ExecutionResults />
+                    <ExecutionTrend />
+                  </div>
 
-              {/* Heatmap Section */}
-              <ExecutionActivity />
-            </>
-          ) : (
-            /* Elegant placeholder for other tabs */
-            <div className="flex flex-col items-center justify-center min-h-[50vh] rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center shadow-sm">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100">
-                <Info className="h-6 w-6" />
-              </div>
-              <h2 className="mt-4 text-base font-bold text-slate-800 uppercase tracking-wide">
-                {activeTab.replace('-', ' ')} Page
-              </h2>
-              <p className="mt-1 text-sm text-slate-400 max-w-md">
-                You are currently viewing the mocked {activeTab} section of the Omaha platform. Select "Monitoring" to return to the interactive dashboard.
-              </p>
-            </div>
-          )}
-        </main>
-      </div>
+                  {/* Secondary Metrics Split Row */}
+                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                    <BugsByModule />
+                    <AutomationVsManual />
+                  </div>
+
+                  {/* Heatmap Section */}
+                  <ExecutionActivity />
+                </>
+              ) : activeScreen === 'detail' ? (
+                <DetailView />
+              ) : activeScreen === 'test-cases' ? (
+                <TestCasesView />
+              ) : (
+                /* Elegant placeholder for other tabs */
+                <div className="flex flex-col items-center justify-center min-h-[50vh] rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center shadow-sm">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100">
+                    <Info className="h-6 w-6" />
+                  </div>
+                  <h2 className="mt-4 text-base font-bold text-slate-800 uppercase tracking-wide">
+                    {activeScreen.replace('-', ' ')} Page
+                  </h2>
+                  <p className="mt-1 text-sm text-slate-400 max-w-md">
+                    You are currently viewing the mocked {activeScreen} section of the Omaha platform. Select "2 · Dashboard" to return to the interactive dashboard.
+                  </p>
+                </div>
+              )}
+            </main>
+          </div>
+        </div>
+      )}
 
       {/* Floating Action Feedback Toast */}
       {toastMessage && (
@@ -125,3 +168,4 @@ function App() {
 }
 
 export default App;
+
