@@ -1,0 +1,163 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/basant/Desktop/ohama/apis/node_modules/.bin/playwright",
+      "test",
+      "tmp/6a5a4bccf6766af723472863.spec.ts",
+      "--config",
+      "tmp/6a5a4bccf6766af723472863.config.ts"
+    ],
+    "configFile": "/home/basant/Desktop/ohama/apis/tmp/6a5a4bccf6766af723472863.config.ts",
+    "rootDir": "/home/basant/Desktop/ohama/apis/tmp",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/basant/Desktop/ohama/apis/runs/6a5a4bccf6766af723472863",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/basant/Desktop/ohama/apis/tmp",
+        "testIgnore": [],
+        "testMatch": [
+          "6a5a4bccf6766af723472863.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "../runs/6a5a4bccf6766af723472863/report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "6a5a4bccf6766af723472863.spec.ts",
+      "file": "6a5a4bccf6766af723472863.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify OrangeHRM Login Form Validations",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 35792,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "Navigating to OrangeHRM Login Page...\n"
+                    },
+                    {
+                      "text": "Clicking submit on empty inputs to verify validation warning...\n"
+                    },
+                    {
+                      "text": "Inputting invalid credentials...\n"
+                    },
+                    {
+                      "text": "Verifying invalid credentials alert dialog presence...\n"
+                    },
+                    {
+                      "text": "OrangeHRM Login test validated successfully.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-17T15:36:03.608Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/basant/Desktop/ohama/apis/runs/6a5a4bccf6766af723472863/6a5a4bccf6766af723472863-V-38ee0-eHRM-Login-Form-Validations/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/home/basant/Desktop/ohama/apis/runs/6a5a4bccf6766af723472863/6a5a4bccf6766af723472863-V-38ee0-eHRM-Login-Form-Validations/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/basant/Desktop/ohama/apis/runs/6a5a4bccf6766af723472863/6a5a4bccf6766af723472863-V-38ee0-eHRM-Login-Form-Validations/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/basant/Desktop/ohama/apis/runs/6a5a4bccf6766af723472863/6a5a4bccf6766af723472863-V-38ee0-eHRM-Login-Form-Validations/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "85cd972aa9465d650fe4-a1d834a9fa4ce55e4b27",
+          "file": "6a5a4bccf6766af723472863.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-17T15:35:56.927Z",
+    "duration": 58263.43,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
