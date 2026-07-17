@@ -9,13 +9,13 @@ import {
   Box, 
   Cloud, 
   Zap, 
-  ChevronDown,
-  X
+  X,
+  LogOut
 } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 interface SidebarProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }
@@ -26,6 +26,7 @@ interface NavItem {
   icon: React.ComponentType<{ className?: string }>;
   badge?: string;
   badgeColor?: string;
+  path: string;
 }
 
 interface NavGroup {
@@ -34,38 +35,55 @@ interface NavGroup {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ 
-  activeTab, 
-  setActiveTab, 
   isOpen, 
   setIsOpen 
 }) => {
+  const location = useLocation();
+  const { user, logout } = useAuth();
+
   const navGroups: NavGroup[] = [
     {
       title: 'OVERVIEW',
       items: [
-        { id: 'monitoring', label: 'Monitoring', icon: BarChart2 },
-        { id: 'executions', label: 'Executions', icon: Play, badge: '13' },
-        { id: 'schedules', label: 'Schedules', icon: Clock },
+        { id: 'monitoring', label: 'Monitoring', icon: BarChart2, path: '/' },
+        { id: 'executions', label: 'Executions', icon: Play, badge: '13', path: '/detail/ERP' },
+        { id: 'schedules', label: 'Schedules', icon: Clock, path: '/' },
       ]
     },
     {
       title: 'QUALITY',
       items: [
-        { id: 'test-cases', label: 'Test cases', icon: CheckSquare },
-        { id: 'suites', label: 'Suites', icon: Folder },
-        { id: 'defects', label: 'Defects', icon: AlertTriangle, badge: '14', badgeColor: 'bg-amber-100 text-amber-800 border-amber-200' },
+        { id: 'test-cases', label: 'Test cases', icon: CheckSquare, path: '/tests' },
+        { id: 'suites', label: 'Suites', icon: Folder, path: '/tests' },
+        { id: 'defects', label: 'Defects', icon: AlertTriangle, badge: '4', badgeColor: 'bg-amber-100 text-amber-800 border-amber-200', path: '/detail/ERP' },
       ]
     },
     {
       title: 'PLATFORM',
       items: [
-        { id: 'modules', label: 'Modules', icon: Box },
-        { id: 'environments', label: 'Environments', icon: Cloud },
-        { id: 'integrations', label: 'Integrations', icon: Zap },
+        { id: 'modules', label: 'Modules', icon: Box, path: '/' },
+        { id: 'environments', label: 'Environments', icon: Cloud, path: '/' },
+        { id: 'integrations', label: 'Integrations', icon: Zap, path: '/' },
       ]
     }
   ];
 
+  // Helper to determine if item path matches active location
+  const isTabActive = (item: NavItem) => {
+    if (item.path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(item.path);
+  };
+
+  const getInitials = (fullName: string) => {
+    return fullName
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .substring(0, 2)
+      .toUpperCase();
+  };
 
   return (
     <>
@@ -114,16 +132,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <nav className="space-y-[2px]">
                 {group.items.map((item) => {
                   const Icon = item.icon;
-                  const isActive = activeTab === item.id;
+                  const isActive = isTabActive(item);
                   return (
-                    <button
+                    <Link
                       key={item.id}
-                      onClick={() => {
-                        setActiveTab(item.id);
-                        setIsOpen(false);
-                      }}
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
                       className={`
-                        group flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-all duration-150
+                        group flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-all duration-150
                         ${isActive 
                           ? 'bg-blue-50/80 text-blue-700 border-l-4 border-blue-600 pl-2 rounded-l-none' 
                           : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 border-l-4 border-transparent'
@@ -142,7 +158,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           {item.badge}
                         </span>
                       )}
-                    </button>
+                    </Link>
                   );
                 })}
               </nav>
@@ -156,16 +172,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div className="flex items-center gap-3">
               {/* User Avatar */}
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 border border-amber-200">
-                <span className="text-xs font-bold text-amber-800">JM</span>
+                <span className="text-xs font-bold text-amber-800">
+                  {user ? getInitials(user.name) : 'QA'}
+                </span>
               </div>
               {/* User Info */}
               <div className="flex flex-col text-left">
-                <span className="text-sm font-semibold text-slate-800 leading-tight">Jordan Miles</span>
-                <span className="text-xs text-slate-500 font-normal">QA Lead</span>
+                <span className="text-sm font-semibold text-slate-800 leading-tight">
+                  {user ? user.name : 'Jordan Miles'}
+                </span>
+                <span className="text-xs text-slate-500 font-normal truncate max-w-[120px]">
+                  {user ? user.email : 'QA Lead'}
+                </span>
               </div>
             </div>
-            <button className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors">
-              <ChevronDown className="h-4 w-4" />
+            <button 
+              onClick={logout}
+              title="Logout"
+              className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-200 hover:text-rose-600 transition-colors"
+            >
+              <LogOut className="h-4.5 w-4.5" />
             </button>
           </div>
         </div>

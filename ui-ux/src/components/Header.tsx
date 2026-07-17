@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, Search, SlidersHorizontal, Plus, Calendar, ArrowRight, ChevronDown, Play } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   onToggleSidebar: () => void;
   searchQuery?: string;
   setSearchQuery?: (q: string) => void;
-  activeScreen?: string;
   onExecuteSuite?: () => void;
 }
 
@@ -13,11 +13,13 @@ export const Header: React.FC<HeaderProps> = ({
   onToggleSidebar,
   searchQuery,
   setSearchQuery,
-  activeScreen = 'dashboard',
   onExecuteSuite
 }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [localQuery, setLocalQuery] = useState('');
   const query = searchQuery !== undefined ? searchQuery : localQuery;
+  
   const handleQueryChange = (val: string) => {
     if (setSearchQuery) {
       setSearchQuery(val);
@@ -26,10 +28,18 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
-  // Determine breadcrumbs, placeholder, date selector, and primary action based on activeScreen
+  // Determine active screen context based on path
+  let activeScreen = 'dashboard';
+  if (location.pathname.startsWith('/detail')) {
+    activeScreen = 'detail';
+  } else if (location.pathname.startsWith('/tests')) {
+    activeScreen = 'test-cases';
+  }
+
+  // Determine breadcrumbs, placeholder, date selector, and primary action
   let breadcrumbs = (
     <>
-      <span className="text-slate-400 hover:text-slate-600 cursor-pointer">Dashboards</span>
+      <span className="text-slate-400 hover:text-slate-600 cursor-pointer" onClick={() => navigate('/')}>Dashboards</span>
       <span className="text-slate-300">/</span>
       <span className="text-slate-800">Monitoring</span>
     </>
@@ -39,16 +49,12 @@ export const Header: React.FC<HeaderProps> = ({
 
   let dateSelector = (
     <div className="hidden sm:flex items-center gap-1.5">
-      {/* Start Date */}
       <div className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-600 shadow-sm hover:bg-slate-50 cursor-pointer transition-colors font-sans select-none">
         <Calendar className="h-3.5 w-3.5 text-slate-400" />
         <span>Start Date</span>
         <ChevronDown className="h-3 w-3 text-slate-400" />
       </div>
-
       <ArrowRight className="h-3 w-3 text-slate-400" />
-
-      {/* End Date */}
       <div className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-600 shadow-sm hover:bg-slate-50 cursor-pointer transition-colors font-sans select-none">
         <Calendar className="h-3.5 w-3.5 text-slate-400" />
         <span>End Date</span>
@@ -58,16 +64,16 @@ export const Header: React.FC<HeaderProps> = ({
   );
 
   let primaryAction = (
-    <button className="flex items-center gap-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors font-sans">
+    <Link to="/tests" className="flex items-center gap-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors font-sans">
       <Plus className="h-3.5 w-3.5" />
-      <span>New dashboard</span>
-    </button>
+      <span>New test case</span>
+    </Link>
   );
 
   if (activeScreen === 'detail') {
     breadcrumbs = (
       <>
-        <span className="text-slate-400 hover:text-slate-600 cursor-pointer">Dashboards</span>
+        <span className="text-slate-400 hover:text-slate-600 cursor-pointer" onClick={() => navigate('/')}>Dashboards</span>
         <span className="text-slate-300">/</span>
         <span className="text-slate-800">ERP · executions</span>
       </>
@@ -95,9 +101,9 @@ export const Header: React.FC<HeaderProps> = ({
   } else if (activeScreen === 'test-cases') {
     breadcrumbs = (
       <>
-        <span className="text-slate-400 hover:text-slate-600 cursor-pointer">Dashboards</span>
+        <span className="text-slate-400 hover:text-slate-600 cursor-pointer" onClick={() => navigate('/')}>Dashboards</span>
         <span className="text-slate-300">/</span>
-        <span className="text-slate-800">ERP · Invoice posting · Test cases</span>
+        <span className="text-slate-800">Test cases</span>
       </>
     );
 
@@ -111,14 +117,15 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
     );
 
+    // Render a standard Link to the new test case path which will trigger the form view in TestCasesView
     primaryAction = (
-      <button 
-        onClick={() => window.dispatchEvent(new CustomEvent('trigger-new-test-case'))}
+      <Link 
+        to="/tests?action=new"
         className="flex items-center gap-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors font-sans"
       >
         <Plus className="h-3.5 w-3.5" />
         <span>New test case</span>
-      </button>
+      </Link>
     );
   }
 

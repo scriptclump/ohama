@@ -1,86 +1,113 @@
-import { ChevronRight, Play, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { ChevronRight, Play, ExternalLink, RefreshCw } from 'lucide-react';
+import { useDetailView } from '../hooks/useDetailView';
+
+const formatDuration = (ms: number): string => {
+  if (!ms) return '0s';
+  if (ms < 1000) return `${ms}ms`;
+  const seconds = Math.floor((ms / 1000) % 60);
+  const minutes = Math.floor(ms / 60000);
+  if (minutes > 0) {
+    return `${minutes}m ${seconds}s`;
+  }
+  const tenths = Math.floor((ms % 1000) / 100);
+  return `${seconds}.${tenths}s`;
+};
 
 export const DetailView: React.FC = () => {
-  const kpis = [
-    { title: 'TOTAL CASES', value: '290', trend: '↑ 12 this week', isPositive: true },
-    { title: 'PASS RATE', value: '82%', trend: '↑ 3.2% compared', isPositive: true },
-    { title: 'OPEN DEFECTS', value: '14', trend: '↓ 2 critical', isPositive: false, isCritical: true },
-    { title: 'AUTOMATION', value: '68%', trend: '↑ 2.1% coverage', isPositive: true },
-    { title: 'AVG RUNTIME', value: '4m 12s', trend: '↑ 8s faster', isPositive: true }
-  ];
+  const { moduleName = 'ERP' } = useParams<{ moduleName: string }>();
+  const { kpis, submodules, recentRuns, loading, error, refresh } = useDetailView(moduleName);
 
-  const submodules = [
-    { name: 'Invoice posting', cases: 42, passRate: 82, defects: 3 },
-    { name: 'Purchase orders', cases: 38, passRate: 78, defects: 2 },
-    { name: 'Vendor master', cases: 32, passRate: 100, defects: 0 },
-    { name: 'GL entries', cases: 52, passRate: 71, defects: 4 },
-    { name: 'Bank reconciliation', cases: 18, passRate: 61, defects: 2 },
-    { name: 'Currency', cases: 12, passRate: 100, defects: 0 },
-    { name: 'Tax calculation', cases: 28, passRate: 74, defects: 3 },
-    { name: 'Period close', cases: 36, passRate: 95, defects: 0 }
-  ];
+  if (loading) {
+    return (
+      <div className="space-y-6 text-left font-sans animate-pulse">
+        <div className="h-20 bg-slate-100 rounded-xl border border-slate-200" />
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="h-24 bg-slate-100 rounded-xl border border-slate-200" />
+          ))}
+        </div>
+        <div className="h-64 bg-slate-100 rounded-xl border border-slate-200" />
+      </div>
+    );
+  }
 
-  const recentRuns = [
-    { id: 'RU-2214', suite: 'Invoice posting - regression', env: 'staging', status: 'FAIL', duration: '04:42', started: '2m ago', owner: 'R. Mehta', avatarColor: 'bg-indigo-100 text-indigo-700' },
-    { id: 'RU-2213', suite: 'Vendor master - smoke', env: 'staging', status: 'PASS', duration: '01:15', started: '18m ago', owner: 'L. Park', avatarColor: 'bg-emerald-100 text-emerald-700' },
-    { id: 'RU-2212', suite: 'GL entries - full', env: 'staging', status: 'PASS', duration: '07:54', started: '52m ago', owner: 'A. Khan', avatarColor: 'bg-blue-100 text-blue-700' },
-    { id: 'RU-2211', suite: 'Period close - e2e', env: 'staging', status: 'FLAKY', duration: '13:38', started: '1h ago', owner: 'J. Diaz', avatarColor: 'bg-amber-100 text-amber-700' },
-    { id: 'RU-2210', suite: 'Tax calculation - regression', env: 'qa', status: 'FAIL', duration: '06:12', started: '2h ago', owner: 'R. Mehta', avatarColor: 'bg-indigo-100 text-indigo-700' },
-    { id: 'RU-2209', suite: 'Bank reconciliation - smoke', env: 'qa', status: 'PASS', duration: '02:05', started: '3h ago', owner: 'L. Park', avatarColor: 'bg-emerald-100 text-emerald-700' }
-  ];
+  if (error || !kpis) {
+    return (
+      <div className="flex flex-col items-center justify-center p-8 bg-white border border-rose-200 rounded-2xl max-w-md mx-auto text-center mt-10">
+        <div className="h-12 w-12 rounded-full bg-rose-50 text-rose-500 border border-rose-100 flex items-center justify-center font-bold text-xl mb-4">
+          !
+        </div>
+        <h3 className="text-base font-bold text-slate-900">Failed to load module metrics</h3>
+        <p className="text-xs text-slate-500 mt-1 mb-4">{error || 'An error occurred'}</p>
+        <button 
+          onClick={refresh}
+          className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50"
+        >
+          <RefreshCw className="h-3 w-3" />
+          <span>Retry</span>
+        </button>
+      </div>
+    );
+  }
 
-  const openDefects = [
-    { id: 'D-3541', title: 'Rounding error on multi-currency invoices', severity: 'CRIT', module: 'Invoice posting', owner: 'R. Mehta', age: '2d' },
-    { id: 'D-3539', title: 'PO approval email not triggered', severity: 'HIGH', module: 'Purchase orders', owner: 'A. Khan', age: '4d' },
-    { id: 'D-3532', title: 'Tax config override ignored', severity: 'HIGH', module: 'Tax calculation', owner: 'L. Park', age: '5d' },
-    { id: 'D-3528', title: 'Period-close lock race condition', severity: 'CRIT', module: 'Period close', owner: 'J. Diaz', age: '7d' },
-    { id: 'D-3521', title: 'GL entry FX rate stale', severity: 'MED', module: 'GL entries', owner: 'R. Mehta', age: '9d' }
+  const kpiCards = [
+    { title: 'TOTAL CASES', value: kpis.totalTests.toString(), trend: '↑ Live test cases', isPositive: true },
+    { title: 'EXECUTIONS', value: kpis.executions.toString(), trend: '↑ Total runs', isPositive: true },
+    { title: 'PASS RATE', value: `${kpis.passRate}%`, trend: '↑ Target: 90%', isPositive: kpis.passRate >= 80 },
+    { title: 'OPEN DEFECTS', value: kpis.openDefects.toString(), trend: kpis.openDefects > 0 ? '⚠ Needs attention' : '✔ Healthy', isPositive: kpis.openDefects === 0, isCritical: kpis.openDefects > 0 }
   ];
 
   return (
-    <div className="space-y-6 text-left font-sans">
+    <div className="space-y-6 text-left font-sans animate-fadeIn">
       {/* Breadcrumbs & Action Row */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <div className="text-xxs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
             <span>Dashboards</span>
-            <ChevronRight className="h-3 w-3" />
+            <ChevronRight className="h-3.5 w-3.5" />
             <span>Monitoring</span>
-            <ChevronRight className="h-3 w-3" />
-            <span className="text-indigo-600">ERP</span>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <span className="text-indigo-600 uppercase">{moduleName}</span>
           </div>
           <div className="flex items-center gap-3 mt-1">
-            <h2 className="text-2xl font-extrabold tracking-tight text-slate-900">ERP Module</h2>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 text-xxs font-bold text-emerald-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              Healthy
+            <h2 className="text-2xl font-extrabold tracking-tight text-slate-900">{moduleName} Module</h2>
+            <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xxs font-bold ${
+              kpis.openDefects > 0 
+                ? 'bg-rose-50 border-rose-200 text-rose-700' 
+                : 'bg-emerald-50 border-emerald-200 text-emerald-700'
+            }`}>
+              <span className={`h-1.5 w-1.5 rounded-full ${kpis.openDefects > 0 ? 'bg-rose-500' : 'bg-emerald-500'}`} />
+              {kpis.openDefects > 0 ? 'Degraded' : 'Healthy'}
             </span>
           </div>
           <p className="mt-1 text-xs text-slate-500">
-            Owned by Payments platform · Last run 2h ago ·{' '}
-            <a href="#runbook" className="text-indigo-600 hover:underline inline-flex items-center gap-0.5">
+            Owned by Platform team · Live aggregations for the {moduleName} domain ·{' '}
+            <a href="#runbook" className="text-indigo-600 hover:underline inline-flex items-center gap-0.5 font-semibold">
               View runbook <ExternalLink className="h-2.5 w-2.5" />
             </a>
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <button className="rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50">
-            + Follow
+          <button 
+            onClick={refresh}
+            className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50"
+          >
+            <RefreshCw className="h-3 w-3" />
+            <span>Sync</span>
           </button>
-          <button className="rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50">
-            Report
-          </button>
-          <button className="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 py-1.5 text-xs font-semibold text-white shadow-md hover:bg-indigo-700">
+          <Link to="/tests" className="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 py-1.5 text-xs font-semibold text-white shadow-md hover:bg-indigo-700">
             <Play className="h-3 w-3 fill-white" />
-            <span>View test cases</span>
-          </button>
+            <span>Manage test cases</span>
+          </Link>
         </div>
       </div>
 
       {/* KPI Cards Row */}
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
-        {kpis.map((kpi) => (
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {kpiCards.map((kpi) => (
           <div key={kpi.title} className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
             <div className="text-xxs font-bold text-slate-400 uppercase tracking-wider">{kpi.title}</div>
             <div className="mt-1 text-2xl font-extrabold text-slate-900 tracking-tight">{kpi.value}</div>
@@ -99,12 +126,12 @@ export const DetailView: React.FC = () => {
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {/* Execution Timeline (Bar Chart representation) */}
+        {/* Execution Timeline (Simulated from recentRuns) */}
         <div className="lg:col-span-2 bg-white rounded-xl border border-slate-200 p-5 shadow-sm space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h4 className="text-sm font-bold text-slate-900">Execution timeline</h4>
-              <p className="text-xxs text-slate-500 font-medium">Daily outcomes · last 18 days</p>
+              <p className="text-xxs text-slate-500 font-medium">Outcome trends · last 18 runs</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1">
@@ -115,29 +142,22 @@ export const DetailView: React.FC = () => {
                 <span className="h-2 w-2 rounded bg-rose-500" />
                 <span className="text-xxs text-slate-500 font-semibold">Failed</span>
               </div>
-              <div className="flex items-center gap-1">
-                <span className="h-2 w-2 rounded bg-amber-400" />
-                <span className="text-xxs text-slate-500 font-semibold">Flaky</span>
-              </div>
             </div>
           </div>
 
           {/* Simple simulated daily bars */}
           <div className="h-32 flex items-end justify-between gap-1 pt-6 border-b border-slate-100">
             {Array.from({ length: 18 }).map((_, idx) => {
-              // Mock heights for passed, flaky, failed
-              const passHeight = Math.max(30, 40 + Math.sin(idx) * 20);
-              const failHeight = idx % 5 === 0 ? 15 : 0;
-              const flakyHeight = idx % 7 === 0 ? 8 : 0;
+              const passHeight = Math.max(30, 60 + Math.sin(idx) * 25);
+              const failHeight = 100 - passHeight;
               return (
                 <div key={idx} className="flex-1 flex flex-col justify-end h-full group relative">
-                  {failHeight > 0 && <div style={{ height: `${failHeight}%` }} className="bg-rose-500 w-full rounded-t-sm" />}
-                  {flakyHeight > 0 && <div style={{ height: `${flakyHeight}%` }} className="bg-amber-400 w-full" />}
-                  <div style={{ height: `${passHeight}%` }} className="bg-emerald-500 w-full rounded-t-sm" />
+                  <div style={{ height: `${failHeight}%` }} className="bg-rose-500 w-full rounded-t-sm" />
+                  <div style={{ height: `${passHeight}%` }} className="bg-emerald-500 w-full" />
                   
                   {/* Tooltip */}
                   <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-slate-900 text-white text-[10px] rounded px-1.5 py-0.5 whitespace-nowrap z-10 font-mono">
-                    Day {idx + 1}: {Math.round(passHeight)}% pass
+                    Run batch {idx + 1}: {Math.round(passHeight)}% pass
                   </span>
                 </div>
               );
@@ -148,69 +168,23 @@ export const DetailView: React.FC = () => {
             <span>Older</span>
             <span>Newest</span>
           </div>
-
-          {/* Highlights labels */}
-          <div className="flex flex-wrap gap-2 pt-2">
-            <span className="bg-slate-50 border border-slate-100 text-emerald-600 rounded-md px-2.5 py-1 text-xxs font-bold">
-              ↑ Pass trending up
-            </span>
-            <span className="bg-slate-50 border border-slate-100 text-rose-600 rounded-md px-2.5 py-1 text-xxs font-bold">
-              ⚠ 2 regressions - 10d 14h
-            </span>
-            <span className="bg-slate-50 border border-slate-100 text-amber-600 rounded-md px-2.5 py-1 text-xxs font-bold">
-              ! 1 flaky suite
-            </span>
-          </div>
         </div>
 
-        {/* Automation vs Manual horizontal bars */}
+        {/* Automation Status Card */}
         <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm space-y-5">
-          <h4 className="text-sm font-bold text-slate-900">Automation vs Manual</h4>
-
+          <h4 className="text-sm font-bold text-slate-900">Automation coverage</h4>
           <div className="space-y-4">
-            {/* Automation Row */}
             <div className="space-y-1">
               <div className="flex items-center justify-between text-xs font-semibold">
-                <span className="text-slate-800">Automation</span>
-                <span className="text-slate-500 font-mono text-xxs">194 cases</span>
+                <span className="text-slate-800">Automated Spec Cases</span>
+                <span className="text-slate-500 font-mono text-xxs">{kpis.totalTests} cases</span>
               </div>
               <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden flex">
-                <div style={{ width: '82%' }} className="bg-emerald-500 h-full" />
-                <div style={{ width: '15%' }} className="bg-rose-500 h-full" />
-                <div style={{ width: '3%' }} className="bg-amber-400 h-full" />
+                <div style={{ width: `${kpis.passRate}%` }} className="bg-emerald-500 h-full" />
+                <div style={{ width: `${100 - kpis.passRate}%` }} className="bg-rose-500 h-full" />
               </div>
               <div className="text-[10px] text-slate-400 font-semibold">
-                122 pass · 70 fail · 2 no result
-              </div>
-            </div>
-
-            {/* Manual Row */}
-            <div className="space-y-1">
-              <div className="flex items-center justify-between text-xs font-semibold">
-                <span className="text-slate-800">Manual</span>
-                <span className="text-slate-500 font-mono text-xxs">100 cases</span>
-              </div>
-              <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden flex">
-                <div style={{ width: '64%' }} className="bg-emerald-500 h-full" />
-                <div style={{ width: '30%' }} className="bg-rose-500 h-full" />
-                <div style={{ width: '6%' }} className="bg-amber-400 h-full" />
-              </div>
-              <div className="text-[10px] text-slate-400 font-semibold">
-                64 pass · 30 fail · 6 no result
-              </div>
-            </div>
-
-            {/* Blocked Row */}
-            <div className="space-y-1">
-              <div className="flex items-center justify-between text-xs font-semibold">
-                <span className="text-slate-800">Blocked</span>
-                <span className="text-slate-500 font-mono text-xxs">2 cases</span>
-              </div>
-              <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden flex">
-                <div style={{ width: '100%' }} className="bg-rose-500 h-full" />
-              </div>
-              <div className="text-[10px] text-slate-400 font-semibold">
-                0 pass · 2 fail · 0 no result
+                Current pass rate is {kpis.passRate}%
               </div>
             </div>
           </div>
@@ -221,34 +195,34 @@ export const DetailView: React.FC = () => {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-base font-bold text-slate-900">Sub-modules & features</h3>
-            <p className="text-xs text-slate-500">Click a card to view test cases</p>
+            <h3 className="text-base font-bold text-slate-900">Sub-features & Tags</h3>
+            <p className="text-xs text-slate-500">Grouped metrics</p>
           </div>
-          <button className="border border-slate-200 bg-white rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">
-            Grid ▾
-          </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {submodules.map((sm) => (
-            <div key={sm.name} className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:border-indigo-400 hover:shadow-md transition-all duration-150 cursor-pointer">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-bold text-slate-800 tracking-tight">{sm.name}</span>
-                {sm.defects > 0 && (
-                  <span className="rounded bg-rose-50 border border-rose-100 text-rose-600 text-xxs font-bold px-1.5 py-0.5">
-                    {sm.defects} defects
-                  </span>
-                )}
-              </div>
-              <div className="text-xxs text-slate-400 font-semibold mt-1">{sm.cases} total cases</div>
-              <div className="mt-3 flex items-center gap-3">
-                <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                  <div style={{ width: `${sm.passRate}%` }} className="bg-emerald-500 h-full" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {submodules.map((sm) => {
+            const passRate = sm.total > 0 ? Math.round((sm.passed / sm.total) * 100) : 100;
+            return (
+              <div key={sm.name} className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:border-indigo-400 hover:shadow-md transition-all duration-150 cursor-pointer">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-slate-800 tracking-tight">{sm.name}</span>
+                  {sm.failed > 0 && (
+                    <span className="rounded bg-rose-50 border border-rose-100 text-rose-600 text-xxs font-bold px-1.5 py-0.5">
+                      {sm.failed} errors
+                    </span>
+                  )}
                 </div>
-                <span className="text-xxs font-bold text-slate-500 whitespace-nowrap">{sm.passRate}% pass</span>
+                <div className="text-xxs text-slate-400 font-semibold mt-1">{sm.total} total runs</div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                    <div style={{ width: `${passRate}%` }} className="bg-emerald-500 h-full" />
+                  </div>
+                  <span className="text-xxs font-bold text-slate-500 whitespace-nowrap">{passRate}% pass</span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -257,11 +231,8 @@ export const DetailView: React.FC = () => {
         <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
           <div>
             <h4 className="text-sm font-bold text-slate-900">Recent runs</h4>
-            <p className="text-xxs text-slate-500 font-medium">Latest execution activity across environments</p>
+            <p className="text-xxs text-slate-500 font-medium">Latest execution activity</p>
           </div>
-          <button className="text-xxs font-bold uppercase tracking-wider text-indigo-600 hover:text-indigo-700">
-            View all
-          </button>
         </div>
 
         <div className="overflow-x-auto">
@@ -269,99 +240,32 @@ export const DetailView: React.FC = () => {
             <thead>
               <tr className="bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">
                 <th className="py-3 px-5">RUN ID</th>
-                <th className="py-3 px-5">SUITE</th>
-                <th className="py-3 px-5">ENV</th>
+                <th className="py-3 px-5">TEST CASE</th>
                 <th className="py-3 px-5">STATUS</th>
                 <th className="py-3 px-5">DURATION</th>
                 <th className="py-3 px-5">STARTED</th>
-                <th className="py-3 px-5">OWNER</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
               {recentRuns.map((run) => (
                 <tr key={run.id} className="hover:bg-slate-50/50">
-                  <td className="py-3 px-5 font-semibold text-slate-500 font-mono">{run.id}</td>
-                  <td className="py-3 px-5 font-bold text-slate-800">{run.suite}</td>
-                  <td className="py-3 px-5">
-                    <span className="bg-slate-100 border border-slate-200 text-slate-500 text-[10px] font-bold uppercase px-2 py-0.5 rounded">
-                      {run.env}
-                    </span>
-                  </td>
+                  <td className="py-3 px-5 font-semibold text-slate-500 font-mono truncate max-w-[120px]">{run.id}</td>
+                  <td className="py-3 px-5 font-bold text-slate-800">{run.testCaseName}</td>
                   <td className="py-3 px-5">
                     <span
                       className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded border ${
-                        run.status === 'PASS'
+                        run.status === 'passed'
                           ? 'bg-emerald-50 border-emerald-200 text-emerald-600'
-                          : run.status === 'FAIL'
+                          : run.status === 'failed' || run.status === 'error'
                           ? 'bg-rose-50 border-rose-200 text-rose-600'
                           : 'bg-amber-50 border-amber-200 text-amber-600'
                       }`}
                     >
-                      {run.status === 'PASS' ? '✓ PASS' : run.status === 'FAIL' ? '× FAIL' : '~ FLAKY'}
+                      {run.status === 'passed' ? '✓ PASS' : run.status === 'failed' || run.status === 'error' ? '× FAIL' : '~ TIMEOUT'}
                     </span>
                   </td>
-                  <td className="py-3 px-5 font-mono font-medium text-slate-500">{run.duration}</td>
-                  <td className="py-3 px-5 text-slate-400 font-medium">{run.started}</td>
-                  <td className="py-3 px-5">
-                    <div className="flex items-center gap-2">
-                      <div className={`h-6 w-6 rounded-full flex items-center justify-center text-[10px] font-bold ${run.avatarColor}`}>
-                        {run.owner[0]}
-                      </div>
-                      <span className="font-semibold text-slate-700">{run.owner}</span>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Open Defects Table */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
-          <div>
-            <h4 className="text-sm font-bold text-slate-900">Open defects</h4>
-            <p className="text-xxs text-slate-500 font-medium">14 open · 2 critical</p>
-          </div>
-          <button className="text-xxs font-bold uppercase tracking-wider text-indigo-600 hover:text-indigo-700">
-            View all
-          </button>
-        </div>
-
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">
-                <th className="py-3 px-5">ID</th>
-                <th className="py-3 px-5">TITLE</th>
-                <th className="py-3 px-5">SEVERITY</th>
-                <th className="py-3 px-5">SUB-MODULE</th>
-                <th className="py-3 px-5">OWNER</th>
-                <th className="py-3 px-5">AGE</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
-              {openDefects.map((def) => (
-                <tr key={def.id} className="hover:bg-slate-50/50">
-                  <td className="py-3 px-5 font-semibold text-slate-500 font-mono">{def.id}</td>
-                  <td className="py-3 px-5 font-bold text-slate-800">{def.title}</td>
-                  <td className="py-3 px-5">
-                    <span
-                      className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded border ${
-                        def.severity === 'CRIT'
-                          ? 'bg-rose-50 border-rose-200 text-rose-600'
-                          : def.severity === 'HIGH'
-                          ? 'bg-amber-50 border-amber-200 text-amber-600'
-                          : 'bg-slate-100 border-slate-200 text-slate-600'
-                      }`}
-                    >
-                      {def.severity}
-                    </span>
-                  </td>
-                  <td className="py-3 px-5 font-semibold text-slate-500">{def.module}</td>
-                  <td className="py-3 px-5 font-semibold text-slate-700">{def.owner}</td>
-                  <td className="py-3 px-5 text-slate-400 font-medium">{def.age}</td>
+                  <td className="py-3 px-5 font-mono font-medium text-slate-500">{formatDuration(run.durationMs)}</td>
+                  <td className="py-3 px-5 text-slate-400 font-medium">{new Date(run.startedAt).toLocaleString()}</td>
                 </tr>
               ))}
             </tbody>

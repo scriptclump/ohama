@@ -4,9 +4,49 @@ import { Play, Eye } from 'lucide-react';
 interface HeroBannerProps {
   onRunAll: () => void;
   isRunning: boolean;
+  totalTests: number;
+  activeSuites: number;
+  executionsToday: number;
+  passRate: number;
+  avgRuntimeMs: number;
+  isLoading?: boolean;
 }
 
-export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) => {
+const formatDuration = (ms: number): string => {
+  if (!ms) return '0s';
+  if (ms < 1000) return `${ms}ms`;
+  const seconds = Math.floor((ms / 1000) % 60);
+  const minutes = Math.floor(ms / 60000);
+  if (minutes > 0) {
+    return `${minutes}m ${seconds}s`;
+  }
+  const tenths = Math.floor((ms % 1000) / 100);
+  return `${seconds}.${tenths}s`;
+};
+
+export const HeroBanner: React.FC<HeroBannerProps> = ({
+  onRunAll,
+  isRunning,
+  totalTests,
+  activeSuites,
+  executionsToday,
+  passRate,
+  avgRuntimeMs,
+  isLoading = false,
+}) => {
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 animate-pulse">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-2 h-48 bg-slate-100" />
+        <div className="flex flex-col gap-3 justify-between">
+          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm h-14 bg-slate-100" />
+          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm h-14 bg-slate-100" />
+          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm h-14 bg-slate-100" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
       {/* Left 2 Columns: Banner Detail */}
@@ -25,13 +65,13 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
 
           {/* Heading */}
           <h2 className="text-xl font-bold text-slate-900 md:text-2xl tracking-tight leading-snug">
-            2,847 test cases running across 7 modules
+            {totalTests.toLocaleString()} test cases running across {activeSuites} modules
           </h2>
 
           {/* Subtext */}
           <p className="text-sm text-slate-500 leading-relaxed max-w-xl">
-            Pass rate is up <span className="font-semibold text-emerald-600">3.4%</span> week-over-week. 
-            2 regressions detected in <span className="font-medium text-slate-700">Invoice</span> — owners notified.
+            Pass rate is hovering around <span className="font-semibold text-emerald-600">{passRate}%</span>. 
+            All runs are monitored. Regressions will trigger automated alerts.
           </p>
         </div>
 
@@ -61,7 +101,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
             EXECUTIONS TODAY
           </span>
           <div className="mt-1 flex items-baseline justify-between">
-            <span className="text-2xl font-bold text-slate-900 tracking-tight">592</span>
+            <span className="text-2xl font-bold text-slate-900 tracking-tight">{executionsToday}</span>
             <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600">
               ▲ 12% vs yesterday
             </span>
@@ -74,7 +114,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
             PASS RATE
           </span>
           <div className="mt-1 flex items-baseline justify-between">
-            <span className="text-2xl font-bold text-slate-900 tracking-tight">82.4%</span>
+            <span className="text-2xl font-bold text-slate-900 tracking-tight">{passRate}%</span>
             <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600">
               ▲ 2.4% wk-over-wk
             </span>
@@ -87,7 +127,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onRunAll, isRunning }) =
             AVG RUNTIME
           </span>
           <div className="mt-1 flex items-baseline justify-between">
-            <span className="text-2xl font-bold text-slate-900 tracking-tight">4m 12s</span>
+            <span className="text-2xl font-bold text-slate-900 tracking-tight">{formatDuration(avgRuntimeMs)}</span>
             <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600">
               ▼ 8% faster
             </span>

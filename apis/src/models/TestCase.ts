@@ -11,6 +11,8 @@ export interface ITestCase {
     browser: 'chromium' | 'firefox' | 'webkit';
   };
   source: 'manual' | 'codegen';
+  module?: string;
+  tags?: string[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -25,7 +27,9 @@ const TestCaseSchema = new Schema<ITestCase>({
     device: { type: String },
     browser: { type: String, enum: ['chromium', 'firefox', 'webkit'], default: 'chromium' }
   },
-  source: { type: String, enum: ['manual', 'codegen'], default: 'manual' }
+  source: { type: String, enum: ['manual', 'codegen'], default: 'manual' },
+  module: { type: String },
+  tags: { type: [String], default: [] }
 }, {
   timestamps: true
 });

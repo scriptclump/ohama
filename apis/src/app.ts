@@ -9,6 +9,7 @@ import testRoutes from './routes/tests';
 import runRoutes from './routes/runs';
 import recordRoutes from './routes/record';
 import deviceRoutes from './routes/devices';
+import dashboardRoutes from './routes/dashboard';
 
 // Load environment variables
 dotenv.config();
@@ -33,6 +34,7 @@ app.use('/api/tests', testRoutes);
 app.use('/api', runRoutes);
 app.use('/api/record', recordRoutes);
 app.use('/api/devices', deviceRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

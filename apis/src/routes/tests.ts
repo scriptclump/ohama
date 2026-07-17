@@ -11,7 +11,7 @@ const router = Router();
 // @desc    Create a test case
 // @access  Private
 router.post('/', auth, async (req: Request, res: Response) => {
-  const { name, description, specCode, targetUrl, defaultEmulation, source } = req.body;
+  const { name, description, specCode, targetUrl, defaultEmulation, source, module, tags } = req.body;
   const authReq = req as AuthenticatedRequest;
 
   try {
@@ -26,7 +26,9 @@ router.post('/', auth, async (req: Request, res: Response) => {
       specCode,
       targetUrl,
       defaultEmulation,
-      source: source || 'manual'
+      source: source || 'manual',
+      module,
+      tags
     });
 
     await testCase.save();
@@ -74,7 +76,7 @@ router.get('/:id', auth, async (req: Request, res: Response) => {
 // @desc    Update a test case
 // @access  Private
 router.put('/:id', auth, async (req: Request, res: Response) => {
-  const { name, description, specCode, targetUrl, defaultEmulation, source } = req.body;
+  const { name, description, specCode, targetUrl, defaultEmulation, source, module, tags } = req.body;
   const authReq = req as AuthenticatedRequest;
 
   try {
@@ -89,6 +91,8 @@ router.put('/:id', auth, async (req: Request, res: Response) => {
     if (targetUrl !== undefined) test.targetUrl = targetUrl;
     if (defaultEmulation !== undefined) test.defaultEmulation = defaultEmulation;
     if (source !== undefined) test.source = source;
+    if (module !== undefined) test.module = module;
+    if (tags !== undefined) test.tags = tags;
 
     await test.save();
     res.json(test);

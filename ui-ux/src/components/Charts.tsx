@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Calendar, ChevronDown, MoreHorizontal } from 'lucide-react';
 
 // ==========================================
 // 1. Donut Chart Component (Execution Results)
 // ==========================================
-export const ExecutionResults: React.FC = () => {
+interface ExecutionResultsProps {
+  data?: Array<{
+    label: string;
+    count: number;
+    percentage: number;
+    color: string;
+    hoverColor: string;
+    dotColor: string;
+  }>;
+  isLoading?: boolean;
+}
+
+export const ExecutionResults: React.FC<ExecutionResultsProps> = ({ data = [], isLoading = false }) => {
   const [hoveredSegment, setHoveredSegment] = useState<string | null>(null);
 
-  const data = [
-    { label: 'Passed', count: 2108, percentage: 82.9, color: '#10B981', hoverColor: '#059669', dotColor: 'bg-emerald-500' },
-    { label: 'Failed', count: 312, percentage: 12.3, color: '#EF4444', hoverColor: '#DC2626', dotColor: 'bg-rose-500' },
-    { label: 'No result', count: 88, percentage: 3.5, color: '#94A3B8', hoverColor: '#64748B', dotColor: 'bg-slate-400' },
-    { label: 'Execution error', count: 34, percentage: 1.3, color: '#475569', hoverColor: '#334155', dotColor: 'bg-slate-600' }
-  ];
+  if (isLoading || data.length === 0) {
+    return (
+      <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm h-64 animate-pulse justify-center items-center">
+        <div className="h-40 w-40 rounded-full bg-slate-100 border border-slate-200" />
+      </div>
+    );
+  }
 
   // SVG calculations for segmented ring
   let cumulativePercent = 0;
@@ -21,7 +35,6 @@ export const ExecutionResults: React.FC = () => {
     const startPercent = cumulativePercent;
     cumulativePercent += d.percentage;
     
-    // Circular calculations for stroke-dasharray
     const radius = 35;
     const circumference = 2 * Math.PI * radius;
     const strokeDash = (d.percentage / 100) * circumference;
@@ -36,12 +49,15 @@ export const ExecutionResults: React.FC = () => {
     };
   });
 
+  const passedSegment = data.find(d => d.label === 'Passed');
+  const passRatePercentage = passedSegment ? passedSegment.percentage : 0;
+
   return (
     <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition-colors">
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-sm font-semibold text-slate-900 leading-tight">Execution results</h3>
-          <p className="text-xxs text-slate-500">Outcome distribution · last 7 days</p>
+          <p className="text-xxs text-slate-500">Outcome distribution · last timeframe</p>
         </div>
         <button className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors">
           <MoreHorizontal className="h-4 w-4" />
@@ -83,7 +99,7 @@ export const ExecutionResults: React.FC = () => {
 
           {/* Inner Text Label */}
           <div className="absolute flex flex-col items-center justify-center text-center">
-            <span className="text-2xl font-bold tracking-tight text-slate-900">82%</span>
+            <span className="text-2xl font-bold tracking-tight text-slate-900">{passRatePercentage}%</span>
             <span className="text-3xs font-bold tracking-wider text-slate-400 uppercase">
               PASS RATE
             </span>
@@ -120,26 +136,31 @@ export const ExecutionResults: React.FC = () => {
 // ==========================================
 // 2. Stacked Bar Chart Component (Execution Trend)
 // ==========================================
-export const ExecutionTrend: React.FC = () => {
+interface ExecutionTrendProps {
+  data?: Array<{
+    date: string;
+    passed: number;
+    failed: number;
+    noResult: number;
+    error: number;
+  }>;
+  isLoading?: boolean;
+}
+
+export const ExecutionTrend: React.FC<ExecutionTrendProps> = ({ data = [], isLoading = false }) => {
   const [activeTooltip, setActiveTooltip] = useState<number | null>(null);
 
-  const dailyData = [
-    { passed: 150, failed: 25, noResult: 15, error: 5, date: '08/02' },
-    { passed: 180, failed: 30, noResult: 12, error: 3, date: '09/02' },
-    { passed: 220, failed: 45, noResult: 15, error: 8, date: '10/02' },
-    { passed: 145, failed: 20, noResult: 8, error: 2, date: '11/02' },
-    { passed: 145, failed: 25, noResult: 10, error: 5, date: '12/02' },
-    { passed: 125, failed: 15, noResult: 5, error: 1, date: '13/02' },
-    { passed: 145, failed: 20, noResult: 8, error: 2, date: '14/02' },
-    { passed: 175, failed: 35, noResult: 12, error: 4, date: '15/02' },
-    { passed: 175, failed: 30, noResult: 10, error: 3, date: '16/02' },
-    { passed: 220, failed: 50, noResult: 18, error: 8, date: '17/02' },
-    { passed: 175, failed: 35, noResult: 15, error: 5, date: '18/02' },
-    { passed: 195, failed: 40, noResult: 12, error: 4, date: '19/02' },
-    { passed: 200, failed: 45, noResult: 14, error: 6, date: '20/02' }
-  ];
+  if (isLoading || data.length === 0) {
+    return (
+      <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm h-64 animate-pulse justify-center" />
+    );
+  }
 
-  const maxVal = 350;
+  // Calculate dynamic max value for scaling the bar chart
+  const maxVal = Math.max(
+    ...data.map((d) => d.passed + d.failed + d.noResult + d.error),
+    100
+  );
 
   return (
     <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition-colors">
@@ -160,7 +181,6 @@ export const ExecutionTrend: React.FC = () => {
           </button>
         </div>
       </div>
-
 
       {/* Legend markers */}
       <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
@@ -194,15 +214,15 @@ export const ExecutionTrend: React.FC = () => {
 
         {/* Y Axis Labels */}
         <div className="absolute -left-6 inset-y-0 flex flex-col justify-between text-4xs font-bold text-slate-400 select-none pr-1 pointer-events-none h-full pt-[2px]">
-          <span>350</span>
-          <span>270</span>
-          <span>125</span>
+          <span>{maxVal}</span>
+          <span>{Math.round(maxVal * 0.75)}</span>
+          <span>{Math.round(maxVal * 0.35)}</span>
           <span>0</span>
         </div>
 
         {/* Bars Container */}
         <div className="relative z-10 flex w-full justify-around items-end h-full px-2 gap-1.5">
-          {dailyData.map((d, index) => {
+          {data.map((d, index) => {
             const total = d.passed + d.failed + d.noResult + d.error;
             const passedHeight = (d.passed / maxVal) * 100;
             const failedHeight = (d.failed / maxVal) * 100;
@@ -256,15 +276,24 @@ export const ExecutionTrend: React.FC = () => {
 // ==========================================
 // 3. Scope By Module Component (BugsByModule)
 // ==========================================
-export const BugsByModule: React.FC = () => {
-  const [selectedModule, setSelectedModule] = useState<string | null>(null);
+interface BugsByModuleProps {
+  data?: Array<{
+    name: string;
+    total: number;
+    passed: number;
+    failed: number;
+  }>;
+  isLoading?: boolean;
+}
 
-  const modules = [
-    { name: 'ERP', total: 200, passed: 155, failed: 45 },
-    { name: 'Accounts Payable', total: 200, passed: 146, failed: 54 },
-    { name: 'Accounts Receivable', total: 200, passed: 160, failed: 40 },
-    { name: 'Fixed Assets', total: 100, passed: 70, failed: 30 },
-  ];
+export const BugsByModule: React.FC<BugsByModuleProps> = ({ data = [], isLoading = false }) => {
+  const navigate = useNavigate();
+
+  if (isLoading || data.length === 0) {
+    return (
+      <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm h-64 animate-pulse justify-center" />
+    );
+  }
 
   return (
     <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition-colors">
@@ -286,18 +315,15 @@ export const BugsByModule: React.FC = () => {
       </div>
 
       <div className="mt-5 space-y-3.5">
-        {modules.map((m) => {
-          const passPercent = (m.passed / m.total) * 100;
-          const failPercent = (m.failed / m.total) * 100;
-          const isSelected = selectedModule === m.name;
+        {data.map((m) => {
+          const passPercent = m.total > 0 ? (m.passed / m.total) * 100 : 0;
+          const failPercent = m.total > 0 ? (m.failed / m.total) * 100 : 0;
 
           return (
             <div 
               key={m.name} 
-              onClick={() => setSelectedModule(isSelected ? null : m.name)}
-              className={`group flex flex-col gap-1 cursor-pointer p-1 rounded-lg transition-all duration-150 ${
-                isSelected ? 'bg-slate-50 ring-1 ring-slate-200' : 'hover:bg-slate-50/50'
-              }`}
+              onClick={() => navigate(`/detail/${m.name}`)}
+              className="group flex flex-col gap-1 cursor-pointer p-1 rounded-lg transition-all duration-150 hover:bg-slate-50"
             >
               <div className="flex items-center justify-between text-xs">
                 <span className="font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">
@@ -311,13 +337,6 @@ export const BugsByModule: React.FC = () => {
                 <div style={{ width: `${passPercent}%` }} className="bg-emerald-500 h-full rounded-l-full" />
                 <div style={{ width: `${failPercent}%` }} className="bg-rose-500 h-full rounded-r-full" />
               </div>
-
-              {isSelected && (
-                <div className="flex justify-between items-center text-3xs font-medium text-slate-500 mt-0.5 px-0.5 animate-fadeIn">
-                  <span>Passed: {m.passed} ({Math.round(passPercent)}%)</span>
-                  <span>Failed: {m.failed} ({Math.round(failPercent)}%)</span>
-                </div>
-              )}
             </div>
           );
         })}
@@ -329,14 +348,23 @@ export const BugsByModule: React.FC = () => {
 // ==========================================
 // 4. Automation vs Manual Component
 // ==========================================
-export const AutomationVsManual: React.FC = () => {
-  const modules = [
-    { name: 'Accounts Payable', percent: 27, auto: 54, manual: 146 },
-    { name: 'ERP', percent: 67, auto: 155, manual: 95 },
-    { name: 'Fixed Assets', percent: 70, auto: 70, manual: 30 },
-    { name: 'General Ledger', percent: 88, auto: 88, manual: 12 },
-    { name: 'Procurement', percent: 56, auto: 40, manual: 35 },
-  ];
+interface AutomationVsManualProps {
+  data?: Array<{
+    name: string;
+    percent: number;
+    auto: number;
+    manual: number;
+  }>;
+  isLoading?: boolean;
+}
+
+export const AutomationVsManual: React.FC<AutomationVsManualProps> = ({ data = [], isLoading = false }) => {
+  const navigate = useNavigate();
+  if (isLoading || data.length === 0) {
+    return (
+      <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm h-64 animate-pulse justify-center" />
+    );
+  }
 
   return (
     <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 transition-colors">
@@ -363,9 +391,13 @@ export const AutomationVsManual: React.FC = () => {
       </div>
 
       <div className="mt-5 space-y-4">
-        {modules.map((m) => {
+        {data.map((m) => {
           return (
-            <div key={m.name} className="flex flex-col gap-1">
+            <div 
+              key={m.name} 
+              onClick={() => navigate(`/detail/${m.name}`)}
+              className="flex flex-col gap-1 cursor-pointer hover:bg-slate-50 p-1 rounded-lg transition-all duration-150"
+            >
               <div className="flex items-center justify-between text-xs">
                 <span className="font-semibold text-slate-700">{m.name}</span>
                 <span className="font-semibold text-blue-700">{m.percent}% auto</span>
@@ -393,35 +425,21 @@ export const AutomationVsManual: React.FC = () => {
 // ==========================================
 // 5. Execution Activity Heatmap Component
 // ==========================================
-export const ExecutionActivity: React.FC = () => {
-  // Generate mock heatmap cells: 18 weeks * 7 days = 126 cells
-  // We'll define a set of values representing different levels of test run activity
+interface ExecutionActivityProps {
+  data?: number[];
+  isLoading?: boolean;
+}
+
+export const ExecutionActivity: React.FC<ExecutionActivityProps> = ({ data = [], isLoading = false }) => {
   const weeks = 18;
   const daysPerWeek = 7;
-  
-  // Levels: 0 (light gray), 1 (light green), 2 (mid green), 3 (dark green), 4 (intense green)
-  const cellLevels = [
-    1, 2, 4, 3, 1, 0, 0,
-    3, 1, 1, 2, 2, 1, 0,
-    0, 2, 1, 3, 2, 3, 1,
-    2, 0, 1, 0, 1, 2, 1,
-    1, 2, 0, 2, 2, 1, 0,
-    0, 1, 2, 1, 3, 1, 1,
-    2, 3, 1, 2, 2, 0, 1,
-    1, 2, 4, 3, 1, 0, 2,
-    0, 1, 1, 2, 2, 1, 0,
-    3, 2, 1, 3, 2, 3, 1,
-    2, 0, 1, 0, 1, 2, 1,
-    1, 2, 0, 2, 2, 1, 3,
-    0, 1, 2, 1, 3, 1, 1,
-    2, 3, 1, 2, 2, 0, 1,
-    1, 2, 4, 3, 1, 2, 1,
-    3, 2, 1, 1, 2, 2, 1,
-    1, 2, 4, 3, 0, 1, 2,
-    0, 1, 1, 2, 2, 1, 0
-  ];
 
-  // Helper class for color assignment
+  if (isLoading || data.length === 0) {
+    return (
+      <div className="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm h-48 animate-pulse justify-center" />
+    );
+  }
+
   const getLevelColor = (lvl: number) => {
     switch(lvl) {
       case 1: return 'bg-emerald-100 hover:ring-1 hover:ring-emerald-300';
@@ -440,6 +458,17 @@ export const ExecutionActivity: React.FC = () => {
       case 4: return '180+ runs';
       default: return '0 runs';
     }
+  };
+
+  // Estimate total runs from activity levels
+  const estimateTotalRuns = () => {
+    return data.reduce((acc, val) => {
+      if (val === 1) return acc + 25;
+      if (val === 2) return acc + 75;
+      if (val === 3) return acc + 140;
+      if (val === 4) return acc + 200;
+      return acc;
+    }, 0);
   };
 
   return (
@@ -474,7 +503,7 @@ export const ExecutionActivity: React.FC = () => {
             <div key={wIdx} className="grid grid-rows-7 gap-[3px] h-[95px]">
               {Array.from({ length: daysPerWeek }).map((_, dIdx) => {
                 const index = wIdx * daysPerWeek + dIdx;
-                const lvl = cellLevels[index] || 0;
+                const lvl = data[index] || 0;
                 return (
                   <div
                     key={dIdx}
@@ -491,7 +520,9 @@ export const ExecutionActivity: React.FC = () => {
         <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-end gap-4 shrink-0 w-full md:w-auto">
           {/* Summary */}
           <div className="text-left md:text-right">
-            <h4 className="text-sm font-bold text-slate-900 leading-tight">14,284 runs</h4>
+            <h4 className="text-sm font-bold text-slate-900 leading-tight">
+              {estimateTotalRuns().toLocaleString()} runs
+            </h4>
             <p className="text-xxs text-slate-500">Peak: Mon 10 Feb · 218 runs</p>
           </div>
 

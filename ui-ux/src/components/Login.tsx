@@ -1,24 +1,43 @@
 import React, { useState } from 'react';
-import { Mail, Lock, ShieldCheck, Cpu, Database, Globe } from 'lucide-react';
+import { Mail, Lock, ShieldCheck, Cpu, Database, Globe, User } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
-interface LoginProps {
-  onLoginSuccess: () => void;
-}
+export const Login: React.FC = () => {
+  const { login, register } = useAuth();
+  const navigate = useNavigate();
 
-export const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
+  const [isRegister, setIsRegister] = useState(false);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('test@email.com');
   const [password, setPassword] = useState('password123');
   const [keepSigned, setKeepSigned] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError('Please fill in all fields.');
+    if (!email || !password || (isRegister && !name)) {
+      setError('Please fill in all required fields.');
       return;
     }
-    // Simulate successful login
-    onLoginSuccess();
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      if (isRegister) {
+        await register(name, email, password);
+      } else {
+        await login(email, password);
+      }
+      navigate('/');
+    } catch (err: any) {
+      console.error(err);
+      setError(err.response?.data?.message || err.message || 'Authentication failed');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -100,16 +119,16 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
 
       {/* Right Panel: Sign In Form Container */}
       <div className="w-full md:w-1/2 flex items-center justify-center p-6 lg:p-12">
-        <div className="w-full max-w-md bg-white rounded-2xl border border-slate-200 p-8 shadow-xl shadow-slate-100/50">
-          <div className="text-left space-y-1.5">
+        <div className="w-full max-w-md bg-white rounded-2xl border border-slate-200 p-8 shadow-xl shadow-slate-100/50 text-left">
+          <div className="space-y-1.5">
             <span className="text-xxs font-bold uppercase tracking-widest text-indigo-600">
-              Sign In
+              {isRegister ? 'Register' : 'Sign In'}
             </span>
             <h3 className="text-2xl font-bold tracking-tight text-slate-900">
-              Welcome back
+              {isRegister ? 'Create an account' : 'Welcome back'}
             </h3>
             <p className="text-xs text-slate-500 font-medium">
-              Use your work email or continue with SSO.
+              {isRegister ? 'Get started with Omaha platform' : 'Use your work email or continue with SSO.'}
             </p>
           </div>
 
@@ -119,42 +138,67 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
             </div>
           )}
 
-          {/* SSO Buttons Grid */}
-          <div className="mt-6 space-y-2.5">
-            {/* SAML SSO */}
-            <button
-              type="button"
-              onClick={onLoginSuccess}
-              className="flex items-center justify-center gap-3 w-full border border-slate-200 rounded-xl py-3 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-150 shadow-sm"
-            >
-              <div className="flex h-5 w-5 items-center justify-center rounded bg-indigo-600 text-xxs font-extrabold text-white">
-                S
+          {/* SSO Buttons Grid - Only for Sign In */}
+          {!isRegister && (
+            <>
+              <div className="mt-6 space-y-2.5">
+                {/* SAML SSO */}
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  className="flex items-center justify-center gap-3 w-full border border-slate-200 rounded-xl py-3 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-150 shadow-sm"
+                >
+                  <div className="flex h-5 w-5 items-center justify-center rounded bg-indigo-600 text-xxs font-extrabold text-white">
+                    S
+                  </div>
+                  <span>Continue with SAML SSO</span>
+                </button>
+
+                {/* Google Workspace */}
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  className="flex items-center justify-center gap-3 w-full border border-slate-200 rounded-xl py-3 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-150 shadow-sm"
+                >
+                  <Globe className="h-4.5 w-4.5 text-rose-500" />
+                  <span>Continue with Google Workspace</span>
+                </button>
               </div>
-              <span>Continue with SAML SSO</span>
-            </button>
 
-            {/* Google Workspace */}
-            <button
-              type="button"
-              onClick={onLoginSuccess}
-              className="flex items-center justify-center gap-3 w-full border border-slate-200 rounded-xl py-3 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-150 shadow-sm"
-            >
-              <Globe className="h-4.5 w-4.5 text-rose-500" />
-              <span>Continue with Google Workspace</span>
-            </button>
-          </div>
-
-          {/* Divider */}
-          <div className="flex items-center my-6">
-            <div className="flex-1 border-t border-slate-200" />
-            <span className="px-3 text-xxs text-slate-400 uppercase font-bold tracking-widest">
-              or
-            </span>
-            <div className="flex-1 border-t border-slate-200" />
-          </div>
+              {/* Divider */}
+              <div className="flex items-center my-6">
+                <div className="flex-1 border-t border-slate-200" />
+                <span className="px-3 text-xxs text-slate-400 uppercase font-bold tracking-widest">
+                  or
+                </span>
+                <div className="flex-1 border-t border-slate-200" />
+              </div>
+            </>
+          )}
 
           {/* Credentials Form */}
-          <form onSubmit={handleSubmit} className="space-y-4 text-left">
+          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+            {isRegister && (
+              <div>
+                <label className="text-xs font-semibold text-slate-700 mb-1.5 block">
+                  Full Name
+                </label>
+                <div className="relative">
+                  <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                    <User className="h-4.5 w-4.5" />
+                  </span>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="John Doe"
+                    className="w-full border border-slate-200 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all bg-slate-50/50"
+                    required={isRegister}
+                  />
+                </div>
+              </div>
+            )}
+
             <div>
               <label className="text-xs font-semibold text-slate-700 mb-1.5 block">
                 Work email
@@ -179,13 +223,15 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
                 <label className="text-xs font-semibold text-slate-700 block">
                   Password
                 </label>
-                <a
-                  href="#forgot"
-                  onClick={() => setError('Reset password flow initiated. Check email inbox.')}
-                  className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
-                >
-                  Forgot?
-                </a>
+                {!isRegister && (
+                  <a
+                    href="#forgot"
+                    onClick={() => setError('Reset password flow initiated. Check email inbox.')}
+                    className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
+                  >
+                    Forgot?
+                  </a>
+                )}
               </div>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
@@ -219,21 +265,25 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white rounded-xl py-3 font-semibold text-sm shadow-lg shadow-indigo-600/20 hover:shadow-xl hover:shadow-indigo-600/30 transition-all flex items-center justify-center gap-1.5"
+              disabled={loading}
+              className="w-full bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] disabled:opacity-50 text-white rounded-xl py-3 font-semibold text-sm shadow-lg shadow-indigo-600/20 hover:shadow-xl hover:shadow-indigo-600/30 transition-all flex items-center justify-center gap-1.5"
             >
-              Sign in to Omaha →
+              {loading ? 'Authenticating...' : isRegister ? 'Register Account →' : 'Sign in to Omaha →'}
             </button>
           </form>
 
-          {/* Request Access Link */}
+          {/* Toggle Login/Register Link */}
           <div className="mt-6 text-center">
-            <a
-              href="#request-access"
-              onClick={() => setError('Access request form submitted to workspace admins.')}
-              className="text-xs font-semibold text-slate-400 hover:text-slate-600 transition-colors"
+            <button
+              type="button"
+              onClick={() => {
+                setIsRegister(!isRegister);
+                setError(null);
+              }}
+              className="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition-colors"
             >
-              New to Omaha? Request access →
-            </a>
+              {isRegister ? 'Already have an account? Sign in →' : 'New to Omaha? Register here →'}
+            </button>
           </div>
         </div>
       </div>

@@ -1,37 +1,60 @@
 import React from 'react';
 import { CheckSquare, Percent, AlertCircle, Layers } from 'lucide-react';
 
-export const KPICards: React.FC = () => {
+interface KPICardsProps {
+  totalTests: number;
+  automationCoverage: number;
+  openDefects: number;
+  activeSuites: number;
+  isLoading?: boolean;
+}
+
+export const KPICards: React.FC<KPICardsProps> = ({
+  totalTests,
+  automationCoverage,
+  openDefects,
+  activeSuites,
+  isLoading = false,
+}) => {
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 animate-pulse">
+        {Array.from({ length: 4 }).map((_, idx) => (
+          <div key={idx} className="h-24 rounded-xl border border-slate-200 bg-slate-100" />
+        ))}
+      </div>
+    );
+  }
+
   const cards = [
     {
       title: 'TOTAL TEST CASES',
-      value: '2,847',
-      trend: '▲ 5.2% · 94 new',
+      value: totalTests.toLocaleString(),
+      trend: '▲ Live overview',
       isPositive: true,
       icon: CheckSquare,
       color: 'text-blue-600 bg-blue-50 border-blue-100',
     },
     {
       title: 'AUTOMATION COVERAGE',
-      value: '68%',
-      trend: '▲ 2.1% · 1,906/2,847',
+      value: `${automationCoverage}%`,
+      trend: '▲ Verified tests',
       isPositive: true,
       icon: Percent,
       color: 'text-indigo-600 bg-indigo-50 border-indigo-100',
     },
     {
       title: 'OPEN DEFECTS',
-      value: '14',
-      trend: '▲ 3X · 2 critical',
-      isPositive: false,
+      value: openDefects.toString(),
+      trend: openDefects > 0 ? '▲ Active failures' : '✔ Healthy',
+      isPositive: openDefects === 0,
       icon: AlertCircle,
-      color: 'text-rose-600 bg-rose-50 border-rose-100',
-      trendColor: 'text-rose-600 bg-rose-50 border-rose-100',
+      color: openDefects > 0 ? 'text-rose-600 bg-rose-50 border-rose-100' : 'text-slate-500 bg-slate-50 border-slate-100',
     },
     {
       title: 'ACTIVE SUITES',
-      value: '21',
-      trend: '▲ 8% · 3 scheduled',
+      value: activeSuites.toString(),
+      trend: '▲ Live modules',
       isPositive: true,
       icon: Layers,
       color: 'text-emerald-600 bg-emerald-50 border-emerald-100',
@@ -57,7 +80,7 @@ export const KPICards: React.FC = () => {
               <div className="pt-0.5">
                 <span className={`
                   inline-flex items-center rounded px-1.5 py-0.5 text-xxs font-medium border
-                  ${card.title === 'OPEN DEFECTS'
+                  ${!card.isPositive
                     ? 'bg-rose-50 text-rose-700 border-rose-100'
                     : 'bg-emerald-50 text-emerald-700 border-emerald-100'
                   }
