@@ -1,0 +1,142 @@
+# TaaS (Test-as-a-Service) API Requests
+
+@baseUrl = http://localhost:5000/api
+@authToken = your_jwt_token_here
+@testCaseId = 6697b0c39f8bc275b28d0001
+@runId = 6697b0d89f8bc275b28d0005
+
+### ==========================================
+### 1. AUTHENTICATION ENDPOINTS
+### ==========================================
+
+### Register a New User
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Alex Mercer",
+  "email": "alex@example.com",
+  "password": "Password123!"
+}
+
+### Login User
+# Response will return the JWT token. Copy and paste it into the @authToken variable above.
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "alex@example.com",
+  "password": "Password123!"
+}
+
+### Get Current User Profile (Protected)
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{authToken}}
+
+
+### ==========================================
+### 2. TEST CASE CRUD ENDPOINTS
+### ==========================================
+
+### Create a Test Case
+POST {{baseUrl}}/tests
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Playwright Homepage Validation Test",
+  "description": "Validates the home page title of playwright.dev website",
+  "specCode": "import { test, expect } from '@playwright/test';\n\ntest('has title', async ({ page }) => {\n  await page.goto('https://playwright.dev/');\n  await expect(page).toHaveTitle(/Playwright/);\n});",
+  "targetUrl": "https://playwright.dev/",
+  "defaultEmulation": {
+    "browser": "chromium",
+    "device": "Desktop Chrome"
+  },
+  "source": "manual"
+}
+
+### List All Test Cases of User
+GET {{baseUrl}}/tests
+Authorization: Bearer {{authToken}}
+
+### Get a Specific Test Case by ID
+GET {{baseUrl}}/tests/{{testCaseId}}
+Authorization: Bearer {{authToken}}
+
+### Update a Test Case (e.g. change emulation to Webkit and Mobile viewport)
+PUT {{baseUrl}}/tests/{{testCaseId}}
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Playwright Homepage Validation Test - iPhone Emulation",
+  "defaultEmulation": {
+    "browser": "webkit",
+    "device": "iPhone 13"
+  }
+}
+
+
+### ==========================================
+### 3. TEST EXECUTION & RESULTS ENDPOINTS
+### ==========================================
+
+### Run a Test Case (Synchronous)
+# Runs the test case with optional emulation overrides
+POST {{baseUrl}}/tests/{{testCaseId}}/run
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "browser": "chromium",
+  "device": "Pixel 5"
+}
+
+### Get Run History for a Test Case
+GET {{baseUrl}}/tests/{{testCaseId}}/runs
+Authorization: Bearer {{authToken}}
+
+### Get Details of a Specific Test Run
+GET {{baseUrl}}/runs/{{runId}}
+Authorization: Bearer {{authToken}}
+
+### Serve Artifact File (Direct Filename)
+# Replace 'screenshot.png' with actual artifact path returned from the run details API
+GET {{baseUrl}}/runs/{{runId}}/artifacts/screenshot.png
+Authorization: Bearer {{authToken}}
+
+### Serve Artifact File (Wildcard Deep Subpath)
+# Useful if files are located in subdirectories (e.g. test-results/)
+GET {{baseUrl}}/runs/{{runId}}/artifacts-wildcard/test-results/screenshot.png
+Authorization: Bearer {{authToken}}
+
+
+### ==========================================
+### 4. PLAYWRIGHT HELPERS & CODEGEN
+### ==========================================
+
+### List All Playwright Supported Devices
+# Feeds the emulation selection dropdowns in the frontend
+GET {{baseUrl}}/devices
+Authorization: Bearer {{authToken}}
+
+### Trigger Playwright Codegen (Local recording)
+# Spawns a real browser. Blocks until the window is closed, then saves the generated spec automatically.
+POST {{baseUrl}}/record
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Recorded GitHub Search Test",
+  "url": "https://github.com"
+}
+
+
+### ==========================================
+### 5. CASCADING DELETION
+### ==========================================
+
+### Delete Test Case
+# Automatically deletes the TestCase, its TestRun history, and its runs directories on disk.
+DELETE {{baseUrl}}/tests/{{testCaseId}}
+Authorization: Bearer {{authToken}}
